@@ -1,0 +1,37 @@
+{
+  "configs": [
+    "y/BRAHL_Local/BRAHL_Local.json"
+  ],
+  "thread_count": 1,
+  "timeout": 3,
+  "headless": false,
+  "debug": false,
+  "tags": [
+    "Smoke",
+    "API",
+    "UI",
+    "Build",
+    "Security",
+    "Reveal",
+    "Performance",
+    "Run",
+    "Analyze",
+    "Heal",
+    "Loop",
+    "BRAHL",
+    "Nav",
+    "Hints",
+    "Docs",
+    "Rebuild",
+    "Workspace",
+    "Desktop"
+  ],
+  "capture": {
+    "image": "on_fail",
+    "video": "off",
+    "video_fps": 2,
+    "subdir": "",
+    "overlay": "off",
+    "overlay_ms": 250
+  }
+}

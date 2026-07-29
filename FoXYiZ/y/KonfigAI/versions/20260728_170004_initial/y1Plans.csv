@@ -1,0 +1,46 @@
+PlanId,PlanName,DesignId,Run,Tags,Output,CreatedBy,CreatedAt
+PReuse_Open,Open Edge and load KonfigAI home,D1,N,Reuse,preuse_open,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PSmoke_Home,Smoke — home H1 No-Code / AI-Driven,D1,Y,KonfigAI;Smoke;UI;Shell,psmoke_home,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PSmoke_DemoCTA,Smoke — Request Demo page from CTA URL,D1,Y,KonfigAI;Smoke;UI;CTA,psmoke_demo,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PSmoke_NavSolutions,Smoke — Solutions page loads,D1,Y,KonfigAI;Smoke;UI;Nav,psmoke_sol,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PLink_Home,Link — / loads + H1,D1,Y,KonfigAI;Link;UI;Shell,plink_home,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PTitle_Home,Title — / document.title correct,D1,Y,KonfigAI;Title;UI;A1,ptitle_home,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PLink_FormBuilder,Link — /form-builder.html loads + H1,D1,Y,KonfigAI;Link;UI;Shell,plink_formbuilder,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PTitle_FormBuilder,Title — /form-builder.html document.title correct,D1,Y,KonfigAI;Title;UI;A1,ptitle_formbuilder,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PLink_Workflow,Link — /workflow-builder.html loads + H1,D1,Y,KonfigAI;Link;UI;Shell,plink_workflow,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PTitle_Workflow,Title — /workflow-builder.html document.title correct,D1,Y,KonfigAI;Title;UI;A1,ptitle_workflow,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PLink_ApiBuilder,Link — /api-builder.html loads + H1,D1,Y,KonfigAI;Link;UI;Shell,plink_apibuilder,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PTitle_ApiBuilder,Title — /api-builder.html document.title correct,D1,Y,KonfigAI;Title;UI;A1,ptitle_apibuilder,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PLink_Batch,Link — /batch-processing.html loads + H1,D1,Y,KonfigAI;Link;UI;Shell,plink_batch,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PTitle_Batch,Title — /batch-processing.html document.title correct,D1,Y,KonfigAI;Title;UI;A1,ptitle_batch,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PLink_DocCentral,Link — /document-central.html loads + H1,D1,Y,KonfigAI;Link;UI;Shell,plink_doccentral,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PTitle_DocCentral,Title — /document-central.html document.title correct,D1,Y,KonfigAI;Title;UI;A1,ptitle_doccentral,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PLink_Solutions,Link — /solutions.html loads + H1,D1,Y,KonfigAI;Link;UI;Shell,plink_solutions,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PTitle_Solutions,Title — /solutions.html document.title correct,D1,Y,KonfigAI;Title;UI;A1,ptitle_solutions,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PLink_Integrations,Link — /integrations.html loads + H1,D1,Y,KonfigAI;Link;UI;Shell,plink_integrations,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PTitle_Integrations,Title — /integrations.html document.title correct,D1,Y,KonfigAI;Title;UI;A1,ptitle_integrations,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PLink_About,Link — /about-us.html loads + H1,D1,Y,KonfigAI;Link;UI;Shell,plink_about,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PTitle_About,Title — /about-us.html document.title correct,D1,Y,KonfigAI;Title;UI;A1,ptitle_about,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PLink_Platform,Link — /platform-overview.html loads + H1,D1,Y,KonfigAI;Link;UI;Shell,plink_platform,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PTitle_Platform,Title — /platform-overview.html document.title correct,D1,Y,KonfigAI;Title;UI;A1,ptitle_platform,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PLink_Contact,Link — /contact-us.html loads + H1,D1,Y,KonfigAI;Link;UI;Shell,plink_contact,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PTitle_Contact,Title — /contact-us.html document.title correct,D1,Y,KonfigAI;Title;UI;A1,ptitle_contact,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PLink_RequestDemo,Link — /request-demo.html loads + H1,D1,Y,KonfigAI;Link;UI;Shell,plink_requestdemo,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PTitle_RequestDemo,Title — /request-demo.html document.title correct,D1,Y,KonfigAI;Title;UI;A1,ptitle_requestdemo,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PLink_Legal,Link — /legal.html loads + H1,D1,Y,KonfigAI;Link;UI;Shell,plink_legal,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PTitle_Legal,Title — /legal.html document.title correct,D1,Y,KonfigAI;Title;UI;A1,ptitle_legal,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PLink_LegalTerms,Link — /legal.html?tab=terms loads + H1,D1,Y,KonfigAI;Link;UI;Shell,plink_legalterms,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PTitle_LegalTerms,Title — /legal.html?tab=terms document.title correct,D1,Y,KonfigAI;Title;UI;A1,ptitle_legalterms,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PLink_LegalPrivacy,Link — /legal.html?tab=privacy loads + H1,D1,Y,KonfigAI;Link;UI;Shell,plink_legalprivacy,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PTitle_LegalPrivacy,Title — /legal.html?tab=privacy document.title correct,D1,Y,KonfigAI;Title;UI;A1,ptitle_legalprivacy,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PLink_LegalCookie,Link — /legal.html?tab=cookie loads + H1,D1,Y,KonfigAI;Link;UI;Shell,plink_legalcookie,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PTitle_LegalCookie,Title — /legal.html?tab=cookie document.title correct,D1,Y,KonfigAI;Title;UI;A1,ptitle_legalcookie,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PForm_DemoChrome,Form — Request Demo fields visible,D1,Y,KonfigAI;Form;UI;Demo,pform_demo,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PForm_ContactChrome,Form — Contact Us fields visible,D1,Y,KonfigAI;Form;UI;Contact,pform_contact,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PNav_FooterLegal,Footer — Platform + Legal links present on home,D1,Y,KonfigAI;Nav;UI;Footer,pnav_footer,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PNav_ProductsMenu,Nav — Form Builder destination from URL,D1,Y,KonfigAI;Nav;UI;Products,pnav_products,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PMan_SocialExt,Manual — LinkedIn / X / YouTube footer externals,D1,N,KonfigAI;Manual;Social,pman_social,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PMan_DemoSubmit,Manual — submit Request Demo (HITL / no spam),D1,N,KonfigAI;Manual;Form;Demo,pman_demosubmit,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PMan_ContactSubmit,Manual — submit Contact Us (HITL),D1,N,KonfigAI;Manual;Form;Contact,pman_contactsubmit,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PMan_VisualA11y,Manual — visual / responsive / a11y sweep,D1,N,KonfigAI;Manual;A11y,pman_a11y,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00
+PMan_TitleDebt,Manual — catalog remaining title mismatches after Title tag run,D1,N,KonfigAI;Manual;Title;A1,pman_titledebt,QA_Hunter+KonfigAI,2026-07-28T17:00:00+00:00

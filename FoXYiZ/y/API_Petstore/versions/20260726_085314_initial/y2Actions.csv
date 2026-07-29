@@ -1,0 +1,38 @@
+PlanId,StepId,StepInfo,ActionType,ActionName,Input,Output,Expected,Critical
+PPet_Smoke_FindByStatus,1,GET findByStatus available,xAPI,xGet,get_find_available,,http_200,Y
+PPet_Smoke_Inventory,1,GET store inventory,xAPI,xGet,get_inventory,,http_200,Y
+PPet_Pet_CrudFlow,1,POST addPet,xAPI,xPost,post_add_pet,,http_200,Y
+PPet_Pet_CrudFlow,2,Assert pet name,xJSON,xCompareJson,cmp_pet_name,,json_true,Y
+PPet_Pet_CrudFlow,3,GET pet by id,xAPI,xGet,get_pet_by_id,,http_200,Y
+PPet_Pet_CrudFlow,4,Assert name after get,xJSON,xCompareJson,cmp_pet_name,,json_true,Y
+PPet_Pet_CrudFlow,5,PUT updatePet,xAPI,xPut,put_update_pet,,http_200,Y
+PPet_Pet_CrudFlow,6,Assert updated name,xJSON,xCompareJson,cmp_pet_name_upd,,json_true,Y
+PPet_Pet_CrudFlow,7,GET pet after update,xAPI,xGet,get_pet_by_id,,http_200,Y
+PPet_Pet_CrudFlow,8,Assert sold status,xJSON,xCompareJson,cmp_pet_status_sold,,json_true,Y
+PPet_Pet_CrudFlow,9,DELETE pet,xAPI,xDelete,delete_pet,,http_200,Y
+PPet_Pet_FindByStatusPending,1,GET findByStatus pending,xAPI,xGet,get_find_pending,,http_200,Y
+PPet_Pet_FindByStatusSold,1,GET findByStatus sold,xAPI,xGet,get_find_sold,,http_200,Y
+PPet_Store_PlaceAndGetOrder,1,POST placeOrder,xAPI,xPost,post_order,,http_200,Y
+PPet_Store_PlaceAndGetOrder,2,Assert order status,xJSON,xCompareJson,cmp_order_status,,json_true,Y
+PPet_Store_PlaceAndGetOrder,3,Assert quantity,xJSON,xCompareJson,cmp_order_qty,,json_true,Y
+PPet_Store_PlaceAndGetOrder,4,GET order by id,xAPI,xGet,get_order,,http_200,Y
+PPet_Store_PlaceAndGetOrder,5,Assert status on get,xJSON,xCompareJson,cmp_order_status,,json_true,Y
+PPet_Store_DeleteOrder,1,Ensure order exists,xAPI,xPost,post_order,,http_200,Y
+PPet_Store_DeleteOrder,2,DELETE order,xAPI,xDelete,delete_order,,http_200,Y
+PPet_User_CreateGetLogin,1,POST createUser,xAPI,xPost,post_user,,http_200,Y
+PPet_User_CreateGetLogin,2,GET user by name,xAPI,xGet,get_user,,http_200,Y
+PPet_User_CreateGetLogin,3,Assert username,xJSON,xCompareJson,cmp_username,,json_true,Y
+PPet_User_CreateGetLogin,4,GET login,xAPI,xGet,get_login,,http_200,Y
+PPet_User_CreateGetLogin,5,Assert login code,xJSON,xCompareJson,cmp_login_code,,json_true,N
+PPet_User_CreateGetLogin,6,GET logout,xAPI,xGet,get_logout,,http_200,Y
+PPet_User_Update,1,Ensure user exists,xAPI,xPost,post_user,,http_200,Y
+PPet_User_Update,2,PUT update user,xAPI,xPut,put_user,,http_200,Y
+PPet_User_Update,3,GET user,xAPI,xGet,get_user,,http_200,Y
+PPet_User_Update,4,Assert username still,xJSON,xCompareJson,cmp_username,,json_true,Y
+PPet_Sec_PetNotFound,1,GET pet id 0,xAPI,xGet,get_pet_missing,,http_404,Y
+PPet_Sec_UserNotFound,1,GET missing user,xAPI,xGet,get_user_missing,,http_404,Y
+PPet_Perf_FindByStatus,1,GET findByStatus available,xAPI,xGet,get_find_available,,http_200,Y
+PPet_Perf_Inventory,1,GET inventory,xAPI,xGet,get_inventory,,http_200,Y
+PPet_Perf_ApiBatch,1,find available,xAPI,xGet,get_find_available,,http_200,Y
+PPet_Perf_ApiBatch,2,inventory,xAPI,xGet,get_inventory,,http_200,Y
+PPet_Perf_ApiBatch,3,login,xAPI,xGet,get_login,,http_200,Y

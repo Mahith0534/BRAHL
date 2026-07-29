@@ -1,0 +1,18 @@
+{
+  "configs": [
+    "y/AI_ux/AI_ux.json"
+  ],
+  "thread_count": 1,
+  "timeout": 45,
+  "headless": false,
+  "debug": false,
+  "tags": [
+    "Smoke"
+  ],
+  "capture": {
+    "image": "on_fail",
+    "video": "off",
+    "video_fps": 2,
+    "subdir": ""
+  }
+}

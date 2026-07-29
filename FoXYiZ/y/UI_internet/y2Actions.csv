@@ -1,0 +1,230 @@
+PlanId,StepId,StepInfo,ActionType,ActionName,Input,Output,Expected,Critical
+PReuse_Inet_Open,1,Open Edge,xUI,xOpenBrowser,edge,,,Y
+PReuse_Inet_Open,2,Home,xUI,xNavigate,base_url,,,Y
+PReuse_Inet_Open,3,Wait boot,xTime,xTimeWait,2,,,Y
+PReuse_Inet_Open,4,Body present,xUI,xGetText,body_locator,,text_welcome,Y
+PInet_Smoke_Home,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_Smoke_Home,2,Title Welcome,xUI,xGetText,h1_locator,,text_welcome,Y
+PInet_Smoke_Home,3,Login link visible,xUI,xGetText,link_login,,,Y
+PInet_Smoke_LoginHappy,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_Smoke_LoginHappy,2,Navigate url_login,xUI,xNavigate,url_login,,,Y
+PInet_Smoke_LoginHappy,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_Smoke_LoginHappy,4,Username,xUI,xType,type_user_ok,,,Y
+PInet_Smoke_LoginHappy,5,Password,xUI,xType,type_pass_ok,,,Y
+PInet_Smoke_LoginHappy,6,Submit,xUI,xClick,btn_login,,,Y
+PInet_Smoke_LoginHappy,7,Wait,xTime,xTimeWait,1,,,Y
+PInet_Smoke_LoginHappy,8,Flash success,xUI,xGetText,flash_locator,,text_login_ok,Y
+PInet_Auth_BadLogin,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_Auth_BadLogin,2,Navigate url_login,xUI,xNavigate,url_login,,,Y
+PInet_Auth_BadLogin,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_Auth_BadLogin,4,Bad user,xUI,xType,type_user_bad,,,Y
+PInet_Auth_BadLogin,5,Bad pass,xUI,xType,type_pass_bad,,,Y
+PInet_Auth_BadLogin,6,Submit,xUI,xClick,btn_login,,,Y
+PInet_Auth_BadLogin,7,Wait,xTime,xTimeWait,1,,,Y
+PInet_Auth_BadLogin,8,Flash fail,xUI,xGetText,flash_locator,,text_login_fail,Y
+PInet_Auth_LoginLogout,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_Auth_LoginLogout,2,Navigate url_login,xUI,xNavigate,url_login,,,Y
+PInet_Auth_LoginLogout,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_Auth_LoginLogout,4,User,xUI,xType,type_user_ok,,,Y
+PInet_Auth_LoginLogout,5,Pass,xUI,xType,type_pass_ok,,,Y
+PInet_Auth_LoginLogout,6,Submit,xUI,xClick,btn_login,,,Y
+PInet_Auth_LoginLogout,7,Wait,xTime,xTimeWait,1,,,Y
+PInet_Auth_LoginLogout,8,Secure heading,xUI,xGetText,h2_locator,,text_secure,Y
+PInet_Auth_LoginLogout,9,Logout,xUI,xClick,btn_logout,,,Y
+PInet_Auth_LoginLogout,10,Wait,xTime,xTimeWait,1,,,Y
+PInet_Auth_LoginLogout,11,Logged out flash,xUI,xGetText,flash_locator,,text_logout_ok,Y
+PInet_Auth_BasicAuth,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_Auth_BasicAuth,2,Navigate url_basic_auth,xUI,xNavigate,url_basic_auth,,,Y
+PInet_Auth_BasicAuth,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_Auth_BasicAuth,4,Congrats text,xUI,xGetText,body_locator,,text_basic_auth,Y
+PInet_UI_Checkboxes,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_Checkboxes,2,Navigate url_checkboxes,xUI,xNavigate,url_checkboxes,,,Y
+PInet_UI_Checkboxes,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_Checkboxes,4,CB1 initially unchecked,xUI,xIsChecked,cb1,,unchecked,Y
+PInet_UI_Checkboxes,5,CB2 initially checked,xUI,xIsChecked,cb2,,checked,Y
+PInet_UI_Checkboxes,6,Click CB1,xUI,xClick,cb1,,,Y
+PInet_UI_Checkboxes,7,CB1 now checked,xUI,xIsChecked,cb1,,checked,Y
+PInet_UI_Checkboxes,8,Click CB2,xUI,xClick,cb2,,,Y
+PInet_UI_Checkboxes,9,CB2 now unchecked,xUI,xIsChecked,cb2,,unchecked,Y
+PInet_UI_Dropdown,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_Dropdown,2,Navigate url_dropdown,xUI,xNavigate,url_dropdown,,,Y
+PInet_UI_Dropdown,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_Dropdown,4,Heading,xUI,xGetText,h3_locator,,text_dropdown,Y
+PInet_UI_Dropdown,5,Select 1,xUI,xSelectDropdown,dd_option1,,,Y
+PInet_UI_Dropdown,6,Select 2,xUI,xSelectDropdown,dd_option2,,,Y
+PInet_UI_Inputs,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_Inputs,2,Navigate url_inputs,xUI,xNavigate,url_inputs,,,Y
+PInet_UI_Inputs,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_Inputs,4,Type 42,xUI,xType,type_number,,,Y
+PInet_UI_Inputs,5,Input still present,xUI,xGetText,h3_locator,,,Y
+PInet_UI_AddRemove,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_AddRemove,2,Navigate url_add_remove,xUI,xNavigate,url_add_remove,,,Y
+PInet_UI_AddRemove,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_AddRemove,4,Heading,xUI,xGetText,h3_locator,,text_add_remove,Y
+PInet_UI_AddRemove,5,Add,xUI,xClick,btn_add_element,,,Y
+PInet_UI_AddRemove,6,Wait,xTime,xTimeWait,1,,,Y
+PInet_UI_AddRemove,7,Delete appears,xUI,xGetText,btn_delete,,text_delete,Y
+PInet_UI_AddRemove,8,Delete click,xUI,xClick,btn_delete,,,Y
+PInet_UI_DragDrop,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_DragDrop,2,Navigate url_drag,xUI,xNavigate,url_drag,,,Y
+PInet_UI_DragDrop,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_DragDrop,4,Perform DnD,xUI,xDragAndDrop,dnd_ab,,,Y
+PInet_UI_DragDrop,5,Column A still present,xUI,xGetText,col_a,,,Y
+PInet_UI_Hovers,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_Hovers,2,Navigate url_hovers,xUI,xNavigate,url_hovers,,,Y
+PInet_UI_Hovers,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_Hovers,4,Hover user1,xUI,xHover,hover_user1,,,Y
+PInet_UI_Hovers,5,Caption user1,xUI,xGetText,hover_caption1,,text_user1,Y
+PInet_UI_ContextMenu,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_ContextMenu,2,Navigate url_context,xUI,xNavigate,url_context,,,Y
+PInet_UI_ContextMenu,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_ContextMenu,4,Context click,xUI,xContextClick,hotspot,,,Y
+PInet_UI_ContextMenu,5,Accept alert,xUI,xHandleAlert,alert_accept,,,Y
+PInet_UI_JsAlerts,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_JsAlerts,2,Navigate url_alerts,xUI,xNavigate,url_alerts,,,Y
+PInet_UI_JsAlerts,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_JsAlerts,4,Click Alert,xUI,xClick,btn_js_alert,,,Y
+PInet_UI_JsAlerts,5,Accept,xUI,xHandleAlert,alert_accept,,,Y
+PInet_UI_JsAlerts,6,Result alert,xUI,xGetText,result_locator,,text_alert_ok,Y
+PInet_UI_JsAlerts,7,Click Confirm,xUI,xClick,btn_js_confirm,,,Y
+PInet_UI_JsAlerts,8,Accept confirm,xUI,xHandleAlert,alert_accept,,,Y
+PInet_UI_JsAlerts,9,Result Ok,xUI,xGetText,result_locator,,text_confirm_ok,Y
+PInet_UI_JsAlerts,10,Click Confirm again,xUI,xClick,btn_js_confirm,,,Y
+PInet_UI_JsAlerts,11,Dismiss,xUI,xHandleAlert,alert_dismiss,,,Y
+PInet_UI_JsAlerts,12,Result Cancel,xUI,xGetText,result_locator,,text_confirm_cancel,Y
+PInet_UI_JsAlerts,13,Click Prompt,xUI,xClick,btn_js_prompt,,,Y
+PInet_UI_JsAlerts,14,Type BRAHL,xUI,xHandleAlert,alert_type_brahl,,,Y
+PInet_UI_JsAlerts,15,Result prompt,xUI,xGetText,result_locator,,text_prompt_brahl,Y
+PInet_UI_KeyPresses,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_KeyPresses,2,Navigate url_keys,xUI,xNavigate,url_keys,,,Y
+PInet_UI_KeyPresses,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_KeyPresses,4,ENTER,xUI,xSendKeys,keys_enter,,,Y
+PInet_UI_KeyPresses,5,Result ENTER,xUI,xGetText,key_result,,text_enter,Y
+PInet_UI_Slider,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_Slider,2,Navigate url_slider,xUI,xNavigate,url_slider,,,Y
+PInet_UI_Slider,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_Slider,4,Focus + ARROW_RIGHT,xUI,xSendKeys,keys_slider_right,,,Y
+PInet_UI_Slider,5,Value element present,xUI,xGetText,slider_value,,,Y
+PInet_UI_Upload,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_Upload,2,Navigate url_upload,xUI,xNavigate,url_upload,,,Y
+PInet_UI_Upload,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_Upload,4,Choose file,xUI,xUploadFile,upload_file,,,Y
+PInet_UI_Upload,5,Submit,xUI,xClick,btn_upload,,,Y
+PInet_UI_Upload,6,Wait,xTime,xTimeWait,2,,,Y
+PInet_UI_Upload,7,Uploaded banner,xUI,xGetText,h3_locator,,text_uploaded,Y
+PInet_UI_DynLoading1,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_DynLoading1,2,Navigate url_dyn_load1,xUI,xNavigate,url_dyn_load1,,,Y
+PInet_UI_DynLoading1,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_DynLoading1,4,Start,xUI,xClick,btn_start,,,Y
+PInet_UI_DynLoading1,5,Wait render,xTime,xTimeWait,8,,,Y
+PInet_UI_DynLoading1,6,Hello World,xUI,xGetText,finish_locator,,text_hello,Y
+PInet_UI_DynLoading2,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_DynLoading2,2,Navigate url_dyn_load2,xUI,xNavigate,url_dyn_load2,,,Y
+PInet_UI_DynLoading2,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_DynLoading2,4,Start,xUI,xClick,btn_start,,,Y
+PInet_UI_DynLoading2,5,Wait render,xTime,xTimeWait,8,,,Y
+PInet_UI_DynLoading2,6,Hello World,xUI,xGetText,finish_locator,,text_hello,Y
+PInet_UI_DynControls,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_DynControls,2,Navigate url_dyn_controls,xUI,xNavigate,url_dyn_controls,,,Y
+PInet_UI_DynControls,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_DynControls,4,Remove,xUI,xClick,btn_remove,,,Y
+PInet_UI_DynControls,5,Wait gone,xTime,xTimeWait,6,,,Y
+PInet_UI_DynControls,6,It's gone,xUI,xGetText,dyn_message,,text_gone,Y
+PInet_UI_DynControls,7,Enable,xUI,xClick,btn_enable,,,Y
+PInet_UI_DynControls,8,Wait enabled,xTime,xTimeWait,6,,,Y
+PInet_UI_DynControls,9,It's enabled,xUI,xGetText,dyn_message,,text_enabled,Y
+PInet_UI_DynControls,10,Type into enabled,xUI,xType,type_dyn_enabled,,,Y
+PInet_UI_DynContent,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_DynContent,2,Navigate url_dyn_content,xUI,xNavigate,url_dyn_content,,,Y
+PInet_UI_DynContent,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_DynContent,4,Heading,xUI,xGetText,h3_locator,,text_dyn_content,Y
+PInet_UI_DynContent,5,Row text present,xUI,xGetText,dyn_row,,,Y
+PInet_UI_EntryAd,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_EntryAd,2,Navigate url_entry_ad,xUI,xNavigate,url_entry_ad,,,Y
+PInet_UI_EntryAd,3,Settle,xTime,xTimeWait,3,,,Y
+PInet_UI_EntryAd,4,Close modal,xUI,xClick,btn_modal_close,,,Y
+PInet_UI_EntryAd,5,Heading remains,xUI,xGetText,h3_locator,,text_entry_ad,Y
+PInet_UI_ABTest,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_ABTest,2,Navigate url_ab,xUI,xNavigate,url_ab,,,Y
+PInet_UI_ABTest,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_ABTest,4,Heading present,xUI,xGetText,h3_locator,,,Y
+PInet_UI_Disappear,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_Disappear,2,Navigate url_disappear,xUI,xNavigate,url_disappear,,,Y
+PInet_UI_Disappear,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_Disappear,4,Heading,xUI,xGetText,h3_locator,,text_disappear,Y
+PInet_UI_Disappear,5,Click Home,xUI,xClick,nav_home,,,Y
+PInet_UI_Disappear,6,Back home,xUI,xGetText,h1_locator,,text_welcome,Y
+PInet_UI_FloatingMenu,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_FloatingMenu,2,Navigate url_floating,xUI,xNavigate,url_floating,,,Y
+PInet_UI_FloatingMenu,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_FloatingMenu,4,Heading,xUI,xGetText,h3_locator,,text_floating,Y
+PInet_UI_FloatingMenu,5,About,xUI,xClick,menu_about,,,Y
+PInet_UI_Notification,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_Notification,2,Navigate url_notify,xUI,xNavigate,url_notify,,,Y
+PInet_UI_Notification,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_Notification,4,Heading,xUI,xGetText,h3_locator,,text_notification_hdr,Y
+PInet_UI_Notification,5,Flash present,xUI,xGetText,flash_locator,,,Y
+PInet_UI_Notification,6,Click here refresh,xUI,xClick,link_click_here,,,Y
+PInet_UI_Notification,7,Wait,xTime,xTimeWait,1,,,Y
+PInet_UI_Notification,8,Flash again,xUI,xGetText,flash_locator,,,Y
+PInet_UI_Redirect,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_Redirect,2,Navigate url_redirect,xUI,xNavigate,url_redirect,,,Y
+PInet_UI_Redirect,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_Redirect,4,Click here,xUI,xClick,link_redirect,,,Y
+PInet_UI_Redirect,5,Wait,xTime,xTimeWait,2,,,Y
+PInet_UI_Redirect,6,Status Codes,xUI,xGetText,h3_locator,,text_status_codes,Y
+PInet_UI_Status404,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_Status404,2,Navigate url_status,xUI,xNavigate,url_status,,,Y
+PInet_UI_Status404,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_Status404,4,Open 404,xUI,xClick,link_status_404,,,Y
+PInet_UI_Status404,5,Wait,xTime,xTimeWait,1,,,Y
+PInet_UI_Status404,6,Body mentions 404,xUI,xGetText,body_locator,,text_status_404,Y
+PInet_UI_Tables,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_Tables,2,Navigate url_tables,xUI,xNavigate,url_tables,,,Y
+PInet_UI_Tables,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_Tables,4,Heading,xUI,xGetText,h3_locator,,text_tables,Y
+PInet_UI_Tables,5,First last name,xUI,xGetText,table1_cell,,,Y
+PInet_UI_Tables,6,Edit link,xUI,xClick,table1_edit,,,Y
+PInet_UI_ChallengingDOM,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_ChallengingDOM,2,Navigate url_challenging,xUI,xNavigate,url_challenging,,,Y
+PInet_UI_ChallengingDOM,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_ChallengingDOM,4,Heading,xUI,xGetText,h3_locator,,text_challenging,Y
+PInet_UI_ChallengingDOM,5,Click button,xUI,xClick,btn_challenging,,,Y
+PInet_UI_ChallengingDOM,6,Table cell,xUI,xGetText,table_cell,,,Y
+PInet_UI_BrokenImages,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_BrokenImages,2,Navigate url_broken,xUI,xNavigate,url_broken,,,Y
+PInet_UI_BrokenImages,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_BrokenImages,4,Heading,xUI,xGetText,h3_locator,,text_broken,Y
+PInet_UI_LargeDOM,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_LargeDOM,2,Navigate url_large,xUI,xNavigate,url_large,,,Y
+PInet_UI_LargeDOM,3,Settle,xTime,xTimeWait,3,,,Y
+PInet_UI_LargeDOM,4,Heading,xUI,xGetText,h3_locator,,text_large,Y
+PInet_UI_LargeDOM,5,Deep cell,xUI,xGetText,large_cell,,,Y
+PInet_UI_Typos,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_Typos,2,Navigate url_typos,xUI,xNavigate,url_typos,,,Y
+PInet_UI_Typos,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_Typos,4,Heading,xUI,xGetText,h3_locator,,text_typos,Y
+PInet_UI_Shifting,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_Shifting,2,Navigate url_shifting,xUI,xNavigate,url_shifting,,,Y
+PInet_UI_Shifting,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_Shifting,4,Heading,xUI,xGetText,h3_locator,,text_shifting,Y
+PInet_UI_ForgotPassword,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_ForgotPassword,2,Navigate url_forgot,xUI,xNavigate,url_forgot,,,Y
+PInet_UI_ForgotPassword,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_ForgotPassword,4,Email,xUI,xType,type_email,,,Y
+PInet_UI_ForgotPassword,5,Retrieve,xUI,xClick,btn_retrieve,,,Y
+PInet_UI_ForgotPassword,6,Wait,xTime,xTimeWait,2,,,Y
+PInet_UI_ForgotPassword,7,Body responded,xUI,xGetText,body_locator,,,Y
+PInet_UI_Viewport,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_Viewport,2,Mobile size,xUI,xSetViewport,viewport_mobile,,,Y
+PInet_UI_Viewport,3,Home still welcome,xUI,xGetText,h1_locator,,text_welcome,Y
+PInet_UI_Viewport,4,Desktop size,xUI,xSetViewport,viewport_desktop,,,Y
+PInet_UI_CaptureTour,1,Reuse open browser + home,xReuse,PReuse_Inet_Open,,,,Y
+PInet_UI_CaptureTour,2,Navigate url_login,xUI,xNavigate,url_login,,,Y
+PInet_UI_CaptureTour,3,Settle,xTime,xTimeWait,2,,,Y
+PInet_UI_CaptureTour,4,User,xUI,xType,type_user_ok,,,Y
+PInet_UI_CaptureTour,5,Pass,xUI,xType,type_pass_ok,,,Y
+PInet_UI_CaptureTour,6,Submit,xUI,xClick,btn_login,,,Y
+PInet_UI_CaptureTour,7,Wait,xTime,xTimeWait,1,,,Y
+PInet_UI_CaptureTour,8,Flash,xUI,xGetText,flash_locator,,text_login_ok,Y
+PInet_UI_CaptureTour,9,Screenshot,xCapture,xCaptureImage,secure_area,,,Y

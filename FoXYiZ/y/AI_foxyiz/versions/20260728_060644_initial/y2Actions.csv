@@ -1,0 +1,90 @@
+PlanId,StepId,StepInfo,ActionType,ActionName,Input,Output,Expected,Critical
+PReuse_Open,1,Open Edge,xUI,xOpenBrowser,edge,,,Y
+PReuse_Open,2,Home,xUI,xNavigate,base_url,,,Y
+PReuse_Open,3,Wait boot,xTime,xTimeWait,3,,,Y
+PReuse_Open,4,Body present,xUI,xGetText,body_locator,,text_hero,Y
+PSmoke_Hero,1,Reuse open home,xReuse,PReuse_Open,,,,Y
+PSmoke_Hero,2,Hero headline,xUI,xGetText,h1_locator,,text_hero,Y
+PSmoke_Hero,3,Prompt box present,xUI,xGetText,prompt_locator,,,Y
+PSmoke_Hero,4,Generate control present,xUI,xGetText,btn_generate_locator,,,Y
+PSmoke_Hero,5,Chip login visible,xUI,xGetText,chip_login,,,Y
+PSmoke_ChipFill,1,Reuse open home,xReuse,PReuse_Open,,,,Y
+PSmoke_ChipFill,2,Type login prompt,xUI,xType,type_prompt_login,,,Y
+PSmoke_ChipFill,3,Settle,xTime,xTimeWait,1,,,Y
+PSmoke_ChipFill,4,Click Generate,xUI,xClick,btn_generate,,,Y
+PSmoke_ChipFill,5,Wait AI response,xTime,xTimeWait,25,,,Y
+PSmoke_ChipFill,6,Result panel marker,xUI,xGetText,body_locator,,text_ai_generated,Y
+PSmoke_ChipFill,7,Has y1Plans section,xUI,xGetText,body_locator,,text_y1,Y
+PSmoke_ChipFill,8,Login-ish yPAD keyword,xUI,xGetText,body_locator,,expect_login_kw,Y
+PGen_Login,1,Reuse open home,xReuse,PReuse_Open,,,,Y
+PGen_Login,2,Settle,xTime,xTimeWait,1,,,Y
+PGen_Login,3,Type custom prompt,xUI,xType,type_prompt_login,,,Y
+PGen_Login,4,Generate enabled settle,xTime,xTimeWait,1,,,Y
+PGen_Login,5,Click Generate,xUI,xClick,btn_generate,,,Y
+PGen_Login,6,Wait AI response,xTime,xTimeWait,20,,,Y
+PGen_Login,7,Result panel marker,xUI,xGetText,body_locator,,text_ai_generated,Y
+PGen_Login,8,Has y1Plans section,xUI,xGetText,body_locator,,text_y1,Y
+PGen_Login,9,Has y2Actions section,xUI,xGetText,body_locator,,text_y2,Y
+PGen_Login,10,Domain keyword check,xUI,xGetText,body_locator,,expect_login_kw,Y
+PGen_Login,11,Download CTA present,xUI,xGetText,body_locator,,text_download,Y
+PGen_API,1,Reuse open home,xReuse,PReuse_Open,,,,Y
+PGen_API,2,Settle,xTime,xTimeWait,1,,,Y
+PGen_API,3,Type custom prompt,xUI,xType,type_prompt_api,,,Y
+PGen_API,4,Generate enabled settle,xTime,xTimeWait,1,,,Y
+PGen_API,5,Click Generate,xUI,xClick,btn_generate,,,Y
+PGen_API,6,Wait AI response,xTime,xTimeWait,20,,,Y
+PGen_API,7,Result panel marker,xUI,xGetText,body_locator,,text_ai_generated,Y
+PGen_API,8,Has y1Plans section,xUI,xGetText,body_locator,,text_y1,Y
+PGen_API,9,Has y2Actions section,xUI,xGetText,body_locator,,text_y2,Y
+PGen_API,10,Domain keyword check,xUI,xGetText,body_locator,,expect_api_kw,Y
+PGen_API,11,Download CTA present,xUI,xGetText,body_locator,,text_download,Y
+PGen_Math,1,Reuse open home,xReuse,PReuse_Open,,,,Y
+PGen_Math,2,Settle,xTime,xTimeWait,1,,,Y
+PGen_Math,3,Type custom prompt,xUI,xType,type_prompt_math,,,Y
+PGen_Math,4,Generate enabled settle,xTime,xTimeWait,1,,,Y
+PGen_Math,5,Click Generate,xUI,xClick,btn_generate,,,Y
+PGen_Math,6,Wait AI response,xTime,xTimeWait,20,,,Y
+PGen_Math,7,Result panel marker,xUI,xGetText,body_locator,,text_ai_generated,Y
+PGen_Math,8,Has y1Plans section,xUI,xGetText,body_locator,,text_y1,Y
+PGen_Math,9,Has y2Actions section,xUI,xGetText,body_locator,,text_y2,Y
+PGen_Math,10,Domain keyword check,xUI,xGetText,body_locator,,expect_math_kw,Y
+PGen_Math,11,Download CTA present,xUI,xGetText,body_locator,,text_download,Y
+PGen_Custom_D1,1,Reuse open home,xReuse,PReuse_Open,,,,Y
+PGen_Custom_D1,2,Settle,xTime,xTimeWait,1,,,Y
+PGen_Custom_D1,3,Type custom prompt,xUI,xType,type_prompt_custom,,,Y
+PGen_Custom_D1,4,Generate enabled settle,xTime,xTimeWait,1,,,Y
+PGen_Custom_D1,5,Click Generate,xUI,xClick,btn_generate,,,Y
+PGen_Custom_D1,6,Wait AI response,xTime,xTimeWait,20,,,Y
+PGen_Custom_D1,7,Result panel marker,xUI,xGetText,body_locator,,text_ai_generated,Y
+PGen_Custom_D1,8,Has y1Plans section,xUI,xGetText,body_locator,,text_y1,Y
+PGen_Custom_D1,9,Has y2Actions section,xUI,xGetText,body_locator,,text_y2,Y
+PGen_Custom_D1,10,Domain keyword check,xUI,xGetText,body_locator,,expect_any_ypad,Y
+PGen_Custom_D1,11,Download CTA present,xUI,xGetText,body_locator,,text_download,Y
+PGen_Custom_D2,1,Reuse open home,xReuse,PReuse_Open,,,,Y
+PGen_Custom_D2,2,Settle,xTime,xTimeWait,1,,,Y
+PGen_Custom_D2,3,Type custom prompt,xUI,xType,type_prompt_custom,,,Y
+PGen_Custom_D2,4,Generate enabled settle,xTime,xTimeWait,1,,,Y
+PGen_Custom_D2,5,Click Generate,xUI,xClick,btn_generate,,,Y
+PGen_Custom_D2,6,Wait AI response,xTime,xTimeWait,20,,,Y
+PGen_Custom_D2,7,Result panel marker,xUI,xGetText,body_locator,,text_ai_generated,Y
+PGen_Custom_D2,8,Has y1Plans section,xUI,xGetText,body_locator,,text_y1,Y
+PGen_Custom_D2,9,Has y2Actions section,xUI,xGetText,body_locator,,text_y2,Y
+PGen_Custom_D2,10,Domain keyword check,xUI,xGetText,body_locator,,expect_any_ypad,Y
+PGen_Custom_D2,11,Download CTA present,xUI,xGetText,body_locator,,text_download,Y
+PGen_Custom_D3,1,Reuse open home,xReuse,PReuse_Open,,,,Y
+PGen_Custom_D3,2,Settle,xTime,xTimeWait,1,,,Y
+PGen_Custom_D3,3,Type custom prompt,xUI,xType,type_prompt_custom,,,Y
+PGen_Custom_D3,4,Generate enabled settle,xTime,xTimeWait,1,,,Y
+PGen_Custom_D3,5,Click Generate,xUI,xClick,btn_generate,,,Y
+PGen_Custom_D3,6,Wait AI response,xTime,xTimeWait,20,,,Y
+PGen_Custom_D3,7,Result panel marker,xUI,xGetText,body_locator,,text_ai_generated,Y
+PGen_Custom_D3,8,Has y1Plans section,xUI,xGetText,body_locator,,text_y1,Y
+PGen_Custom_D3,9,Has y2Actions section,xUI,xGetText,body_locator,,text_y2,Y
+PGen_Custom_D3,10,Domain keyword check,xUI,xGetText,body_locator,,expect_any_ypad,Y
+PGen_Custom_D3,11,Download CTA present,xUI,xGetText,body_locator,,text_download,Y
+PMan_Quality,1,Reuse open home,xReuse,PReuse_Open,,,,Y
+PMan_Quality,2,Hunter judges usefulness of generated yPAD,xUI,xGetText,body_locator,,text_ai_generated,N
+PMan_Hallucination,1,Reuse open home,xReuse,PReuse_Open,,,,Y
+PMan_Hallucination,2,Hunter checks ActionNames exist in xCapa,xUI,xGetText,body_locator,,text_ai_generated,N
+PMan_MultiTurn,1,Reuse open home,xReuse,PReuse_Open,,,,Y
+PMan_MultiTurn,2,Hunter sends follow-up refine prompt,xUI,xGetText,prompt_locator,,,N

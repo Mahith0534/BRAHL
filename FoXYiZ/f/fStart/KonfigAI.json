@@ -1,0 +1,20 @@
+{
+  "configs": [
+    "y/KonfigAI/KonfigAI.json"
+  ],
+  "thread_count": 1,
+  "timeout": 3,
+  "headless": false,
+  "debug": false,
+  "tags": [
+    "Smoke"
+  ],
+  "capture": {
+    "image": "on_fail",
+    "video": "plan",
+    "video_fps": 2,
+    "subdir": "",
+    "overlay": "off",
+    "overlay_ms": 250
+  }
+}

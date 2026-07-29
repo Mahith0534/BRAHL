@@ -1,0 +1,1 @@
+Automate login to example.com and verify the dashboard loads

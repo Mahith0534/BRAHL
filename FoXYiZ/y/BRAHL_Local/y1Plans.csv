@@ -1,0 +1,52 @@
+PlanId,PlanName,DesignId,Run,Tags,Output,CreatedBy,CreatedAt
+PReuse_OpenApp,Open Edge and load BRAHL Local /app,D1,N,Reuse,preuse_openapp,BRAHL_Local,2026-07-26T10:00:00+00:00
+PSmoke_Title,Arena boots — title BRAHL Local,D1,Y,BRAHL_Local;Smoke;Shell,psmoke_title,BRAHL_Local,2026-07-26T10:00:00+00:00
+PSmoke_PhaseNav,Phase nav present,D1,Y,BRAHL_Local;Smoke;Shell,psmoke_phasenav,BRAHL_Local,2026-07-26T10:00:00+00:00
+PSmoke_Workspace,Workspace chip present,D1,Y,BRAHL_Local;Smoke;Workspace,psmoke_workspace,BRAHL_Local,2026-07-26T10:00:00+00:00
+PSmoke_DesktopMode,desktop-mode brand present,D1,Y,BRAHL_Local;Smoke;Desktop,psmoke_desktopmode,BRAHL_Local,2026-07-26T10:00:00+00:00
+PSmoke_Health,Footer health pill,D1,Y,BRAHL_Local;Smoke;Shell,psmoke_health,BRAHL_Local,2026-07-26T10:00:00+00:00
+PSmoke_FoXYiZLink,Tagline FoXYiZ is clickable,D1,Y,BRAHL_Local;Smoke;Docs,psmoke_foxyizlink,BRAHL_Local,2026-07-26T10:00:00+00:00
+PHint_Build,Build hint Tests (/y),D1,Y,BRAHL_Local;UI;Hints;Build,phint_build,BRAHL_Local,2026-07-26T10:00:00+00:00
+PHint_Run,Run hint Tests (/y),D1,Y,BRAHL_Local;UI;Hints;Run,phint_run,BRAHL_Local,2026-07-26T10:00:00+00:00
+PHint_Analyze,Analyze hint Results (/z),D1,Y,BRAHL_Local;UI;Hints;Analyze,phint_analyze,BRAHL_Local,2026-07-26T10:00:00+00:00
+PHint_Heal,Heal hint Heal Tests (/y),D1,Y,BRAHL_Local;UI;Hints;Heal,phint_heal,BRAHL_Local,2026-07-26T10:00:00+00:00
+PHint_Loop,Loop hint Verify /y -> /z,D1,Y,BRAHL_Local;UI;Hints;Loop,phint_loop,BRAHL_Local,2026-07-26T10:00:00+00:00
+PHint_Brahl,BRAHL hint Go / No-Go,D1,Y,BRAHL_Local;UI;Hints;BRAHL,phint_brahl,BRAHL_Local,2026-07-26T10:00:00+00:00
+PHint_PathY,Build /y path button present,D1,Y,BRAHL_Local;UI;Hints;Reveal,phint_pathy,BRAHL_Local,2026-07-26T10:00:00+00:00
+PHint_PathZ,Analyze /z path button present,D1,Y,BRAHL_Local;UI;Hints;Reveal,phint_pathz,BRAHL_Local,2026-07-26T10:00:00+00:00
+PNav_Run,UI — open Run phase,D1,Y,BRAHL_Local;UI;Nav;Run,pnav_run,BRAHL_Local,2026-07-26T10:00:00+00:00
+PNav_Analyze,UI — open Analyze phase,D1,Y,BRAHL_Local;UI;Nav;Analyze,pnav_analyze,BRAHL_Local,2026-07-26T10:00:00+00:00
+PNav_Heal,UI — open Heal phase,D1,Y,BRAHL_Local;UI;Nav;Heal,pnav_heal,BRAHL_Local,2026-07-26T10:00:00+00:00
+PNav_Loop,UI — open Loop phase,D1,Y,BRAHL_Local;UI;Nav;Loop,pnav_loop,BRAHL_Local,2026-07-26T10:00:00+00:00
+PNav_Brahl,UI — open BRAHL phase,D1,Y,BRAHL_Local;UI;Nav;BRAHL,pnav_brahl,BRAHL_Local,2026-07-26T10:00:00+00:00
+PNav_Build,UI — open Build phase,D1,Y,BRAHL_Local;UI;Nav;Build,pnav_build,BRAHL_Local,2026-07-26T10:00:00+00:00
+PNav_DeepRun,Deep link #run,D1,Y,BRAHL_Local;UI;Nav;Run,pnav_deeprun,BRAHL_Local,2026-07-26T10:00:00+00:00
+PNav_DeepBrahl,Deep link #brahl,D1,Y,BRAHL_Local;UI;Nav;BRAHL,pnav_deepbrahl,BRAHL_Local,2026-07-26T10:00:00+00:00
+PBuild_RebuildBtn,Build header shows Rebuild (not Add/Edit),D1,Y,BRAHL_Local;Build;Rebuild,pbuild_rebuildbtn,BRAHL_Local,2026-07-26T10:00:00+00:00
+PBuild_NoVerifyLine,Build verify summary stays hidden on desktop,D1,Y,BRAHL_Local;Build;Desktop,pbuild_noverifyline,BRAHL_Local,2026-07-26T10:00:00+00:00
+PBuild_OpenRebuild,Rebuild opens collapsible rebuild plan,D1,Y,BRAHL_Local;Build;Rebuild,pbuild_openrebuild,BRAHL_Local,2026-07-26T10:00:00+00:00
+PBuild_FoXYiZDocs,Click FoXYiZ opens docs modal,D1,Y,BRAHL_Local;Build;Docs,pbuild_foxyizdocs,BRAHL_Local,2026-07-26T10:00:00+00:00
+PBuild_YpadCoverage,Test coverage chips present when suite selected,D1,Y,BRAHL_Local;Build;Ypad,pbuild_ypadcoverage,BRAHL_Local,2026-07-26T10:00:00+00:00
+PWs_ProjectsSelect,Projects dropdown present,D1,Y,BRAHL_Local;Workspace;Projects,pws_projectsselect,BRAHL_Local,2026-07-26T10:00:00+00:00
+PWs_AddProject,Topbar + new project,D1,Y,BRAHL_Local;Workspace,pws_addproject,BRAHL_Local,2026-07-26T10:00:00+00:00
+PRun_Controls,Run — Run phase panel opens,D1,Y,BRAHL_Local;Run,prun_controls,BRAHL_Local,2026-07-26T10:00:00+00:00
+PAnalyze_Panel,Analyze panel opens,D1,Y,BRAHL_Local;Analyze,panalyze_panel,BRAHL_Local,2026-07-26T10:00:00+00:00
+PHeal_Panel,Heal panel opens,D1,Y,BRAHL_Local;Heal,pheal_panel,BRAHL_Local,2026-07-26T10:00:00+00:00
+PLoop_Panel,Loop panel opens,D1,Y,BRAHL_Local;Loop,ploop_panel,BRAHL_Local,2026-07-26T10:00:00+00:00
+PBrahl_Panel,BRAHL Go/No-Go panel opens,D1,Y,BRAHL_Local;BRAHL,pbrahl_panel,BRAHL_Local,2026-07-26T10:00:00+00:00
+PSec_AuthRegisterOff,POST /api/auth/register disabled on desktop,D1,Y,BRAHL_Local;Security;Auth;API,psec_authregisteroff,BRAHL_Local,2026-07-26T10:00:00+00:00
+PSec_HealthNoSecrets,"Health exposes desktop, not secrets",D1,Y,BRAHL_Local;Security;API,psec_healthnosecrets,BRAHL_Local,2026-07-26T10:00:00+00:00
+PApi_Health,API GET /api/health,D1,Y,BRAHL_Local;API,papi_health,BRAHL_Local,2026-07-26T10:00:00+00:00
+PApi_Version,API GET /api/version,D1,Y,BRAHL_Local;API,papi_version,BRAHL_Local,2026-07-26T10:00:00+00:00
+PApi_Suites,API GET /api/suites,D1,Y,BRAHL_Local;API,papi_suites,BRAHL_Local,2026-07-26T10:00:00+00:00
+PApi_Projects,API GET /api/projects,D1,Y,BRAHL_Local;API,papi_projects,BRAHL_Local,2026-07-26T10:00:00+00:00
+PApi_Workspace,API GET /api/workspace,D1,Y,BRAHL_Local;API,papi_workspace,BRAHL_Local,2026-07-26T10:00:00+00:00
+PApi_Configs,API GET /api/configs,D1,Y,BRAHL_Local;API,papi_configs,BRAHL_Local,2026-07-26T10:00:00+00:00
+PApi_Runs,API GET /api/runs,D1,Y,BRAHL_Local;API,papi_runs,BRAHL_Local,2026-07-26T10:00:00+00:00
+PApi_RevealY,API POST /api/reveal-folder y,D1,Y,BRAHL_Local;API;Reveal,papi_revealy,BRAHL_Local,2026-07-26T10:00:00+00:00
+PApi_RevealZ,API POST /api/reveal-folder z,D1,Y,BRAHL_Local;API;Reveal,papi_revealz,BRAHL_Local,2026-07-26T10:00:00+00:00
+PPerf_AppReady,Perf — /app ready,D1,Y,BRAHL_Local;Performance;Shell,pperf_appready,BRAHL_Local,2026-07-26T10:00:00+00:00
+PPerf_Health,Perf — health 200,D1,Y,BRAHL_Local;Performance;API,pperf_health,BRAHL_Local,2026-07-26T10:00:00+00:00
+PPerf_PhaseSwitch,Perf — rapid phase switching,D1,Y,BRAHL_Local;Performance;UI,pperf_phaseswitch,BRAHL_Local,2026-07-26T10:00:00+00:00
+PMan_TeamWorkspace,Manual — confirm Team workspace absent on desktop,D1,N,BRAHL_Local;Manual;Desktop,pman_teamworkspace,BRAHL_Local,2026-07-26T10:00:00+00:00
+PMan_AdvancedHidden,Manual — Advanced / AI chat absent on desktop,D1,N,BRAHL_Local;Manual;Desktop,pman_advancedhidden,BRAHL_Local,2026-07-26T10:00:00+00:00

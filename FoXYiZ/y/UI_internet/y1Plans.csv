@@ -1,0 +1,41 @@
+PlanId,PlanName,DesignId,Run,Tags,Output,CreatedBy,CreatedAt
+PReuse_Inet_Open,Open Edge and load the-internet home,D1,N,Reuse,site_loaded,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_Smoke_Home,Smoke — home lists Available Examples,D1,Y,UI_internet;Smoke;UI;Shell,smoke_home,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_Smoke_LoginHappy,Smoke — Form Auth happy path login,D1,Y,UI_internet;Smoke;UI;Auth,smoke_login,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_Auth_BadLogin,Auth — invalid credentials flash error,D1,Y,UI_internet;UI;Auth;Negative,auth_bad,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_Auth_LoginLogout,Auth — login then logout round-trip,D1,Y,UI_internet;UI;Auth;Flow,auth_logout,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_Auth_BasicAuth,Auth — Basic Auth via credentialed URL,D1,Y,UI_internet;UI;Auth;Security,auth_basic,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_Checkboxes,UI — toggle checkboxes + assert state,D1,Y,UI_internet;UI;Forms;Checkbox,ui_cb,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_Dropdown,UI — select dropdown Option 1 then 2,D1,Y,UI_internet;UI;Forms;Dropdown,ui_dd,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_Inputs,UI — type number into Inputs page,D1,Y,UI_internet;UI;Forms;Inputs,ui_inputs,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_AddRemove,UI — Add Element then Delete,D1,Y,UI_internet;UI;DOM;AddRemove,ui_add,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_DragDrop,UI — drag Column A onto Column B,D1,Y,UI_internet;UI;DnD,ui_dnd,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_Hovers,UI — hover figure reveals user1 caption,D1,Y,UI_internet;UI;Hover,ui_hover,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_ContextMenu,UI — right-click hotspot + accept alert,D1,Y,UI_internet;UI;Context;Alert,ui_ctx,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_JsAlerts,UI — JS Alert / Confirm / Prompt suite,D1,Y,UI_internet;UI;Alert;Fancy,ui_alerts,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_KeyPresses,UI — send ENTER and assert key result,D1,Y,UI_internet;UI;Keys,ui_keys,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_Slider,UI — nudge horizontal slider with ARROW_RIGHT,D1,Y,UI_internet;UI;Slider,ui_slider,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_Upload,UI — upload sample text file,D1,Y,UI_internet;UI;Upload;File,ui_upload,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_DynLoading1,UI — Dynamic Loading example 1 (hidden → Hello World),D1,Y,UI_internet;UI;Wait;Dynamic,ui_dyn1,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_DynLoading2,UI — Dynamic Loading example 2 (rendered later),D1,Y,UI_internet;UI;Wait;Dynamic,ui_dyn2,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_DynControls,UI — Dynamic Controls remove checkbox + enable input,D1,Y,UI_internet;UI;Dynamic;Forms,ui_dync,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_DynContent,UI — Dynamic Content page loads rows,D1,Y,UI_internet;UI;Dynamic;Content,ui_dyncnt,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_EntryAd,UI — close Entry Ad modal,D1,Y,UI_internet;UI;Modal,ui_ad,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_ABTest,UI — A/B Testing variant heading,D1,Y,UI_internet;UI;AB,ui_ab,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_Disappear,UI — Disappearing Elements nav Home,D1,Y,UI_internet;UI;Nav,ui_dis,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_FloatingMenu,UI — Floating Menu About anchor,D1,Y,UI_internet;UI;Nav;Menu,ui_float,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_Notification,UI — Notification Message flash present,D1,Y,UI_internet;UI;Notify,ui_notify,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_Redirect,UI — Redirector lands on Status Codes,D1,Y,UI_internet;UI;Redirect,ui_redir,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_Status404,UI — Status Codes 404 page,D1,Y,UI_internet;UI;HTTP;Status,ui_404,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_Tables,UI — Sortable Data Tables cell + Edit link,D1,Y,UI_internet;UI;Table,ui_tables,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_ChallengingDOM,UI — Challenging DOM button + table cell,D1,Y,UI_internet;UI;DOM;Challenging,ui_chal,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_BrokenImages,UI — Broken Images page loads,D1,Y,UI_internet;UI;Images,ui_broken,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_LargeDOM,UI — Large & Deep DOM table cell,D1,Y,UI_internet;UI;DOM;Perf,ui_large,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_Typos,UI — Typos page content,D1,Y,UI_internet;UI;Content,ui_typos,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_Shifting,UI — Shifting Content page,D1,Y,UI_internet;UI;Content,ui_shift,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_ForgotPassword,UI — Forgot Password form submit,D1,Y,UI_internet;UI;Forms;Auth,ui_forgot,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_Viewport,UI — mobile viewport then restore desktop,D1,Y,UI_internet;UI;Responsive,ui_vp,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_UI_CaptureTour,UI — capture screenshot on login success (demo evidence),D1,Y,UI_internet;UI;Capture;Demo,ui_capture,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_Man_Frames,Manual — Frames / Nested Frames (needs frame switch),D1,N,UI_internet;Manual;Frames,manual_frames,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_Man_Windows,Manual — Multiple Windows (needs window switch),D1,N,UI_internet;Manual;Windows,manual_windows,QA_Hunter+Demo,2026-07-25T19:26:49+00:00
+PInet_Man_Shadow,Manual — Shadow DOM deep pierce,D1,N,UI_internet;Manual;Shadow,manual_shadow,QA_Hunter+Demo,2026-07-25T19:26:49+00:00

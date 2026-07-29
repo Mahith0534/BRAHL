@@ -1,0 +1,1343 @@
+[
+  {
+    "id": "brahl_local_self",
+    "name": "BRAHL_Local",
+    "app_url": "http://127.0.0.1:8766/app",
+    "suite_name": "BRAHL_Local",
+    "suite_config": "y/BRAHL_Local/BRAHL_Local.json",
+    "purpose": "Desktop self-test \u2014 every BRAHL Local user case (ThoughtStream 6a65db11)",
+    "prompt": "Desktop self-test white pads",
+    "owner_avatar": "client",
+    "status": "open",
+    "ai_enabled": true,
+    "documents": [],
+    "context_items": [
+      {
+        "id": "ctx1",
+        "kind": "url",
+        "label": "ThoughtStream",
+        "value": "https://jusdone.base44.app/view/6a65db11d1301b5daeb45249",
+        "added_at": "2026-07-26T10:00:00+00:00"
+      }
+    ],
+    "chat_messages": [
+      {
+        "id": "welcome",
+        "role": "assistant",
+        "text": "BRAHL_Local self-test suite ready.",
+        "at": "2026-07-26T10:00:00+00:00"
+      }
+    ],
+    "budget_usd": 0.0,
+    "budget_split": {
+      "automation_pct": 50,
+      "human_pct": 50
+    },
+    "hitl_consultants": [],
+    "brahl_chat_messages": [
+      {
+        "id": "brahl-welcome",
+        "role": "assistant",
+        "text": "I'm the BRAHL model for this project. Select a report or ask about the latest BRAHL findings.",
+        "at": "2026-07-26T10:14:16+00:00"
+      }
+    ],
+    "team_messages": [],
+    "team_tasks": [],
+    "atomic77_chat_messages": [
+      {
+        "id": "a77-welcome",
+        "role": "assistant",
+        "text": "I'm **Atomic 77** \u2014 idea to launch inside QA on Air. Ask about scope, BRAHL, launch, costs, or QA Hunter workflows. Toggle **AI on** for full assistant mode.",
+        "at": "2026-07-26T10:14:16+00:00"
+      }
+    ],
+    "atomic77_usage": {
+      "messages": 0,
+      "tokens_est": 0,
+      "user_messages": 0
+    },
+    "cycle_history": [
+      {
+        "id": "f41e9384",
+        "step": "Run",
+        "detail": "completed",
+        "at": "2026-07-28T17:29:00+00:00",
+        "run_name": "20260728_102835_BRAHL_Local",
+        "stats": {
+          "passes": 17,
+          "fails": 0,
+          "total_plans": 17,
+          "health": "green"
+        }
+      }
+    ],
+    "hitl_stories": [],
+    "hitl_invites": [],
+    "change_requests": [],
+    "runtime_mode": "local",
+    "app_version": "",
+    "baseline_version": "",
+    "baseline_run": null,
+    "owner_user_id": null,
+    "brahl_plan_draft": null,
+    "ai_usage": {
+      "calls": 0,
+      "total_tokens": 0,
+      "usd_est": 0.0
+    },
+    "evidence_library": [],
+    "latest_run": "20260728_102835_BRAHL_Local",
+    "updated_at": "2026-07-29T04:02:39+00:00",
+    "ai_journey_updated_at": "2026-07-29T04:02:39+00:00",
+    "reports": [
+      {
+        "id": "61d45399",
+        "run_name": "20260726_031539_BRAHL_Local",
+        "report_path": "z/20260726_031539_BRAHL_Local/brahl_report.md",
+        "submitted_at": "2026-07-27T08:39:25+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "19cfcc00",
+        "run_name": "20260727_114429_BRAHL_Local",
+        "report_path": "z/20260727_114429_BRAHL_Local/brahl_report.md",
+        "submitted_at": "2026-07-28T06:06:58+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "951325c4",
+        "run_name": "20260728_102835_BRAHL_Local",
+        "report_path": "z/20260728_102835_BRAHL_Local/brahl_report.md",
+        "submitted_at": "2026-07-28T17:29:00+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      }
+    ],
+    "current_phase": "Run",
+    "thought_captures": []
+  },
+  {
+    "id": "51e3bc378560",
+    "name": "Math",
+    "app_url": "",
+    "suite_name": "Math",
+    "suite_config": "y/Math/Math.json",
+    "purpose": "Demo template \u2014 Math yPAD (sample domain scenarios)",
+    "prompt": "Demo template \u2014 Math yPAD (sample domain scenarios)",
+    "owner_avatar": "client",
+    "owner_user_id": null,
+    "status": "open",
+    "documents": [],
+    "context_items": [],
+    "chat_messages": [
+      {
+        "id": "welcome",
+        "role": "assistant",
+        "text": "Hi \u2014 I'm your BRAHL Build assistant. What are you trying to test or improve?",
+        "at": "2026-07-24T21:13:05+00:00"
+      }
+    ],
+    "budget_usd": 0.0,
+    "budget_split": {
+      "automation_pct": 50,
+      "human_pct": 50
+    },
+    "hitl_consultants": [],
+    "reports": [
+      {
+        "id": "33add4ef",
+        "run_name": "20260726_112155_Math",
+        "report_path": "z/20260726_112155_Math/brahl_report.md",
+        "submitted_at": "2026-07-26T18:21:56+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "c50345a1",
+        "run_name": "20260726_135707_Math",
+        "report_path": "z/20260726_135707_Math/brahl_report.md",
+        "submitted_at": "2026-07-26T20:57:08+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "85320bb3",
+        "run_name": "20260729_163600_Math",
+        "report_path": "z/20260729_163600_Math/brahl_report.md",
+        "submitted_at": "2026-07-29T11:06:02+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "5ebed333",
+        "run_name": "20260729_163806_Math",
+        "report_path": "z/20260729_163806_Math/brahl_report.md",
+        "submitted_at": "2026-07-29T11:08:09+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "4ceac0d3",
+        "run_name": "20260729_164110_Math",
+        "report_path": "z/20260729_164110_Math/brahl_report.md",
+        "submitted_at": "2026-07-29T11:11:11+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "35e80a60",
+        "run_name": "20260729_164244_Math",
+        "report_path": "z/20260729_164244_Math/brahl_report.md",
+        "submitted_at": "2026-07-29T11:12:45+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "f15521df",
+        "run_name": "20260729_164417_Math",
+        "report_path": "z/20260729_164417_Math/brahl_report.md",
+        "submitted_at": "2026-07-29T11:14:19+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "474b22f5",
+        "run_name": "20260729_164455_Math",
+        "report_path": "z/20260729_164455_Math/brahl_report.md",
+        "submitted_at": "2026-07-29T11:14:57+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      }
+    ],
+    "ai_enabled": true,
+    "brahl_context_path": null,
+    "brahl_plan_draft": null,
+    "latest_run": "20260729_164455_Math",
+    "created_at": "2026-07-24T21:13:05+00:00",
+    "updated_at": "2026-07-29T11:14:57+00:00",
+    "team_messages": [],
+    "team_tasks": [],
+    "atomic77_chat_messages": [
+      {
+        "id": "a77-welcome",
+        "role": "assistant",
+        "text": "I'm **Atomic 77** \u2014 idea to launch inside QA on Air. Ask about scope, BRAHL, launch, costs, or QA Hunter workflows. Toggle **AI on** for full assistant mode.",
+        "at": "2026-07-24T21:13:05+00:00"
+      }
+    ],
+    "atomic77_usage": {
+      "messages": 0,
+      "tokens_est": 0,
+      "user_messages": 0
+    },
+    "cycle_history": [
+      {
+        "id": "2f1c0aa9",
+        "step": "Run",
+        "detail": "completed",
+        "at": "2026-07-29T11:14:57+00:00",
+        "run_name": "20260729_164455_Math",
+        "stats": {
+          "passes": 7,
+          "fails": 1,
+          "total_plans": 8,
+          "health": "amber"
+        }
+      },
+      {
+        "id": "50fec129",
+        "step": "Run",
+        "detail": "completed",
+        "at": "2026-07-29T11:14:18+00:00",
+        "run_name": "20260729_164417_Math",
+        "stats": {
+          "passes": 7,
+          "fails": 1,
+          "total_plans": 8,
+          "health": "amber"
+        }
+      },
+      {
+        "id": "55931203",
+        "step": "Run",
+        "detail": "completed",
+        "at": "2026-07-29T11:12:45+00:00",
+        "run_name": "20260729_164244_Math",
+        "stats": {
+          "passes": 7,
+          "fails": 1,
+          "total_plans": 8,
+          "health": "amber"
+        }
+      },
+      {
+        "id": "214b4968",
+        "step": "Run",
+        "detail": "completed",
+        "at": "2026-07-29T11:11:11+00:00",
+        "run_name": "20260729_164110_Math",
+        "stats": {
+          "passes": 7,
+          "fails": 1,
+          "total_plans": 8,
+          "health": "amber"
+        }
+      },
+      {
+        "id": "0f45e0a2",
+        "step": "Run",
+        "detail": "completed",
+        "at": "2026-07-29T11:08:09+00:00",
+        "run_name": "20260729_163806_Math",
+        "stats": {
+          "passes": 7,
+          "fails": 1,
+          "total_plans": 8,
+          "health": "amber"
+        }
+      },
+      {
+        "id": "088d6841",
+        "step": "Run",
+        "detail": "completed",
+        "at": "2026-07-29T11:06:02+00:00",
+        "run_name": "20260729_163600_Math",
+        "stats": {
+          "passes": 8,
+          "fails": 0,
+          "total_plans": 8,
+          "health": "green"
+        }
+      }
+    ],
+    "hitl_stories": [],
+    "hitl_invites": [],
+    "change_requests": [],
+    "runtime_mode": "local",
+    "app_version": "",
+    "baseline_version": "",
+    "baseline_run": null,
+    "ai_usage": {
+      "calls": 0,
+      "total_tokens": 0,
+      "usd_est": 0.0
+    },
+    "evidence_library": [],
+    "ai_journey_updated_at": "2026-07-29T11:14:57+00:00",
+    "brahl_chat_messages": [
+      {
+        "id": "brahl-welcome",
+        "role": "assistant",
+        "text": "I'm the BRAHL model for this project. Select a report or ask about the latest BRAHL findings.",
+        "at": "2026-07-24T21:13:05+00:00"
+      }
+    ],
+    "thought_captures": [],
+    "current_phase": "Run"
+  },
+  {
+    "id": "c823414ce6e6",
+    "name": "API_Petstore",
+    "app_url": "https://petstore.swagger.io/",
+    "suite_name": "API_Petstore",
+    "suite_config": "y/API_Petstore/API_Petstore.json",
+    "purpose": "Demo template \u2014 Swagger Petstore API (xAPI CRUD + security)",
+    "prompt": "Demo template \u2014 Swagger Petstore API (xAPI CRUD + security)",
+    "owner_avatar": "client",
+    "owner_user_id": null,
+    "status": "open",
+    "documents": [],
+    "context_items": [
+      {
+        "id": "41f7c86e",
+        "kind": "url",
+        "label": "App URL",
+        "value": "https://petstore.swagger.io/",
+        "added_at": "2026-07-25T19:09:56+00:00"
+      }
+    ],
+    "chat_messages": [
+      {
+        "id": "welcome",
+        "role": "assistant",
+        "text": "Hi \u2014 I'm your BRAHL Build assistant. What are you trying to test or improve?",
+        "at": "2026-07-25T19:09:56+00:00"
+      }
+    ],
+    "budget_usd": 0.0,
+    "budget_split": {
+      "automation_pct": 50,
+      "human_pct": 50
+    },
+    "hitl_consultants": [],
+    "reports": [],
+    "ai_enabled": true,
+    "brahl_context_path": null,
+    "brahl_plan_draft": null,
+    "latest_run": "20260727_231312_AI_foxyiz",
+    "created_at": "2026-07-25T19:09:56+00:00",
+    "updated_at": "2026-07-28T17:27:53+00:00",
+    "team_messages": [],
+    "team_tasks": [],
+    "atomic77_chat_messages": [
+      {
+        "id": "a77-welcome",
+        "role": "assistant",
+        "text": "I'm **Atomic 77** \u2014 idea to launch inside QA on Air. Ask about scope, BRAHL, launch, costs, or QA Hunter workflows. Toggle **AI on** for full assistant mode.",
+        "at": "2026-07-25T19:09:56+00:00"
+      }
+    ],
+    "atomic77_usage": {
+      "messages": 0,
+      "tokens_est": 0,
+      "user_messages": 0
+    },
+    "cycle_history": [],
+    "hitl_stories": [],
+    "hitl_invites": [],
+    "change_requests": [],
+    "runtime_mode": "local",
+    "app_version": "",
+    "baseline_version": "",
+    "baseline_run": null,
+    "ai_usage": {
+      "calls": 0,
+      "total_tokens": 0,
+      "usd_est": 0.0
+    },
+    "evidence_library": [],
+    "ai_journey_updated_at": "2026-07-28T17:27:53+00:00",
+    "brahl_chat_messages": [
+      {
+        "id": "brahl-welcome",
+        "role": "assistant",
+        "text": "I'm the BRAHL model for this project. Select a report or ask about the latest BRAHL findings.",
+        "at": "2026-07-25T19:09:56+00:00"
+      }
+    ],
+    "thought_captures": []
+  },
+  {
+    "id": "5f2770b06483",
+    "documents": [],
+    "context_items": [
+      {
+        "id": "feb5b22d",
+        "kind": "url",
+        "label": "App URL",
+        "value": "https://the-internet.herokuapp.com/",
+        "added_at": "2026-07-25T19:27:43+00:00"
+      }
+    ],
+    "chat_messages": [
+      {
+        "id": "welcome",
+        "role": "assistant",
+        "text": "Hi \u2014 I'm your BRAHL Build assistant. What are you trying to test or improve?",
+        "at": "2026-07-25T00:00:00+00:00"
+      }
+    ],
+    "status": "open",
+    "owner_avatar": "client",
+    "owner_user_id": null,
+    "ai_enabled": true,
+    "runtime_mode": "local",
+    "created_at": "2026-07-25T19:27:43+00:00",
+    "name": "UI_internet",
+    "suite_name": "UI_internet",
+    "suite_config": "y/UI_internet/UI_internet.json",
+    "app_url": "https://the-internet.herokuapp.com/",
+    "purpose": "Demo template \u2014 the-internet UI (forms, alerts, DnD, upload, waits)",
+    "prompt": "Demo template \u2014 the-internet UI (forms, alerts, DnD, upload, waits)",
+    "updated_at": "2026-07-25T19:27:43+00:00",
+    "budget_usd": 0.0,
+    "budget_split": {
+      "automation_pct": 50,
+      "human_pct": 50
+    },
+    "hitl_consultants": [],
+    "brahl_chat_messages": [
+      {
+        "id": "brahl-welcome",
+        "role": "assistant",
+        "text": "I'm the BRAHL model for this project. Select a report or ask about the latest BRAHL findings.",
+        "at": "2026-07-25T19:27:43+00:00"
+      }
+    ],
+    "team_messages": [],
+    "team_tasks": [],
+    "atomic77_chat_messages": [
+      {
+        "id": "a77-welcome",
+        "role": "assistant",
+        "text": "I'm **Atomic 77** \u2014 idea to launch inside QA on Air. Ask about scope, BRAHL, launch, costs, or QA Hunter workflows. Toggle **AI on** for full assistant mode.",
+        "at": "2026-07-25T19:27:43+00:00"
+      }
+    ],
+    "atomic77_usage": {
+      "messages": 0,
+      "tokens_est": 0,
+      "user_messages": 0
+    },
+    "cycle_history": [],
+    "hitl_stories": [],
+    "hitl_invites": [],
+    "change_requests": [],
+    "app_version": "",
+    "baseline_version": "",
+    "baseline_run": null,
+    "brahl_plan_draft": null,
+    "ai_usage": {
+      "calls": 0,
+      "total_tokens": 0,
+      "usd_est": 0.0
+    },
+    "evidence_library": [],
+    "thought_captures": []
+  },
+  {
+    "id": "ai_foxyiz",
+    "name": "AI_foxyiz",
+    "app_url": "https://foxyiz.com/",
+    "suite_name": "AI_foxyiz",
+    "suite_config": "y/AI_foxyiz/AI_foxyiz.json",
+    "purpose": "FoXYiZ.com AI Generate \u2014 prompt chips to yPAD contract checks",
+    "prompt": "FoXYiZ.com AI Generate \u2014 prompt chips to yPAD contract checks",
+    "owner_avatar": "client",
+    "status": "open",
+    "ai_enabled": true,
+    "documents": [],
+    "context_items": [],
+    "chat_messages": [
+      {
+        "id": "welcome",
+        "role": "assistant",
+        "text": "AI_foxyiz suite ready.",
+        "at": "2026-07-27T19:00:00+00:00"
+      }
+    ],
+    "budget_usd": 0.0,
+    "budget_split": {
+      "automation_pct": 40,
+      "human_pct": 60
+    },
+    "hitl_consultants": [],
+    "brahl_chat_messages": [
+      {
+        "id": "brahl-welcome",
+        "role": "assistant",
+        "text": "I'm the BRAHL model for this project. Select a report or ask about the latest BRAHL findings.",
+        "at": "2026-07-28T06:06:44+00:00"
+      }
+    ],
+    "team_messages": [],
+    "team_tasks": [],
+    "atomic77_chat_messages": [
+      {
+        "id": "a77-welcome",
+        "role": "assistant",
+        "text": "I'm **Atomic 77** \u2014 idea to launch inside QA on Air. Ask about scope, BRAHL, launch, costs, or QA Hunter workflows. Toggle **AI on** for full assistant mode.",
+        "at": "2026-07-28T06:06:44+00:00"
+      }
+    ],
+    "atomic77_usage": {
+      "messages": 0,
+      "tokens_est": 0,
+      "user_messages": 0
+    },
+    "cycle_history": [
+      {
+        "id": "43481590",
+        "step": "Run",
+        "detail": "completed",
+        "at": "2026-07-29T11:05:21+00:00",
+        "run_name": "20260729_163440_AI_foxyiz",
+        "stats": {
+          "passes": 2,
+          "fails": 0,
+          "total_plans": 2,
+          "health": "green"
+        }
+      }
+    ],
+    "hitl_stories": [],
+    "hitl_invites": [],
+    "change_requests": [],
+    "runtime_mode": "local",
+    "app_version": "",
+    "baseline_version": "",
+    "baseline_run": null,
+    "owner_user_id": null,
+    "brahl_plan_draft": null,
+    "ai_usage": {
+      "calls": 0,
+      "total_tokens": 0,
+      "usd_est": 0.0
+    },
+    "evidence_library": [],
+    "latest_run": "20260729_163440_AI_foxyiz",
+    "updated_at": "2026-07-29T11:05:22+00:00",
+    "ai_journey_updated_at": "2026-07-29T11:05:21+00:00",
+    "reports": [
+      {
+        "id": "1a5dd334",
+        "run_name": "20260727_120213_AI_foxyiz",
+        "report_path": "z/20260727_120213_AI_foxyiz/brahl_report.md",
+        "submitted_at": "2026-07-28T06:06:44+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "1b4a1041",
+        "run_name": "20260727_231312_AI_foxyiz",
+        "report_path": "z/20260727_231312_AI_foxyiz/brahl_report.md",
+        "submitted_at": "2026-07-28T06:19:11+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "ea962ee4",
+        "run_name": "20260729_163440_AI_foxyiz",
+        "report_path": "z/20260729_163440_AI_foxyiz/brahl_report.md",
+        "submitted_at": "2026-07-29T11:05:22+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      }
+    ],
+    "thought_captures": [],
+    "current_phase": "Run"
+  },
+  {
+    "id": "ai_ux",
+    "name": "AI_ux",
+    "app_url": "https://foxyiz.com/",
+    "suite_name": "AI_ux",
+    "suite_config": "y/AI_ux/AI_ux.json",
+    "purpose": "Portable AI chatbot UX template (UI + API + Manual)",
+    "prompt": "Portable AI chatbot UX template (UI + API + Manual)",
+    "owner_avatar": "client",
+    "status": "open",
+    "ai_enabled": true,
+    "documents": [],
+    "context_items": [],
+    "chat_messages": [
+      {
+        "id": "welcome",
+        "role": "assistant",
+        "text": "AI_ux suite ready.",
+        "at": "2026-07-27T19:00:00+00:00"
+      }
+    ],
+    "budget_usd": 0.0,
+    "budget_split": {
+      "automation_pct": 40,
+      "human_pct": 60
+    },
+    "hitl_consultants": [],
+    "brahl_chat_messages": [
+      {
+        "id": "brahl-welcome",
+        "role": "assistant",
+        "text": "I'm the BRAHL model for this project. Select a report or ask about the latest BRAHL findings.",
+        "at": "2026-07-28T06:06:44+00:00"
+      }
+    ],
+    "team_messages": [],
+    "team_tasks": [],
+    "atomic77_chat_messages": [
+      {
+        "id": "a77-welcome",
+        "role": "assistant",
+        "text": "I'm **Atomic 77** \u2014 idea to launch inside QA on Air. Ask about scope, BRAHL, launch, costs, or QA Hunter workflows. Toggle **AI on** for full assistant mode.",
+        "at": "2026-07-28T06:06:44+00:00"
+      }
+    ],
+    "atomic77_usage": {
+      "messages": 0,
+      "tokens_est": 0,
+      "user_messages": 0
+    },
+    "cycle_history": [],
+    "hitl_stories": [],
+    "hitl_invites": [],
+    "change_requests": [],
+    "runtime_mode": "local",
+    "app_version": "",
+    "baseline_version": "",
+    "baseline_run": null,
+    "owner_user_id": null,
+    "brahl_plan_draft": null,
+    "ai_usage": {
+      "calls": 0,
+      "total_tokens": 0,
+      "usd_est": 0.0
+    },
+    "evidence_library": [],
+    "latest_run": null,
+    "updated_at": "2026-07-27T19:00:00+00:00",
+    "ai_journey_updated_at": "2026-07-27T19:00:00+00:00",
+    "reports": [],
+    "thought_captures": []
+  },
+  {
+    "id": "konfigai_public",
+    "name": "KonfigAI",
+    "app_url": "https://www.konfigai.com/",
+    "suite_name": "KonfigAI",
+    "suite_config": "y/KonfigAI/KonfigAI.json",
+    "purpose": "Public site link/title/form chrome \u2014 konfigai.com",
+    "prompt": "Public site link/title/form chrome \u2014 konfigai.com",
+    "owner_avatar": "client",
+    "status": "open",
+    "ai_enabled": true,
+    "documents": [],
+    "context_items": [],
+    "chat_messages": [
+      {
+        "id": "welcome",
+        "role": "assistant",
+        "text": "KonfigAI suite ready.",
+        "at": "2026-07-28T17:00:00+00:00"
+      }
+    ],
+    "budget_usd": 0.0,
+    "budget_split": {
+      "automation_pct": 50,
+      "human_pct": 50
+    },
+    "hitl_consultants": [],
+    "brahl_chat_messages": [
+      {
+        "id": "brahl-welcome",
+        "role": "assistant",
+        "text": "I'm the BRAHL model for this project. Select a report or ask about the latest BRAHL findings.",
+        "at": "2026-07-28T17:00:00+00:00"
+      }
+    ],
+    "team_messages": [],
+    "team_tasks": [],
+    "atomic77_chat_messages": [
+      {
+        "id": "a77-welcome",
+        "role": "assistant",
+        "text": "I'm **Atomic 77** \u2014 idea to launch inside QA on Air. Ask about scope, BRAHL, launch, costs, or QA Hunter workflows. Toggle **AI on** for full assistant mode.",
+        "at": "2026-07-28T17:00:00+00:00"
+      }
+    ],
+    "atomic77_usage": {
+      "messages": 0,
+      "tokens_est": 0,
+      "user_messages": 0
+    },
+    "cycle_history": [],
+    "hitl_stories": [],
+    "hitl_invites": [],
+    "change_requests": [],
+    "runtime_mode": "local",
+    "app_version": "",
+    "baseline_version": "",
+    "baseline_run": null,
+    "owner_user_id": null,
+    "brahl_plan_draft": null,
+    "ai_usage": {
+      "calls": 0,
+      "total_tokens": 0,
+      "usd_est": 0.0
+    },
+    "evidence_library": [],
+    "latest_run": "20260728_102123_KonfigAI",
+    "updated_at": "2026-07-28T17:22:57+00:00",
+    "ai_journey_updated_at": "2026-07-28T17:22:57+00:00",
+    "reports": [
+      {
+        "id": "konfig_title",
+        "run_name": "20260728_095550_KonfigAI",
+        "report_path": "z/20260728_095550_KonfigAI/brahl_report.md",
+        "submitted_at": "2026-07-28T16:57:00+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "c9bff45e",
+        "run_name": "20260728_095712_KonfigAI",
+        "report_path": "z/20260728_095712_KonfigAI/brahl_report.md",
+        "submitted_at": "2026-07-28T17:00:03+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "72b26ec4",
+        "run_name": "20260728_100503_KonfigAI",
+        "report_path": "z/20260728_100503_KonfigAI/brahl_report.md",
+        "submitted_at": "2026-07-28T17:07:01+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "d45f8b59",
+        "run_name": "20260728_100502_KonfigAI",
+        "report_path": "z/20260728_100502_KonfigAI/brahl_report.md",
+        "submitted_at": "2026-07-28T17:11:46+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "65acd8d7",
+        "run_name": "20260728_101828_KonfigAI",
+        "report_path": "z/20260728_101828_KonfigAI/brahl_report.md",
+        "submitted_at": "2026-07-28T17:18:45+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "a2bb8a2f",
+        "run_name": "20260728_102123_KonfigAI",
+        "report_path": "z/20260728_102123_KonfigAI/brahl_report.md",
+        "submitted_at": "2026-07-28T17:22:57+00:00",
+        "source": "automation_ai",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      }
+    ],
+    "thought_captures": []
+  },
+  {
+    "id": "0d7ffea30ff2",
+    "name": "varkasa",
+    "app_url": "https://varkasa.com/",
+    "suite_name": "varkasa",
+    "suite_config": "y/varkasa/varkasa.json",
+    "purpose": "Deep Regression Testing Plan for varkasa App",
+    "prompt": "Deep Regression Testing Plan for varkasa App",
+    "owner_avatar": "client",
+    "owner_user_id": null,
+    "status": "open",
+    "documents": [],
+    "context_items": [
+      {
+        "kind": "url",
+        "label": "App URL",
+        "value": "https://varkasa.com/"
+      }
+    ],
+    "chat_messages": [
+      {
+        "id": "welcome",
+        "role": "assistant",
+        "text": "Hi \u2014 I'm your BRAHL Build assistant. What are you trying to test or improve?",
+        "at": "2026-07-28T18:06:29+00:00"
+      }
+    ],
+    "budget_usd": 50.0,
+    "budget_split": {
+      "automation_pct": 50,
+      "human_pct": 50
+    },
+    "hitl_consultants": [],
+    "reports": [
+      {
+        "id": "0c7ba385",
+        "run_name": "20260728_110726_varkasa",
+        "report_path": "z/20260728_110726_varkasa/brahl_report.md",
+        "submitted_at": "2026-07-28T18:07:43+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "00eb3f34",
+        "run_name": "20260728_113947_varkasa",
+        "report_path": "z/20260728_113947_varkasa/brahl_report.md",
+        "submitted_at": "2026-07-28T18:40:51+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      }
+    ],
+    "ai_enabled": true,
+    "brahl_context_path": null,
+    "brahl_plan_draft": {
+      "summary": "Deep Regression Testing Plan for varkasa App",
+      "user_stories": [
+        {
+          "title": "Login Flow Test",
+          "description": "Verify login functionality on home page",
+          "automated": true,
+          "id": "US1"
+        },
+        {
+          "title": "Search Functionality Test",
+          "description": "Test search bar functionality on products page",
+          "automated": true,
+          "id": "US2"
+        },
+        {
+          "title": "Product Details Page Test",
+          "description": "Verify product details page content and navigation",
+          "automated": true,
+          "id": "US3"
+        },
+        {
+          "title": "Cart Management Test",
+          "description": "Test cart management functionality on checkout page",
+          "automated": true,
+          "id": "US4"
+        },
+        {
+          "title": "Payment Gateway Integration Test",
+          "description": "Verify payment gateway integration with credit card",
+          "automated": true,
+          "id": "US5"
+        },
+        {
+          "title": "Admin Dashboard Test",
+          "description": "Verify admin dashboard functionality and navigation",
+          "automated": false,
+          "id": "US6"
+        },
+        {
+          "title": "User Profile Management Test",
+          "description": "Test user profile management functionality on account page",
+          "automated": true,
+          "id": "US7"
+        },
+        {
+          "title": "Order History Test",
+          "description": "Verify order history page content and filtering",
+          "automated": true,
+          "id": "US8"
+        },
+        {
+          "title": "Shipping Options Test",
+          "description": "Test shipping options selection on checkout page",
+          "automated": true,
+          "id": "US9"
+        },
+        {
+          "title": "Return Policy Test",
+          "description": "Verify return policy page content and navigation",
+          "automated": true,
+          "id": "US10"
+        },
+        {
+          "title": "FAQs Page Test",
+          "description": "Test FAQs page content and filtering",
+          "automated": true,
+          "id": "US11"
+        },
+        {
+          "title": "Settings Page Test",
+          "description": "Verify settings page functionality and navigation",
+          "automated": false,
+          "id": "US12"
+        },
+        {
+          "title": "Error Handling Test",
+          "description": "Test error handling on 404 page",
+          "automated": true,
+          "id": "US13"
+        },
+        {
+          "title": "Manual Mobile App Test",
+          "description": "Test manual mobile app functionality on iOS and Android",
+          "automated": false,
+          "id": "US14"
+        },
+        {
+          "title": "Manual UX Testing",
+          "description": "Test user experience on home page navigation",
+          "automated": false,
+          "id": "US15"
+        },
+        {
+          "title": "Manual UX Testing",
+          "description": "Test user experience on product details page navigation",
+          "automated": false,
+          "id": "US16"
+        }
+      ],
+      "test_cases": [
+        {
+          "id": "TC1",
+          "title": "Verify login button functionality on home page",
+          "automated": true
+        },
+        {
+          "id": "TC2",
+          "title": "Test search bar input validation on products page",
+          "automated": true
+        },
+        {
+          "id": "TC3",
+          "title": "Verify product details page content and navigation",
+          "automated": true
+        },
+        {
+          "id": "TC4",
+          "title": "Test cart management functionality on checkout page",
+          "automated": true
+        },
+        {
+          "id": "TC5",
+          "title": "Verify payment gateway integration with credit card",
+          "automated": true
+        },
+        {
+          "id": "TC6",
+          "title": "Test admin dashboard login functionality",
+          "automated": false
+        },
+        {
+          "id": "TC7",
+          "title": "Verify user profile management functionality on account page",
+          "automated": true
+        },
+        {
+          "id": "TC8",
+          "title": "Test order history page content and filtering",
+          "automated": true
+        },
+        {
+          "id": "TC9",
+          "title": "Verify shipping options selection on checkout page",
+          "automated": true
+        },
+        {
+          "id": "TC10",
+          "title": "Test return policy page content and navigation",
+          "automated": true
+        },
+        {
+          "id": "TC11",
+          "title": "Verify FAQs page content and filtering",
+          "automated": true
+        },
+        {
+          "id": "TC12",
+          "title": "Test settings page functionality and navigation",
+          "automated": false
+        },
+        {
+          "id": "TC13",
+          "title": "Verify error handling on 404 page",
+          "automated": true
+        },
+        {
+          "id": "TC14",
+          "title": "Test manual mobile app installation on iOS device",
+          "automated": false
+        },
+        {
+          "id": "TC15",
+          "title": "Test user experience on home page navigation",
+          "automated": false
+        },
+        {
+          "id": "TC16",
+          "title": "Test user experience on product details page navigation",
+          "automated": false
+        },
+        {
+          "id": "TC17",
+          "title": "Test user experience on checkout page navigation",
+          "automated": false
+        },
+        {
+          "id": "TC18",
+          "title": "Test user experience on account page navigation",
+          "automated": false
+        },
+        {
+          "id": "TC19",
+          "title": "Verify product category filtering on products page",
+          "automated": true
+        },
+        {
+          "id": "TC20",
+          "title": "Test product image upload functionality",
+          "automated": true
+        },
+        {
+          "id": "TC21",
+          "title": "Verify product description input validation",
+          "automated": true
+        },
+        {
+          "id": "TC22",
+          "title": "Test product price update functionality",
+          "automated": true
+        },
+        {
+          "id": "TC23",
+          "title": "Verify product quantity reduction on cart page",
+          "automated": true
+        },
+        {
+          "id": "TC24",
+          "title": "Test product removal from cart functionality",
+          "automated": true
+        },
+        {
+          "id": "TC25",
+          "title": "Verify order status update on order history page",
+          "automated": true
+        },
+        {
+          "id": "TC26",
+          "title": "Test shipping rate calculation on checkout page",
+          "automated": true
+        },
+        {
+          "id": "TC27",
+          "title": "Verify payment method selection on checkout page",
+          "automated": true
+        },
+        {
+          "id": "TC28",
+          "title": "Test coupon code application on checkout page",
+          "automated": true
+        },
+        {
+          "id": "TC29",
+          "title": "Verify product availability on products page",
+          "automated": true
+        },
+        {
+          "id": "TC30",
+          "title": "Test product rating submission functionality",
+          "automated": true
+        }
+      ],
+      "automated_count": 23,
+      "manual_count": 7,
+      "run_how": "Execute via FoXYiZ fEngine2 \u2014 low-code Tests/Steps/Test data CSVs. No Playwright."
+    },
+    "latest_run": "20260728_113947_varkasa",
+    "created_at": "2026-07-28T18:06:29+00:00",
+    "updated_at": "2026-07-28T19:18:41+00:00",
+    "brahl_chat_messages": [
+      {
+        "id": "brahl-welcome",
+        "role": "assistant",
+        "text": "I'm the BRAHL model for this project. Select a report or ask about the latest BRAHL findings.",
+        "at": "2026-07-28T18:06:29+00:00"
+      }
+    ],
+    "team_messages": [],
+    "team_tasks": [],
+    "atomic77_chat_messages": [
+      {
+        "id": "a77-welcome",
+        "role": "assistant",
+        "text": "I'm **Atomic 77** \u2014 idea to launch inside QA on Air. Ask about scope, BRAHL, launch, costs, or QA Hunter workflows. Toggle **AI on** for full assistant mode.",
+        "at": "2026-07-28T18:06:29+00:00"
+      }
+    ],
+    "atomic77_usage": {
+      "messages": 0,
+      "tokens_est": 0,
+      "user_messages": 0
+    },
+    "cycle_history": [],
+    "hitl_stories": [
+      {
+        "id": "3b860868",
+        "title": "Happy path smoke",
+        "description": "Core user journey works end-to-end",
+        "status": "open",
+        "created_at": "2026-07-28T18:06:30+00:00"
+      },
+      {
+        "id": "d1cc4456",
+        "title": "Auth & session",
+        "description": "Login, logout, session persistence",
+        "status": "open",
+        "created_at": "2026-07-28T18:06:30+00:00"
+      },
+      {
+        "id": "3dad8eda",
+        "title": "Mobile viewport",
+        "description": "Layout on phone \u2014 manual on real device [manual \u2014 QA Hunter]",
+        "status": "open",
+        "created_at": "2026-07-28T18:06:30+00:00"
+      },
+      {
+        "id": "92602f71",
+        "title": "Edge case inputs",
+        "description": "Empty, long, special characters",
+        "status": "open",
+        "created_at": "2026-07-28T18:06:30+00:00"
+      },
+      {
+        "id": "f2d35ba1",
+        "title": "QA Hunter exploration",
+        "description": "UX and accessibility pass [manual \u2014 QA Hunter]",
+        "status": "open",
+        "created_at": "2026-07-28T18:06:30+00:00"
+      },
+      {
+        "id": "6924730e",
+        "title": "Login Flow Test",
+        "description": "Verify login functionality on home page",
+        "status": "open",
+        "created_at": "2026-07-28T18:36:21+00:00"
+      },
+      {
+        "id": "0b2799a2",
+        "title": "Search Functionality Test",
+        "description": "Test search bar functionality on products page",
+        "status": "open",
+        "created_at": "2026-07-28T18:36:21+00:00"
+      },
+      {
+        "id": "339657f3",
+        "title": "Product Details Page Test",
+        "description": "Verify product details page content and navigation",
+        "status": "open",
+        "created_at": "2026-07-28T18:36:21+00:00"
+      },
+      {
+        "id": "b1332c48",
+        "title": "Cart Management Test",
+        "description": "Test cart management functionality on checkout page",
+        "status": "open",
+        "created_at": "2026-07-28T18:36:21+00:00"
+      },
+      {
+        "id": "87d5556a",
+        "title": "Payment Gateway Integration Test",
+        "description": "Verify payment gateway integration with credit card",
+        "status": "open",
+        "created_at": "2026-07-28T18:36:21+00:00"
+      },
+      {
+        "id": "3d5a59a9",
+        "title": "Admin Dashboard Test",
+        "description": "Verify admin dashboard functionality and navigation [manual \u2014 QA Hunter]",
+        "status": "open",
+        "created_at": "2026-07-28T18:36:21+00:00"
+      },
+      {
+        "id": "d389a546",
+        "title": "User Profile Management Test",
+        "description": "Test user profile management functionality on account page",
+        "status": "open",
+        "created_at": "2026-07-28T18:36:21+00:00"
+      },
+      {
+        "id": "dda54ce4",
+        "title": "Order History Test",
+        "description": "Verify order history page content and filtering",
+        "status": "open",
+        "created_at": "2026-07-28T18:36:21+00:00"
+      },
+      {
+        "id": "47df8bad",
+        "title": "Shipping Options Test",
+        "description": "Test shipping options selection on checkout page",
+        "status": "open",
+        "created_at": "2026-07-28T18:36:21+00:00"
+      },
+      {
+        "id": "eceaeaa4",
+        "title": "Return Policy Test",
+        "description": "Verify return policy page content and navigation",
+        "status": "open",
+        "created_at": "2026-07-28T18:36:21+00:00"
+      },
+      {
+        "id": "f5ed9e9a",
+        "title": "FAQs Page Test",
+        "description": "Test FAQs page content and filtering",
+        "status": "open",
+        "created_at": "2026-07-28T18:36:21+00:00"
+      },
+      {
+        "id": "98368268",
+        "title": "Settings Page Test",
+        "description": "Verify settings page functionality and navigation [manual \u2014 QA Hunter]",
+        "status": "open",
+        "created_at": "2026-07-28T18:36:21+00:00"
+      },
+      {
+        "id": "0b510af6",
+        "title": "Error Handling Test",
+        "description": "Test error handling on 404 page",
+        "status": "open",
+        "created_at": "2026-07-28T18:36:21+00:00"
+      },
+      {
+        "id": "9eadcfdf",
+        "title": "Manual Mobile App Test",
+        "description": "Test manual mobile app functionality on iOS and Android [manual \u2014 QA Hunter]",
+        "status": "open",
+        "created_at": "2026-07-28T18:36:21+00:00"
+      },
+      {
+        "id": "24f0f2df",
+        "title": "Manual UX Testing",
+        "description": "Test user experience on home page navigation [manual \u2014 QA Hunter]",
+        "status": "open",
+        "created_at": "2026-07-28T18:36:21+00:00"
+      }
+    ],
+    "hitl_invites": [],
+    "change_requests": [],
+    "runtime_mode": "local",
+    "app_version": "",
+    "baseline_version": "",
+    "baseline_run": null,
+    "ai_usage": {
+      "calls": 0,
+      "total_tokens": 0,
+      "usd_est": 0.0
+    },
+    "evidence_library": [],
+    "ai_journey_updated_at": "2026-07-28T19:18:41+00:00",
+    "thought_captures": []
+  }
+]

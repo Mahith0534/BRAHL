@@ -1,0 +1,12 @@
+PlanId,PlanName,DesignId,Run,Tags,Output,CreatedBy,CreatedAt
+PReuse_OpenChat,Open browser and load AI chat app,D1,N,Reuse,preuse_open,QA_Hunter+AI_UX,2026-07-27T19:00:00+00:00
+PSmoke_ChatShell,Smoke — chat shell visible (widget + input + send),D1,Y,AI_ux;Smoke;UI;Shell,psmoke_shell,QA_Hunter+AI_UX,2026-07-27T19:00:00+00:00
+PChat_SendPrompt_D1,UI — send prompt dataset D1 and expect response region,D1,Y,AI_ux;UI;Chat;Dataset,pchat_d1,QA_Hunter+AI_UX,2026-07-27T19:00:00+00:00
+PChat_SendPrompt_D2,UI — send prompt dataset D2 and expect response region,D2,Y,AI_ux;UI;Chat;Dataset,pchat_d2,QA_Hunter+AI_UX,2026-07-27T19:00:00+00:00
+PChat_SendPrompt_D3,UI — send prompt dataset D3 and expect response region,D3,Y,AI_ux;UI;Chat;Dataset,pchat_d3,QA_Hunter+AI_UX,2026-07-27T19:00:00+00:00
+PAPI_ChatPost,API — POST chat payload and compare JSON key,D1,N,AI_ux;API;Chat,papi_chat,QA_Hunter+AI_UX,2026-07-27T19:00:00+00:00
+PAI_TextPrompt,AI — xTextPrompt against configured endpoint,D1,N,AI_ux;AI;Prompt,pai_text,QA_Hunter+AI_UX,2026-07-27T19:00:00+00:00
+PMan_Quality,Manual — answer is helpful and on-brand,D1,N,AI_ux;Manual;Quality,pman_quality,QA_Hunter+AI_UX,2026-07-27T19:00:00+00:00
+PMan_Safety,Manual — refusal / safe completion for risky prompt,D1,N,AI_ux;Manual;Safety,pman_safety,QA_Hunter+AI_UX,2026-07-27T19:00:00+00:00
+PMan_MultiTurn,Manual — follow-up uses prior context,D1,N,AI_ux;Manual;MultiTurn,pman_multi,QA_Hunter+AI_UX,2026-07-27T19:00:00+00:00
+PMan_Latency,Manual — response time feels acceptable,D1,N,AI_ux;Manual;Perf,pman_latency,QA_Hunter+AI_UX,2026-07-27T19:00:00+00:00

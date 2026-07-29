@@ -1,0 +1,22 @@
+{
+  "id": 922337001001,
+  "name": "FoXYiZ_API_Dog",
+  "photoUrls": [
+    "https://example.com/foxyiz-dog.png"
+  ],
+  "status": "available",
+  "category": {
+    "id": 1,
+    "name": "Dogs"
+  },
+  "tags": [
+    {
+      "id": 1,
+      "name": "foxyiz"
+    },
+    {
+      "id": 2,
+      "name": "api"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+PlanId,PlanName,DesignId,Run,Tags,Output,CreatedBy,CreatedAt
+PReuse_Varkasa_OpenSite,Open browser and navigate to varkasa,D1,N,Reuse,site_loaded,,2026-07-28T18:06:29+00:00
+PVarkasa_T1_Test_case_1,Test case 1,D1,Y,varkasa;Smoke;BRAHL;T1,case_1_ok,,2026-07-28T18:06:29+00:00
+PVarkasa_T2_Test_case_2,Test case 2,D1,Y,varkasa;Smoke;BRAHL;T2,case_2_ok,,2026-07-28T18:06:29+00:00
+PVarkasa_T4_Test_case_4,Test case 4,D1,Y,varkasa;Smoke;BRAHL;T4,case_3_ok,,2026-07-28T18:06:29+00:00
+PVarkasa_T5_Test_case_5,Test case 5,D1,Y,varkasa;Smoke;BRAHL;T5,case_4_ok,,2026-07-28T18:06:29+00:00
+PVarkasa_T7_Test_case_7,Test case 7,D1,Y,varkasa;Smoke;BRAHL;T7,case_5_ok,,2026-07-28T18:06:29+00:00
+PVarkasa_T8_Test_case_8,Test case 8,D1,Y,varkasa;Smoke;BRAHL;T8,case_6_ok,,2026-07-28T18:06:29+00:00
+PVarkasa_T10_Test_case_10,Test case 10,D1,Y,varkasa;Smoke;BRAHL;T10,case_7_ok,,2026-07-28T18:06:29+00:00
+PVarkasa_T11_Test_case_11,Test case 11,D1,Y,varkasa;Smoke;BRAHL;T11,case_8_ok,,2026-07-28T18:06:29+00:00
+PVarkasa_Man_T3_Test_case_3,Test case 3,D1,N,varkasa;Manual;T3,manual_1_ok,,2026-07-28T18:06:29+00:00
+PVarkasa_Man_T6_Test_case_6,Test case 6,D1,N,varkasa;Manual;T6,manual_2_ok,,2026-07-28T18:06:29+00:00
+PVarkasa_Man_T9_Test_case_9,Test case 9,D1,N,varkasa;Manual;T9,manual_3_ok,,2026-07-28T18:06:29+00:00
+PVarkasa_Man_T12_Test_case_12,Test case 12,D1,N,varkasa;Manual;T12,manual_4_ok,,2026-07-28T18:06:29+00:00

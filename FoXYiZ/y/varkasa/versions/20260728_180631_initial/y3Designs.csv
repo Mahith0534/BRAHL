@@ -1,0 +1,16 @@
+Type,DataName,D1
+UI,persona_id,P1
+UI,persona_code,P1
+UI,persona_name,Default
+UI,default_avatar,client
+UI,can_switch_client,Y
+UI,can_switch_hitl,Y
+UI,login_email,
+UI,login_password,
+UI,base_url,https://varkasa.com/
+UI,body_locator,css=body
+UI,title_locator,css=title
+UI,h1_locator,css=h1
+UI,page_title_contains,
+UI,explore_url,https://varkasa.com/explore
+UI,login_url,https://varkasa.com/login

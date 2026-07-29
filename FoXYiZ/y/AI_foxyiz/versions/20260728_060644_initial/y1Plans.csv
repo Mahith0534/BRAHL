@@ -1,0 +1,13 @@
+PlanId,PlanName,DesignId,Run,Tags,Output,CreatedBy,CreatedAt
+PReuse_Open,Open Edge and load foxyiz.com home,D1,N,Reuse,preuse_open,QA_Hunter+AI_Demo,2026-07-27T19:00:00+00:00
+PSmoke_Hero,Smoke — hero + prompt box + Generate,D1,Y,AI_foxyiz;Smoke;UI;Shell,psmoke_hero,QA_Hunter+AI_Demo,2026-07-27T19:00:00+00:00
+PSmoke_ChipFill,Smoke — type prompt + Generate returns yPAD,D1,Y,AI_foxyiz;Smoke;UI;Chat,psmoke_chip,QA_Hunter+AI_Demo,2026-07-27T19:00:00+00:00
+PGen_Login,Generate — Automate website login → yPAD with xUI,D1,Y,AI_foxyiz;AI;UI;Chat;Gen,pgen_login,QA_Hunter+AI_Demo,2026-07-27T19:00:00+00:00
+PGen_API,Generate — Test a REST API → yPAD with xAPI,D1,Y,AI_foxyiz;AI;API;Chat;Gen,pgen_api,QA_Hunter+AI_Demo,2026-07-27T19:00:00+00:00
+PGen_Math,Generate — Run math calculations → yPAD with xMath,D1,Y,AI_foxyiz;AI;Math;Chat;Gen,pgen_math,QA_Hunter+AI_Demo,2026-07-27T19:00:00+00:00
+PGen_Custom_D1,Generate — custom prompt dataset D1,D1,Y,AI_foxyiz;AI;Chat;Dataset,pgen_d1,QA_Hunter+AI_Demo,2026-07-27T19:00:00+00:00
+PGen_Custom_D2,Generate — custom prompt dataset D2,D2,Y,AI_foxyiz;AI;Chat;Dataset,pgen_d2,QA_Hunter+AI_Demo,2026-07-27T19:00:00+00:00
+PGen_Custom_D3,Generate — custom prompt dataset D3,D3,Y,AI_foxyiz;AI;Chat;Dataset,pgen_d3,QA_Hunter+AI_Demo,2026-07-27T19:00:00+00:00
+PMan_Quality,Manual — response is useful on-brand yPAD,D1,N,AI_foxyiz;Manual;Quality,pman_quality,QA_Hunter+AI_Demo,2026-07-27T19:00:00+00:00
+PMan_Hallucination,Manual — no invented ActionNames / broken CSV,D1,N,AI_foxyiz;Manual;Safety,pman_halluc,QA_Hunter+AI_Demo,2026-07-27T19:00:00+00:00
+PMan_MultiTurn,Manual — second prompt refines previous yPAD,D1,N,AI_foxyiz;Manual;Chat;MultiTurn,pman_multi,QA_Hunter+AI_Demo,2026-07-27T19:00:00+00:00

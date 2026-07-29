@@ -1,0 +1,32 @@
+PlanId,StepId,StepInfo,ActionType,ActionName,Input,Output,Expected,Critical
+PReuse_Varkasa_OpenSite,1,Open browser,xUI,xOpenBrowser,edge,,,y
+PReuse_Varkasa_OpenSite,2,Navigate to app,xUI,xNavigate,base_url,,,y
+PReuse_Varkasa_OpenSite,3,Verify body present,xUI,xGetText,body_locator,,,y
+PVarkasa_T1_Test_case_1,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_T1_Test_case_1,2,Verify: Test case 1,xUI,xGetText,body_locator,,,y
+PVarkasa_T1_Test_case_1,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_T2_Test_case_2,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_T2_Test_case_2,2,Verify: Test case 2,xUI,xGetText,body_locator,,,y
+PVarkasa_T2_Test_case_2,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_T4_Test_case_4,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_T4_Test_case_4,2,Verify: Test case 4,xUI,xGetText,body_locator,,,y
+PVarkasa_T4_Test_case_4,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_T5_Test_case_5,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_T5_Test_case_5,2,Verify: Test case 5,xUI,xGetText,body_locator,,,y
+PVarkasa_T5_Test_case_5,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_T7_Test_case_7,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_T7_Test_case_7,2,Verify: Test case 7,xUI,xGetText,body_locator,,,y
+PVarkasa_T7_Test_case_7,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_T8_Test_case_8,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_T8_Test_case_8,2,Verify: Test case 8,xUI,xGetText,body_locator,,,y
+PVarkasa_T8_Test_case_8,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_T10_Test_case_10,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_T10_Test_case_10,2,Verify: Test case 10,xUI,xGetText,body_locator,,,y
+PVarkasa_T10_Test_case_10,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_T11_Test_case_11,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_T11_Test_case_11,2,Verify: Test case 11,xUI,xGetText,body_locator,,,y
+PVarkasa_T11_Test_case_11,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_Man_T3_Test_case_3,1,Manual: Test case 3,xUI,xGetText,body_locator,,,n
+PVarkasa_Man_T6_Test_case_6,1,Manual: Test case 6,xUI,xGetText,body_locator,,,n
+PVarkasa_Man_T9_Test_case_9,1,Manual: Test case 9,xUI,xGetText,body_locator,,,n
+PVarkasa_Man_T12_Test_case_12,1,Manual: Test case 12,xUI,xGetText,body_locator,,,n

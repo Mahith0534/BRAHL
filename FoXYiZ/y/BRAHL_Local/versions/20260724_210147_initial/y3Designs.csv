@@ -1,0 +1,37 @@
+Type,DataName,D1
+UI,base_url,http://127.0.0.1:8766/
+UI,app_url,http://127.0.0.1:8766/app
+UI,body_locator,css=body
+UI,app_title_locator,css=#app-title
+UI,phase_nav_locator,css=#phase-nav
+UI,topbar_workspace_locator,css=#topbar-workspace
+UI,workspace_chip_locator,css=#topbar-workspace .topbar-workspace-chip
+UI,workspace_label_locator,css=#topbar-workspace-label
+UI,panel_build_locator,css=#panel-build
+UI,panel_run_locator,css=#panel-run
+UI,panel_analyze_locator,css=#panel-analyze
+UI,panel_heal_locator,css=#panel-heal
+UI,panel_loop_locator,css=#panel-loop
+UI,panel_brahl_locator,css=#panel-brahl
+UI,btn_phase_build,css=button.phase-btn[data-phase='build']
+UI,btn_phase_run,css=button.phase-btn[data-phase='run']
+UI,btn_phase_analyze,css=button.phase-btn[data-phase='analyze']
+UI,btn_phase_heal,css=button.phase-btn[data-phase='heal']
+UI,btn_phase_loop,css=button.phase-btn[data-phase='loop']
+UI,btn_phase_brahl,css=button.phase-btn[data-phase='brahl']
+UI,desktop_title_locator,css=body.desktop-mode #app-title
+UI,page_title_token,BRAHL Local
+UI,title_token,BRAHL Desktop
+UI,text_tagline,FoXYiZ runs the tests
+UI,text_workspace,Workspace
+UI,text_phase_build,Build
+UI,text_phase_run,Run
+UI,text_phase_analyze,Analyze
+UI,text_phase_heal,Heal
+UI,text_phase_loop,Loop
+UI,text_phase_brahl,BRAHL
+UI,text_run_heading,FoXYiZ fEngine2
+UI,text_analyze_heading,Analyze
+UI,text_heal_heading,Heal
+UI,text_loop_heading,Loop
+UI,text_brahl_heading,BRAHL

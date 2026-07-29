@@ -1,0 +1,15 @@
+PlanId,PlanName,DesignId,Run,Tags,Output,CreatedBy,CreatedAt
+PPet_Smoke_FindByStatus,Smoke — GET /pet/findByStatus?status=available returns 200,D1,Y,API_Petstore;Smoke;API;Pet,smoke_find,QA_Hunter+Petstore,2026-07-25T19:00:00+00:00
+PPet_Smoke_Inventory,Smoke — GET /store/inventory returns 200,D1,Y,API_Petstore;Smoke;API;Store,smoke_inventory,QA_Hunter+Petstore,2026-07-25T19:00:00+00:00
+PPet_Pet_CrudFlow,Pet CRUD — add → get → update → get → delete,D1,Y,API_Petstore;API;Pet;CRUD,pet_crud,QA_Hunter+Petstore,2026-07-25T19:00:00+00:00
+PPet_Pet_FindByStatusPending,Pet — findByStatus pending,D1,Y,API_Petstore;API;Pet,pet_pending,QA_Hunter+Petstore,2026-07-25T19:00:00+00:00
+PPet_Pet_FindByStatusSold,Pet — findByStatus sold,D1,Y,API_Petstore;API;Pet,pet_sold,QA_Hunter+Petstore,2026-07-25T19:00:00+00:00
+PPet_Store_PlaceAndGetOrder,Store — place order then get by id,D1,Y,API_Petstore;API;Store,store_order,QA_Hunter+Petstore,2026-07-25T19:00:00+00:00
+PPet_Store_DeleteOrder,Store — delete order by id,D1,Y,API_Petstore;API;Store,store_delete,QA_Hunter+Petstore,2026-07-25T19:00:00+00:00
+PPet_User_CreateGetLogin,User — create → get → login → logout,D1,Y,API_Petstore;API;User,user_flow,QA_Hunter+Petstore,2026-07-25T19:00:00+00:00
+PPet_User_Update,User — PUT update profile fields,D1,Y,API_Petstore;API;User,user_update,QA_Hunter+Petstore,2026-07-25T19:00:00+00:00
+PPet_Sec_PetNotFound,Security — GET missing pet returns 404,D1,Y,API_Petstore;Security;API;Pet,sec_pet_404,QA_Hunter+Petstore,2026-07-25T19:00:00+00:00
+PPet_Sec_UserNotFound,Security — GET missing user returns 404,D1,Y,API_Petstore;Security;API;User,sec_user_404,QA_Hunter+Petstore,2026-07-25T19:00:00+00:00
+PPet_Perf_FindByStatus,Perf — findByStatus available responds 200,D1,Y,API_Petstore;Performance;API;Pet,perf_find,QA_Hunter+Petstore,2026-07-25T19:00:00+00:00
+PPet_Perf_Inventory,Perf — inventory responds 200,D1,Y,API_Petstore;Performance;API;Store,perf_inventory,QA_Hunter+Petstore,2026-07-25T19:00:00+00:00
+PPet_Perf_ApiBatch,Perf — batch pet/store/user GETs stay 200,D1,Y,API_Petstore;Performance;API,perf_batch,QA_Hunter+Petstore,2026-07-25T19:00:00+00:00

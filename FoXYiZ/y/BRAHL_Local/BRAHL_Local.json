@@ -1,0 +1,7 @@
+{
+  "input_files": {
+    "yPlans": ["y/BRAHL_Local/y1Plans.csv"],
+    "yActions": ["y/BRAHL_Local/y2Actions.csv"],
+    "yDesigns": ["y/BRAHL_Local/y3Designs.csv"]
+  }
+}

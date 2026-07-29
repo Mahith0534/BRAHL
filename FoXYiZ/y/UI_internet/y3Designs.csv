@@ -1,0 +1,134 @@
+Type,DataName,D1
+UI,base_url,https://the-internet.herokuapp.com/
+UI,body_locator,css=body
+UI,h3_locator,css=h3
+UI,h2_locator,css=h2
+UI,flash_locator,css=#flash
+UI,content_locator,css=#content
+UI,url_home,https://the-internet.herokuapp.com/
+UI,url_ab,https://the-internet.herokuapp.com/abtest
+UI,url_add_remove,https://the-internet.herokuapp.com/add_remove_elements/
+UI,url_basic_auth,https://admin:admin@the-internet.herokuapp.com/basic_auth
+UI,url_broken,https://the-internet.herokuapp.com/broken_images
+UI,url_challenging,https://the-internet.herokuapp.com/challenging_dom
+UI,url_checkboxes,https://the-internet.herokuapp.com/checkboxes
+UI,url_context,https://the-internet.herokuapp.com/context_menu
+UI,url_disappear,https://the-internet.herokuapp.com/disappearing_elements
+UI,url_drag,https://the-internet.herokuapp.com/drag_and_drop
+UI,url_dropdown,https://the-internet.herokuapp.com/dropdown
+UI,url_dyn_content,https://the-internet.herokuapp.com/dynamic_content
+UI,url_dyn_controls,https://the-internet.herokuapp.com/dynamic_controls
+UI,url_dyn_load1,https://the-internet.herokuapp.com/dynamic_loading/1
+UI,url_dyn_load2,https://the-internet.herokuapp.com/dynamic_loading/2
+UI,url_entry_ad,https://the-internet.herokuapp.com/entry_ad
+UI,url_upload,https://the-internet.herokuapp.com/upload
+UI,url_floating,https://the-internet.herokuapp.com/floating_menu
+UI,url_forgot,https://the-internet.herokuapp.com/forgot_password
+UI,url_login,https://the-internet.herokuapp.com/login
+UI,url_slider,https://the-internet.herokuapp.com/horizontal_slider
+UI,url_hovers,https://the-internet.herokuapp.com/hovers
+UI,url_inputs,https://the-internet.herokuapp.com/inputs
+UI,url_alerts,https://the-internet.herokuapp.com/javascript_alerts
+UI,url_keys,https://the-internet.herokuapp.com/key_presses
+UI,url_large,https://the-internet.herokuapp.com/large
+UI,url_notify,https://the-internet.herokuapp.com/notification_message_rendered
+UI,url_redirect,https://the-internet.herokuapp.com/redirector
+UI,url_status,https://the-internet.herokuapp.com/status_codes
+UI,url_status_404,https://the-internet.herokuapp.com/status_codes/404
+UI,url_tables,https://the-internet.herokuapp.com/tables
+UI,url_typos,https://the-internet.herokuapp.com/typos
+UI,url_shifting,https://the-internet.herokuapp.com/shifting_content
+UI,text_welcome,Welcome to the-internet
+UI,link_login,css=a[href='/login']
+UI,btn_add_element,css=button[onclick='addElement()']
+UI,btn_delete,css=button.added-manually
+UI,text_add_remove,Add/Remove Elements
+UI,text_basic_auth,Congratulations! You must have the proper credentials.
+UI,text_broken,Broken Images
+UI,img_first,css=.example img
+UI,text_challenging,Challenging DOM
+UI,btn_challenging,css=.button
+UI,table_cell,css=#content table tbody tr:nth-of-type(1) td:nth-of-type(1)
+UI,cb1,css=#checkboxes input:nth-of-type(1)
+UI,cb2,css=#checkboxes input:nth-of-type(2)
+UI,checked,checked
+UI,unchecked,unchecked
+UI,hotspot,css=#hot-spot
+UI,alert_accept,accept
+UI,text_disappear,Disappearing Elements
+UI,nav_home,css=ul li a[href='/']
+UI,dnd_ab,css=#column-a;css=#column-b
+UI,col_a,css=#column-a
+UI,dd_option1,css=#dropdown;1
+UI,dd_option2,css=#dropdown;2
+UI,text_dropdown,Dropdown List
+UI,text_dyn_content,Dynamic Content
+UI,dyn_row,css=#content .row .large-10
+UI,btn_remove,css=#checkbox-example button
+UI,btn_enable,css=#input-example button
+UI,dyn_message,css=#message
+UI,dyn_input,css=#input-example input
+UI,type_dyn_enabled,BRAHL_enabled;css=#input-example input
+UI,text_gone,It's gone!
+UI,text_enabled,It's enabled!
+UI,btn_start,css=#start button
+UI,finish_locator,css=#finish
+UI,text_hello,Hello World!
+UI,btn_modal_close,css=.modal-footer p
+UI,text_entry_ad,Entry Ad
+UI,upload_file,css=#file-upload;y/UI_internet/payloads/upload_demo.txt
+UI,btn_upload,css=#file-submit
+UI,text_uploaded,File Uploaded!
+UI,text_floating,Floating Menu
+UI,menu_about,css=a[href='#about']
+UI,type_email,demo@foxyiz.example;css=#email
+UI,btn_retrieve,css=#form_submit
+UI,type_user_ok,tomsmith;css=#username
+UI,type_pass_ok,SuperSecretPassword!;css=#password
+UI,type_user_bad,wronguser;css=#username
+UI,type_pass_bad,wrongpass;css=#password
+UI,btn_login,css=button[type='submit']
+UI,btn_logout,css=a.button.secondary.radius
+UI,text_login_ok,You logged into a secure area!
+UI,text_login_fail,Your username is invalid!
+UI,text_logout_ok,You logged out of the secure area!
+UI,text_secure,Secure Area
+UI,slider,css=input[type='range']
+UI,keys_slider_right,css=input[type='range'];ARROW_RIGHT
+UI,slider_value,css=#range
+UI,hover_user1,css=.figure:nth-of-type(1) img
+UI,hover_caption1,css=.figure:nth-of-type(1) .figcaption
+UI,text_user1,user1
+UI,type_number,42;css=input[type='number']
+UI,input_number,css=input[type='number']
+UI,btn_js_alert,xpath=//button[normalize-space()='Click for JS Alert']
+UI,btn_js_confirm,xpath=//button[normalize-space()='Click for JS Confirm']
+UI,btn_js_prompt,xpath=//button[normalize-space()='Click for JS Prompt']
+UI,alert_dismiss,dismiss
+UI,alert_type_brahl,type:BRAHL
+UI,result_locator,css=#result
+UI,text_alert_ok,You successfully clicked an alert
+UI,text_confirm_ok,You clicked: Ok
+UI,text_confirm_cancel,You clicked: Cancel
+UI,text_prompt_brahl,You entered: brahl
+UI,keys_enter,css=#target;ENTER
+UI,keys_tab,css=#target;TAB
+UI,key_result,css=#result
+UI,text_enter,You entered: ENTER
+UI,text_large,Large & Deep DOM
+UI,large_cell,css=#large-table tr:nth-of-type(2) td:nth-of-type(2)
+UI,link_click_here,css=a[href='/notification_message']
+UI,text_notification_hdr,Notification Message
+UI,link_redirect,css=#redirect
+UI,text_status_codes,Status Codes
+UI,link_status_404,css=a[href='404']
+UI,text_status_404,404
+UI,text_tables,Data Tables
+UI,table1_cell,css=#table1 tbody tr:nth-of-type(1) td:nth-of-type(1)
+UI,table1_edit,css=#table1 tbody tr:nth-of-type(1) a[href='#edit']
+UI,text_typos,Typos
+UI,text_shifting,Shifting Content
+UI,viewport_mobile,390;844
+UI,viewport_desktop,1280;800
+UI,h1_locator,css=h1
+UI,text_delete,Delete

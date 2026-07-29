@@ -1,0 +1,21 @@
+{
+  "configs": [
+    "y/API_Petstore/API_Petstore.json"
+  ],
+  "thread_count": 1,
+  "timeout": 15,
+  "headless": true,
+  "debug": false,
+  "tags": [
+    "Smoke",
+    "API"
+  ],
+  "capture": {
+    "image": "off",
+    "video": "off",
+    "video_fps": 2,
+    "subdir": "",
+    "overlay": "off",
+    "overlay_ms": 250
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "20260724_210147_initial",
+  "label": "initial",
+  "author": "system",
+  "created_at": "2026-07-24T21:01:47+00:00",
+  "source_build": "auto-baseline",
+  "suite_config": "y/BRAHL_Local/BRAHL_Local.json",
+  "files": [
+    {
+      "sheet": "plans",
+      "source": "y/BRAHL_Local/y1Plans.csv",
+      "snapshot": "y/BRAHL_Local/versions/20260724_210147_initial/y1Plans.csv"
+    },
+    {
+      "sheet": "actions",
+      "source": "y/BRAHL_Local/y2Actions.csv",
+      "snapshot": "y/BRAHL_Local/versions/20260724_210147_initial/y2Actions.csv"
+    },
+    {
+      "sheet": "designs",
+      "source": "y/BRAHL_Local/y3Designs.csv",
+      "snapshot": "y/BRAHL_Local/versions/20260724_210147_initial/y3Designs.csv"
+    }
+  ],
+  "immutable": true
+}

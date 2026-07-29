@@ -1,13 +1,13 @@
-{
+﻿{
   "configs": [
-    "y/Math/Math.json"
+    "y/API_Petstore/API_Petstore.json"
   ],
   "thread_count": 1,
-  "timeout": 10,
-  "headless": false,
+  "timeout": 30,
+  "headless": true,
   "debug": false,
   "tags": [
-    "smoke"
+    "Smoke"
   ],
   "capture": {
     "image": "on_fail",

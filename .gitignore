@@ -1,12 +1,50 @@
+# --- Secrets (keep *.example) ---
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# --- FoXYiZ engine runtime / results ---
 FoXYiZ/z/*
-FoXYiZ/.venv/
 !FoXYiZ/z/.gitkeep
+!FoXYiZ/z/zDash_template.html
 FoXYiZ/f/fStart/.runtime/
-FoXYiZ/f/.env
-!workspaces/.gitkeep
+FoXYiZ/.venv/
+
+# --- Workspace clones (app-under-test) ---
 workspaces/*
-qoa_web/data/workspace.json
-qoa_web/data/*.db
+!workspaces/.gitkeep
+
+# --- BRAHL local / desktop runtime data ---
+# Keep *.seed.json, projects.json, and data/README.md tracked.
+BRAHL/data/users.db
+BRAHL/data/*.db
+BRAHL/data/workspace.json
+BRAHL/data/ai_usage.json
+BRAHL/data/schedules.json
+BRAHL/data/uploads/
+BRAHL/data/user_ai_docs/*
+!BRAHL/data/user_ai_docs/manifest.json
+!BRAHL/data/user_ai_docs/.gitkeep
+
+# --- Python ---
 **/__pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- OS / editor ---
 .DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.log
+*.tmp
+*.bak

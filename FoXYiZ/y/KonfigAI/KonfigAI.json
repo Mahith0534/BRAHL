@@ -1,0 +1,11 @@
+{
+  "input_files": {
+    "yPlans": ["y/KonfigAI/y1Plans.csv"],
+    "yActions": ["y/KonfigAI/y2Actions.csv"],
+    "yDesigns": ["y/KonfigAI/y3Designs.csv"]
+  },
+  "name": "KonfigAI",
+  "description": "Public site link + title + form chrome for https://www.konfigai.com/",
+  "version": "1.0.0",
+  "url": "https://www.konfigai.com/"
+}

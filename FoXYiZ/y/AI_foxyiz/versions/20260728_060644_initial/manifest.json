@@ -1,0 +1,26 @@
+{
+  "id": "20260728_060644_initial",
+  "label": "initial",
+  "author": "system",
+  "created_at": "2026-07-28T06:06:44+00:00",
+  "source_build": "auto-baseline",
+  "suite_config": "y/AI_foxyiz/AI_foxyiz.json",
+  "files": [
+    {
+      "sheet": "plans",
+      "source": "y/AI_foxyiz/y1Plans.csv",
+      "snapshot": "y/AI_foxyiz/versions/20260728_060644_initial/y1Plans.csv"
+    },
+    {
+      "sheet": "actions",
+      "source": "y/AI_foxyiz/y2Actions.csv",
+      "snapshot": "y/AI_foxyiz/versions/20260728_060644_initial/y2Actions.csv"
+    },
+    {
+      "sheet": "designs",
+      "source": "y/AI_foxyiz/y3Designs.csv",
+      "snapshot": "y/AI_foxyiz/versions/20260728_060644_initial/y3Designs.csv"
+    }
+  ],
+  "immutable": true
+}
