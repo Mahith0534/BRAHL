@@ -1,0 +1,110 @@
+PlanId,StepId,StepInfo,ActionType,ActionName,Input,Output,Expected,Critical
+PReuse_Varkasa_OpenSite,1,Open browser,xUI,xOpenBrowser,edge,,,y
+PReuse_Varkasa_OpenSite,2,Navigate to app,xUI,xNavigate,base_url,,,y
+PReuse_Varkasa_OpenSite,3,Verify body present,xUI,xGetText,body_locator,,,y
+PVarkasa_T1_Test_case_1,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_T1_Test_case_1,2,Verify: Test case 1,xUI,xGetText,body_locator,,,y
+PVarkasa_T1_Test_case_1,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_T2_Test_case_2,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_T2_Test_case_2,2,Verify: Test case 2,xUI,xGetText,body_locator,,,y
+PVarkasa_T2_Test_case_2,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_T4_Test_case_4,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_T4_Test_case_4,2,Verify: Test case 4,xUI,xGetText,body_locator,,,y
+PVarkasa_T4_Test_case_4,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_T5_Test_case_5,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_T5_Test_case_5,2,Verify: Test case 5,xUI,xGetText,body_locator,,,y
+PVarkasa_T5_Test_case_5,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_T7_Test_case_7,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_T7_Test_case_7,2,Verify: Test case 7,xUI,xGetText,body_locator,,,y
+PVarkasa_T7_Test_case_7,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_T8_Test_case_8,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_T8_Test_case_8,2,Verify: Test case 8,xUI,xGetText,body_locator,,,y
+PVarkasa_T8_Test_case_8,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_T10_Test_case_10,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_T10_Test_case_10,2,Verify: Test case 10,xUI,xGetText,body_locator,,,y
+PVarkasa_T10_Test_case_10,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_T11_Test_case_11,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_T11_Test_case_11,2,Verify: Test case 11,xUI,xGetText,body_locator,,,y
+PVarkasa_T11_Test_case_11,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_Man_T3_Test_case_3,1,Manual: Test case 3,xUI,xGetText,body_locator,,,n
+PVarkasa_Man_T6_Test_case_6,1,Manual: Test case 6,xUI,xGetText,body_locator,,,n
+PVarkasa_Man_T9_Test_case_9,1,Manual: Test case 9,xUI,xGetText,body_locator,,,n
+PVarkasa_Man_T12_Test_case_12,1,Manual: Test case 12,xUI,xGetText,body_locator,,,n
+PVarkasa_TC1_Verify_login_button_func,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC1_Verify_login_button_func,2,Navigate (login_url),xUI,xNavigate,login_url,,,y
+PVarkasa_TC1_Verify_login_button_func,3,Verify: Verify login button functionality on home page,xUI,xGetText,body_locator,,,y
+PVarkasa_TC1_Verify_login_button_func,4,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC2_Test_search_bar_input_va,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC2_Test_search_bar_input_va,2,Navigate (explore_url),xUI,xNavigate,explore_url,,,y
+PVarkasa_TC2_Test_search_bar_input_va,3,Verify: Test search bar input validation on products page,xUI,xGetText,body_locator,,,y
+PVarkasa_TC2_Test_search_bar_input_va,4,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC3_Verify_product_details_p,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC3_Verify_product_details_p,2,Verify: Verify product details page content and navigation,xUI,xGetText,body_locator,,,y
+PVarkasa_TC3_Verify_product_details_p,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC4_Test_cart_management_fun,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC4_Test_cart_management_fun,2,Verify: Test cart management functionality on checkout page,xUI,xGetText,body_locator,,,y
+PVarkasa_TC4_Test_cart_management_fun,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC5_Verify_payment_gateway_i,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC5_Verify_payment_gateway_i,2,Verify: Verify payment gateway integration with credit card,xUI,xGetText,body_locator,,,y
+PVarkasa_TC5_Verify_payment_gateway_i,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC7_Verify_user_profile_mana,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC7_Verify_user_profile_mana,2,Verify: Verify user profile management functionality on account page,xUI,xGetText,body_locator,,,y
+PVarkasa_TC7_Verify_user_profile_mana,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC8_Test_order_history_page_,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC8_Test_order_history_page_,2,Verify: Test order history page content and filtering,xUI,xGetText,body_locator,,,y
+PVarkasa_TC8_Test_order_history_page_,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC9_Verify_shipping_options_,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC9_Verify_shipping_options_,2,Verify: Verify shipping options selection on checkout page,xUI,xGetText,body_locator,,,y
+PVarkasa_TC9_Verify_shipping_options_,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC10_Test_return_policy_page,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC10_Test_return_policy_page,2,Verify: Test return policy page content and navigation,xUI,xGetText,body_locator,,,y
+PVarkasa_TC10_Test_return_policy_page,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC11_Verify_FAQs_page_conten,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC11_Verify_FAQs_page_conten,2,Verify: Verify FAQs page content and filtering,xUI,xGetText,body_locator,,,y
+PVarkasa_TC11_Verify_FAQs_page_conten,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC13_Verify_error_handling_o,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC13_Verify_error_handling_o,2,Verify: Verify error handling on 404 page,xUI,xGetText,body_locator,,,y
+PVarkasa_TC13_Verify_error_handling_o,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC19_Verify_product_category,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC19_Verify_product_category,2,Verify: Verify product category filtering on products page,xUI,xGetText,body_locator,,,y
+PVarkasa_TC19_Verify_product_category,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC20_Test_product_image_uplo,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC20_Test_product_image_uplo,2,Verify: Test product image upload functionality,xUI,xGetText,body_locator,,,y
+PVarkasa_TC20_Test_product_image_uplo,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC21_Verify_product_descript,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC21_Verify_product_descript,2,Verify: Verify product description input validation,xUI,xGetText,body_locator,,,y
+PVarkasa_TC21_Verify_product_descript,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC22_Test_product_price_upda,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC22_Test_product_price_upda,2,Verify: Test product price update functionality,xUI,xGetText,body_locator,,,y
+PVarkasa_TC22_Test_product_price_upda,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC23_Verify_product_quantity,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC23_Verify_product_quantity,2,Verify: Verify product quantity reduction on cart page,xUI,xGetText,body_locator,,,y
+PVarkasa_TC23_Verify_product_quantity,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC24_Test_product_removal_fr,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC24_Test_product_removal_fr,2,Verify: Test product removal from cart functionality,xUI,xGetText,body_locator,,,y
+PVarkasa_TC24_Test_product_removal_fr,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC25_Verify_order_status_upd,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC25_Verify_order_status_upd,2,Verify: Verify order status update on order history page,xUI,xGetText,body_locator,,,y
+PVarkasa_TC25_Verify_order_status_upd,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC26_Test_shipping_rate_calc,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC26_Test_shipping_rate_calc,2,Verify: Test shipping rate calculation on checkout page,xUI,xGetText,body_locator,,,y
+PVarkasa_TC26_Test_shipping_rate_calc,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC27_Verify_payment_method_s,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC27_Verify_payment_method_s,2,Verify: Verify payment method selection on checkout page,xUI,xGetText,body_locator,,,y
+PVarkasa_TC27_Verify_payment_method_s,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC28_Test_coupon_code_applic,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC28_Test_coupon_code_applic,2,Verify: Test coupon code application on checkout page,xUI,xGetText,body_locator,,,y
+PVarkasa_TC28_Test_coupon_code_applic,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC29_Verify_product_availabi,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC29_Verify_product_availabi,2,Verify: Verify product availability on products page,xUI,xGetText,body_locator,,,y
+PVarkasa_TC29_Verify_product_availabi,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_TC30_Test_product_rating_sub,1,Open site,xReuse,PReuse_Varkasa_OpenSite,,,,y
+PVarkasa_TC30_Test_product_rating_sub,2,Verify: Test product rating submission functionality,xUI,xGetText,body_locator,,,y
+PVarkasa_TC30_Test_product_rating_sub,3,Verify page title,xUI,xGetTitle,,,page_title_contains,y
+PVarkasa_Man_TC6_Test_admin_dashboard_log,1,Manual: Test admin dashboard login functionality,xUI,xGetText,body_locator,,,n
+PVarkasa_Man_TC12_Test_settings_page_func,1,Manual: Test settings page functionality and navigation,xUI,xGetText,body_locator,,,n
+PVarkasa_Man_TC14_Test_manual_mobile_app_,1,Manual: Test manual mobile app installation on iOS device,xUI,xGetText,body_locator,,,n
+PVarkasa_Man_TC15_Test_user_experience_on,1,Manual: Test user experience on home page navigation,xUI,xGetText,body_locator,,,n
+PVarkasa_Man_TC16_Test_user_experience_on,1,Manual: Test user experience on product details page navigation,xUI,xGetText,body_locator,,,n
+PVarkasa_Man_TC17_Test_user_experience_on,1,Manual: Test user experience on checkout page navigation,xUI,xGetText,body_locator,,,n
+PVarkasa_Man_TC18_Test_user_experience_on,1,Manual: Test user experience on account page navigation,xUI,xGetText,body_locator,,,n

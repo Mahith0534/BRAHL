@@ -1,0 +1,12 @@
+PlanId,PlanName,DesignId,Run,Tags,Output,CreatedBy,CreatedAt
+PReuse_BrahlLocal_OpenApp,Open Edge and load BRAHL Local /app,D1,N,Reuse,app_loaded,QA_Hunter+KK2,2026-07-24T21:00:00+00:00
+PQoa_Smoke_AppTitle,Arena boots — title BRAHL Local,D1,Y,BRAHL_Local;Smoke;Shell;BRAHL,smoke_title,QA_Hunter+KK2,2026-07-24T21:00:00+00:00
+PQoa_Smoke_PhaseNav,Phase nav shows Build Run Analyze Heal Loop BRAHL,D1,Y,BRAHL_Local;Smoke;Shell,smoke_phases,QA_Hunter+KK2,2026-07-24T21:00:00+00:00
+PQoa_Smoke_WorkspaceChrome,Topbar Workspace label present (not Repo),D1,Y,BRAHL_Local;Smoke;Workspace,smoke_workspace,QA_Hunter+KK2,2026-07-24T21:00:00+00:00
+PQoa_Smoke_NoWalletChrome,Desktop body has no visible Wallet dock text,D1,Y,BRAHL_Local;Smoke;Desktop,smoke_nowallet,QA_Hunter+KK2,2026-07-24T21:00:00+00:00
+PQoa_UI_OpenRun,UI — click Run phase shows FoXYiZ run panel,D1,Y,BRAHL_Local;UI;Run;Nav,ui_run,QA_Hunter+KK2,2026-07-24T21:00:00+00:00
+PQoa_UI_OpenAnalyze,UI — click Analyze phase,D1,Y,BRAHL_Local;UI;Analyze;Nav,ui_analyze,QA_Hunter+KK2,2026-07-24T21:00:00+00:00
+PQoa_UI_OpenHeal,UI — click Heal phase,D1,Y,BRAHL_Local;UI;Heal;Nav,ui_heal,QA_Hunter+KK2,2026-07-24T21:00:00+00:00
+PQoa_UI_OpenLoop,UI — click Loop phase,D1,Y,BRAHL_Local;UI;Loop;Nav,ui_loop,QA_Hunter+KK2,2026-07-24T21:00:00+00:00
+PQoa_UI_OpenBrahl,UI — click BRAHL phase,D1,Y,BRAHL_Local;UI;BRAHL;Nav,ui_brahl,QA_Hunter+KK2,2026-07-24T21:00:00+00:00
+PQoa_UI_BackToBuild,UI — return to Build phase,D1,Y,BRAHL_Local;UI;Build;Nav,ui_build,QA_Hunter+KK2,2026-07-24T21:00:00+00:00

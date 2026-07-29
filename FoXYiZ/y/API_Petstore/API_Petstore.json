@@ -1,0 +1,17 @@
+{
+  "input_files": {
+    "yPlans": [
+      "y/API_Petstore/y1Plans.csv"
+    ],
+    "yActions": [
+      "y/API_Petstore/y2Actions.csv"
+    ],
+    "yDesigns": [
+      "y/API_Petstore/y3Designs.csv"
+    ]
+  },
+  "name": "API_Petstore",
+  "description": "Swagger Petstore API (/v2) \u2014 FoXYiZ xAPI demo (pet, store, user)",
+  "version": "1.0.0",
+  "url": "https://petstore.swagger.io/v2"
+}

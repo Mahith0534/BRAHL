@@ -1,0 +1,182 @@
+PlanId,StepId,StepInfo,ActionType,ActionName,Input,Output,Expected,Critical
+PReuse_Open,1,Open Edge,xUI,xOpenBrowser,edge,,,Y
+PReuse_Open,2,Home,xUI,xNavigate,base_url,,,Y
+PReuse_Open,3,Wait boot,xTime,xTimeWait,3,,,Y
+PReuse_Open,4,Body present,xUI,xGetText,body_locator,,text_home_kw,Y
+PSmoke_Home,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PSmoke_Home,2,H1 contract,xUI,xGetText,h1_locator,,text_home_h1,Y
+PSmoke_Home,3,Products nav present,xUI,xGetText,body_locator,,text_nav_products,Y
+PSmoke_Home,4,Request Demo chrome,xUI,xGetText,body_locator,,text_request_demo,Y
+PSmoke_DemoCTA,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PSmoke_DemoCTA,2,Open request-demo,xUI,xNavigate,url_requestdemo,,,Y
+PSmoke_DemoCTA,3,Settle,xTime,xTimeWait,2,,,Y
+PSmoke_DemoCTA,4,Demo H1,xUI,xGetText,h1_locator,,text_demo_h1,Y
+PSmoke_DemoCTA,5,Email field,xUI,xGetText,demo_email_locator,,,Y
+PSmoke_NavSolutions,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PSmoke_NavSolutions,2,Open solutions,xUI,xNavigate,url_solutions,,,Y
+PSmoke_NavSolutions,3,Settle,xTime,xTimeWait,2,,,Y
+PSmoke_NavSolutions,4,Solutions H1,xUI,xGetText,h1_locator,,text_solutions_h1,Y
+PLink_Home,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PLink_Home,2,Navigate page,xUI,xNavigate,url_home,,,Y
+PLink_Home,3,Settle,xTime,xTimeWait,2,,,Y
+PLink_Home,4,H1 contract,xUI,xGetText,h1_locator,,text_home_h1,Y
+PTitle_Home,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PTitle_Home,2,Navigate page,xUI,xNavigate,url_home,,,Y
+PTitle_Home,3,Settle,xTime,xTimeWait,2,,,Y
+PTitle_Home,4,Assert title,xUI,xGetTitle,,,title_home,Y
+PLink_FormBuilder,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PLink_FormBuilder,2,Navigate page,xUI,xNavigate,url_formbuilder,,,Y
+PLink_FormBuilder,3,Settle,xTime,xTimeWait,2,,,Y
+PLink_FormBuilder,4,H1 contract,xUI,xGetText,h1_locator,,text_form_builder_h1,Y
+PTitle_FormBuilder,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PTitle_FormBuilder,2,Navigate page,xUI,xNavigate,url_formbuilder,,,Y
+PTitle_FormBuilder,3,Settle,xTime,xTimeWait,2,,,Y
+PTitle_FormBuilder,4,Assert title,xUI,xGetTitle,,,title_formbuilder,Y
+PLink_Workflow,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PLink_Workflow,2,Navigate page,xUI,xNavigate,url_workflow,,,Y
+PLink_Workflow,3,Settle,xTime,xTimeWait,2,,,Y
+PLink_Workflow,4,H1 contract,xUI,xGetText,h1_locator,,text_workflow_h1,Y
+PTitle_Workflow,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PTitle_Workflow,2,Navigate page,xUI,xNavigate,url_workflow,,,Y
+PTitle_Workflow,3,Settle,xTime,xTimeWait,2,,,Y
+PTitle_Workflow,4,Assert title,xUI,xGetTitle,,,title_workflow,Y
+PLink_ApiBuilder,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PLink_ApiBuilder,2,Navigate page,xUI,xNavigate,url_apibuilder,,,Y
+PLink_ApiBuilder,3,Settle,xTime,xTimeWait,2,,,Y
+PLink_ApiBuilder,4,H1 contract,xUI,xGetText,h1_locator,,text_api_h1,Y
+PTitle_ApiBuilder,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PTitle_ApiBuilder,2,Navigate page,xUI,xNavigate,url_apibuilder,,,Y
+PTitle_ApiBuilder,3,Settle,xTime,xTimeWait,2,,,Y
+PTitle_ApiBuilder,4,Assert title,xUI,xGetTitle,,,title_apibuilder,Y
+PLink_Batch,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PLink_Batch,2,Navigate page,xUI,xNavigate,url_batch,,,Y
+PLink_Batch,3,Settle,xTime,xTimeWait,2,,,Y
+PLink_Batch,4,H1 contract,xUI,xGetText,h1_locator,,text_batch_h1,Y
+PTitle_Batch,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PTitle_Batch,2,Navigate page,xUI,xNavigate,url_batch,,,Y
+PTitle_Batch,3,Settle,xTime,xTimeWait,2,,,Y
+PTitle_Batch,4,Assert title,xUI,xGetTitle,,,title_batch,Y
+PLink_DocCentral,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PLink_DocCentral,2,Navigate page,xUI,xNavigate,url_doccentral,,,Y
+PLink_DocCentral,3,Settle,xTime,xTimeWait,2,,,Y
+PLink_DocCentral,4,H1 contract,xUI,xGetText,h1_locator,,text_doc_h1,Y
+PTitle_DocCentral,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PTitle_DocCentral,2,Navigate page,xUI,xNavigate,url_doccentral,,,Y
+PTitle_DocCentral,3,Settle,xTime,xTimeWait,2,,,Y
+PTitle_DocCentral,4,Assert title,xUI,xGetTitle,,,title_doccentral,Y
+PLink_Solutions,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PLink_Solutions,2,Navigate page,xUI,xNavigate,url_solutions,,,Y
+PLink_Solutions,3,Settle,xTime,xTimeWait,2,,,Y
+PLink_Solutions,4,H1 contract,xUI,xGetText,h1_locator,,text_solutions_h1,Y
+PTitle_Solutions,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PTitle_Solutions,2,Navigate page,xUI,xNavigate,url_solutions,,,Y
+PTitle_Solutions,3,Settle,xTime,xTimeWait,2,,,Y
+PTitle_Solutions,4,Assert title,xUI,xGetTitle,,,title_solutions,Y
+PLink_Integrations,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PLink_Integrations,2,Navigate page,xUI,xNavigate,url_integrations,,,Y
+PLink_Integrations,3,Settle,xTime,xTimeWait,2,,,Y
+PLink_Integrations,4,H1 contract,xUI,xGetText,h1_locator,,text_integrations_h1,Y
+PTitle_Integrations,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PTitle_Integrations,2,Navigate page,xUI,xNavigate,url_integrations,,,Y
+PTitle_Integrations,3,Settle,xTime,xTimeWait,2,,,Y
+PTitle_Integrations,4,Assert title,xUI,xGetTitle,,,title_integrations,Y
+PLink_About,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PLink_About,2,Navigate page,xUI,xNavigate,url_about,,,Y
+PLink_About,3,Settle,xTime,xTimeWait,2,,,Y
+PLink_About,4,H1 contract,xUI,xGetText,h1_locator,,text_about_h1,Y
+PTitle_About,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PTitle_About,2,Navigate page,xUI,xNavigate,url_about,,,Y
+PTitle_About,3,Settle,xTime,xTimeWait,2,,,Y
+PTitle_About,4,Assert title,xUI,xGetTitle,,,title_about,Y
+PLink_Platform,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PLink_Platform,2,Navigate page,xUI,xNavigate,url_platform,,,Y
+PLink_Platform,3,Settle,xTime,xTimeWait,2,,,Y
+PLink_Platform,4,H1 contract,xUI,xGetText,h1_locator,,text_platform_h1,Y
+PTitle_Platform,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PTitle_Platform,2,Navigate page,xUI,xNavigate,url_platform,,,Y
+PTitle_Platform,3,Settle,xTime,xTimeWait,2,,,Y
+PTitle_Platform,4,Assert title,xUI,xGetTitle,,,title_platform,Y
+PLink_Contact,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PLink_Contact,2,Navigate page,xUI,xNavigate,url_contact,,,Y
+PLink_Contact,3,Settle,xTime,xTimeWait,2,,,Y
+PLink_Contact,4,H1 contract,xUI,xGetText,h1_locator,,text_contact_h1,Y
+PTitle_Contact,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PTitle_Contact,2,Navigate page,xUI,xNavigate,url_contact,,,Y
+PTitle_Contact,3,Settle,xTime,xTimeWait,2,,,Y
+PTitle_Contact,4,Assert title,xUI,xGetTitle,,,title_contact,Y
+PLink_RequestDemo,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PLink_RequestDemo,2,Navigate page,xUI,xNavigate,url_requestdemo,,,Y
+PLink_RequestDemo,3,Settle,xTime,xTimeWait,2,,,Y
+PLink_RequestDemo,4,H1 contract,xUI,xGetText,h1_locator,,text_demo_h1,Y
+PTitle_RequestDemo,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PTitle_RequestDemo,2,Navigate page,xUI,xNavigate,url_requestdemo,,,Y
+PTitle_RequestDemo,3,Settle,xTime,xTimeWait,2,,,Y
+PTitle_RequestDemo,4,Assert title,xUI,xGetTitle,,,title_requestdemo,Y
+PLink_Legal,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PLink_Legal,2,Navigate page,xUI,xNavigate,url_legal,,,Y
+PLink_Legal,3,Settle,xTime,xTimeWait,2,,,Y
+PLink_Legal,4,H1 contract,xUI,xGetText,h1_locator,,text_legal_h1,Y
+PTitle_Legal,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PTitle_Legal,2,Navigate page,xUI,xNavigate,url_legal,,,Y
+PTitle_Legal,3,Settle,xTime,xTimeWait,2,,,Y
+PTitle_Legal,4,Assert title,xUI,xGetTitle,,,title_legal,Y
+PLink_LegalTerms,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PLink_LegalTerms,2,Navigate page,xUI,xNavigate,url_legalterms,,,Y
+PLink_LegalTerms,3,Settle,xTime,xTimeWait,2,,,Y
+PLink_LegalTerms,4,H1 contract,xUI,xGetText,h1_locator,,text_legal_h1,Y
+PTitle_LegalTerms,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PTitle_LegalTerms,2,Navigate page,xUI,xNavigate,url_legalterms,,,Y
+PTitle_LegalTerms,3,Settle,xTime,xTimeWait,2,,,Y
+PTitle_LegalTerms,4,Assert title,xUI,xGetTitle,,,title_legalterms,Y
+PLink_LegalPrivacy,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PLink_LegalPrivacy,2,Navigate page,xUI,xNavigate,url_legalprivacy,,,Y
+PLink_LegalPrivacy,3,Settle,xTime,xTimeWait,2,,,Y
+PLink_LegalPrivacy,4,H1 contract,xUI,xGetText,h1_locator,,text_legal_h1,Y
+PTitle_LegalPrivacy,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PTitle_LegalPrivacy,2,Navigate page,xUI,xNavigate,url_legalprivacy,,,Y
+PTitle_LegalPrivacy,3,Settle,xTime,xTimeWait,2,,,Y
+PTitle_LegalPrivacy,4,Assert title,xUI,xGetTitle,,,title_legalprivacy,Y
+PLink_LegalCookie,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PLink_LegalCookie,2,Navigate page,xUI,xNavigate,url_legalcookie,,,Y
+PLink_LegalCookie,3,Settle,xTime,xTimeWait,2,,,Y
+PLink_LegalCookie,4,H1 contract,xUI,xGetText,h1_locator,,text_legal_h1,Y
+PTitle_LegalCookie,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PTitle_LegalCookie,2,Navigate page,xUI,xNavigate,url_legalcookie,,,Y
+PTitle_LegalCookie,3,Settle,xTime,xTimeWait,2,,,Y
+PTitle_LegalCookie,4,Assert title,xUI,xGetTitle,,,title_legalcookie,Y
+PForm_DemoChrome,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PForm_DemoChrome,2,Open demo,xUI,xNavigate,url_requestdemo,,,Y
+PForm_DemoChrome,3,Settle,xTime,xTimeWait,2,,,Y
+PForm_DemoChrome,4,First name,xUI,xGetText,demo_first_locator,,,Y
+PForm_DemoChrome,5,Last name,xUI,xGetText,demo_last_locator,,,Y
+PForm_DemoChrome,6,Email,xUI,xGetText,demo_email_locator,,,Y
+PForm_DemoChrome,7,Org,xUI,xGetText,demo_org_locator,,,Y
+PForm_DemoChrome,8,Phone,xUI,xGetText,demo_phone_locator,,,Y
+PForm_DemoChrome,9,Org size,xUI,xGetText,demo_size_locator,,,Y
+PForm_DemoChrome,10,Submit btn,xUI,xGetText,demo_submit_locator,,,Y
+PForm_ContactChrome,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PForm_ContactChrome,2,Open contact,xUI,xNavigate,url_contact,,,Y
+PForm_ContactChrome,3,Settle,xTime,xTimeWait,2,,,Y
+PForm_ContactChrome,4,Email field,xUI,xGetText,contact_email_locator,,,Y
+PForm_ContactChrome,5,Description,xUI,xGetText,contact_desc_locator,,,Y
+PForm_ContactChrome,6,Contact CTA,xUI,xGetText,contact_submit_locator,,,Y
+PForm_ContactChrome,7,Schedule chrome,xUI,xGetText,schedule_btn_locator,,,Y
+PNav_FooterLegal,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PNav_FooterLegal,2,Platform Overview text,xUI,xGetText,body_locator,,text_footer_platform,Y
+PNav_FooterLegal,3,Terms text,xUI,xGetText,body_locator,,text_footer_terms,Y
+PNav_FooterLegal,4,Privacy text,xUI,xGetText,body_locator,,text_footer_privacy,Y
+PNav_FooterLegal,5,Cookie text,xUI,xGetText,body_locator,,text_footer_cookie,Y
+PNav_ProductsMenu,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PNav_ProductsMenu,2,Form builder URL,xUI,xNavigate,url_formbuilder,,,Y
+PNav_ProductsMenu,3,Settle,xTime,xTimeWait,2,,,Y
+PNav_ProductsMenu,4,Form builder H1,xUI,xGetText,h1_locator,,text_form_builder_h1,Y
+PMan_SocialExt,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PMan_SocialExt,2,Hunter checks LinkedIn X YouTube,xUI,xGetText,body_locator,,,N
+PMan_DemoSubmit,1,Open demo,xUI,xNavigate,url_requestdemo,,,Y
+PMan_DemoSubmit,2,Hunter fills+submits carefully,xUI,xGetText,demo_submit_locator,,,N
+PMan_ContactSubmit,1,Open contact,xUI,xNavigate,url_contact,,,Y
+PMan_ContactSubmit,2,Hunter fills+submits carefully,xUI,xGetText,contact_submit_locator,,,N
+PMan_VisualA11y,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PMan_VisualA11y,2,Hunter visual sweep,xUI,xGetText,body_locator,,,N
+PMan_TitleDebt,1,Reuse open,xReuse,PReuse_Open,,,,Y
+PMan_TitleDebt,2,Hunter triages Title tag fails as A1,xUI,xGetText,body_locator,,,N

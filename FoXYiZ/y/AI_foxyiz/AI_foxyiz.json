@@ -1,0 +1,8 @@
+{
+  "input_files": {
+    "yPlans": ["y/AI_foxyiz/y1Plans.csv"],
+    "yActions": ["y/AI_foxyiz/y2Actions.csv"],
+    "yDesigns": ["y/AI_foxyiz/y3Designs.csv"]
+  },
+  "url": "https://foxyiz.com/"
+}

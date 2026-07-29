@@ -1,0 +1,1 @@
+Test GET and POST against a public REST petstore API

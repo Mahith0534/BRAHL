@@ -1,0 +1,67 @@
+Type,DataName,D1
+UI,base_url,https://www.konfigai.com/
+UI,body_locator,css=body
+UI,h1_locator,css=h1
+UI,text_home_kw,No-Code
+UI,text_home_h1,No-Code
+UI,text_nav_products,Products
+UI,text_request_demo,Request a Demo
+UI,text_demo_h1,Unlock AI Automation
+UI,text_solutions_h1,Industry-Tailored
+UI,demo_email_locator,css=input[type=email]
+UI,demo_first_locator,"css=input[placeholder*=""First Name""]"
+UI,demo_last_locator,"css=input[placeholder*=""Last Name""]"
+UI,demo_org_locator,"css=input[placeholder*=""Organization""]"
+UI,demo_phone_locator,css=input[type=number]
+UI,demo_size_locator,css=#orgSize
+UI,demo_submit_locator,"xpath=//button[@type='submit' and contains(.,'Submit')]"
+UI,contact_email_locator,"css=input[placeholder*=""Email""]"
+UI,contact_desc_locator,css=textarea
+UI,contact_submit_locator,"xpath=//button[contains(.,'Contact Us')]"
+UI,schedule_btn_locator,"xpath=//button[contains(.,'Schedule Now')]"
+UI,text_footer_platform,Platform Overview
+UI,text_footer_terms,Terms
+UI,text_footer_privacy,Privacy
+UI,text_footer_cookie,Cookie
+UI,text_form_builder_h1,Design Smart
+UI,text_workflow_h1,Automate Smarter
+UI,text_api_h1,Build APIs
+UI,text_batch_h1,Automate Data
+UI,text_doc_h1,Smart Docs
+UI,text_integrations_h1,Connect Everything
+UI,text_about_h1,Innovation at Scale
+UI,text_platform_h1,Build Smarter
+UI,text_contact_h1,Have Questions
+UI,text_legal_h1,Your Trust
+UI,url_home,https://www.konfigai.com/
+UI,title_home,Konfig AI : Home
+UI,url_formbuilder,https://www.konfigai.com/form-builder.html
+UI,title_formbuilder,Konfig AI : Form Builder
+UI,url_workflow,https://www.konfigai.com/workflow-builder.html
+UI,title_workflow,Konfig AI : Workflow Builder
+UI,url_apibuilder,https://www.konfigai.com/api-builder.html
+UI,title_apibuilder,Konfig AI : API Builder
+UI,url_batch,https://www.konfigai.com/batch-processing.html
+UI,title_batch,Konfig AI : Batch Processing
+UI,url_doccentral,https://www.konfigai.com/document-central.html
+UI,title_doccentral,Konfig AI : Document Central
+UI,url_solutions,https://www.konfigai.com/solutions.html
+UI,title_solutions,Konfig AI : Solutions
+UI,url_integrations,https://www.konfigai.com/integrations.html
+UI,title_integrations,Konfig AI : Integration
+UI,url_about,https://www.konfigai.com/about-us.html
+UI,title_about,Konfig AI : About Us
+UI,url_platform,https://www.konfigai.com/platform-overview.html
+UI,title_platform,Konfig AI : Platform Overview
+UI,url_contact,https://www.konfigai.com/contact-us.html
+UI,title_contact,Konfig AI : Contact Us
+UI,url_requestdemo,https://www.konfigai.com/request-demo.html
+UI,title_requestdemo,Konfig AI : Request Demo
+UI,url_legal,https://www.konfigai.com/legal.html
+UI,title_legal,Konfig AI : Privacy Policy
+UI,url_legalterms,https://www.konfigai.com/legal.html?tab=terms
+UI,title_legalterms,Konfig AI : Terms
+UI,url_legalprivacy,https://www.konfigai.com/legal.html?tab=privacy
+UI,title_legalprivacy,Konfig AI : Privacy Policy
+UI,url_legalcookie,https://www.konfigai.com/legal.html?tab=cookie
+UI,title_legalcookie,Konfig AI : Cookie Policy

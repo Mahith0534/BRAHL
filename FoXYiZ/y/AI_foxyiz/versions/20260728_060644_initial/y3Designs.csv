@@ -1,0 +1,27 @@
+Type,DataName,D1,D2,D3
+UI,base_url,https://foxyiz.com/,https://foxyiz.com/,https://foxyiz.com/
+UI,body_locator,css=body,css=body,css=body
+UI,h1_locator,css=h1,css=h1,css=h1
+UI,prompt_locator,"css=textarea[placeholder*=""Describe your automation""]","css=textarea[placeholder*=""Describe your automation""]","css=textarea[placeholder*=""Describe your automation""]"
+UI,btn_generate,"xpath=//button[contains(normalize-space(.),'Generate')]","xpath=//button[contains(normalize-space(.),'Generate')]","xpath=//button[contains(normalize-space(.),'Generate')]"
+UI,btn_generate_locator,"xpath=//button[contains(normalize-space(.),'Generate')]","xpath=//button[contains(normalize-space(.),'Generate')]","xpath=//button[contains(normalize-space(.),'Generate')]"
+UI,chip_login,xpath=//button[normalize-space()='Automate website login'],xpath=//button[normalize-space()='Automate website login'],xpath=//button[normalize-space()='Automate website login']
+UI,chip_api,xpath=//button[normalize-space()='Test a REST API'],xpath=//button[normalize-space()='Test a REST API'],xpath=//button[normalize-space()='Test a REST API']
+UI,chip_math,xpath=//button[normalize-space()='Run math calculations'],xpath=//button[normalize-space()='Run math calculations'],xpath=//button[normalize-space()='Run math calculations']
+UI,chip_scrape,xpath=//button[normalize-space()='Scrape product prices'],xpath=//button[normalize-space()='Scrape product prices'],xpath=//button[normalize-space()='Scrape product prices']
+UI,chip_signup,xpath=//button[normalize-space()='Validate a signup form'],xpath=//button[normalize-space()='Validate a signup form'],xpath=//button[normalize-space()='Validate a signup form']
+UI,chip_upload,xpath=//button[normalize-space()='Automate file uploads'],xpath=//button[normalize-space()='Automate file uploads'],xpath=//button[normalize-space()='Automate file uploads']
+UI,type_prompt_login,"Automate website login;css=textarea[placeholder*=""Describe your automation""]","Automate website login;css=textarea[placeholder*=""Describe your automation""]","Automate website login;css=textarea[placeholder*=""Describe your automation""]"
+UI,type_prompt_api,"Test a REST API;css=textarea[placeholder*=""Describe your automation""]","Test a REST API;css=textarea[placeholder*=""Describe your automation""]","Test a REST API;css=textarea[placeholder*=""Describe your automation""]"
+UI,type_prompt_math,"Run math calculations;css=textarea[placeholder*=""Describe your automation""]","Run math calculations;css=textarea[placeholder*=""Describe your automation""]","Run math calculations;css=textarea[placeholder*=""Describe your automation""]"
+UI,type_prompt_custom,"Automate login to example.com and verify the dashboard loads;css=textarea[placeholder*=""Describe your automation""]","Test GET and POST against a public REST petstore API;css=textarea[placeholder*=""Describe your automation""]","Add two numbers and assert the sum equals expected;css=textarea[placeholder*=""Describe your automation""]"
+UI,text_hero,AUTOMATE,AUTOMATE,AUTOMATE
+UI,text_chip_login,Automate website login,Automate website login,Automate website login
+UI,text_ai_generated,AI GENERATED YPAD,AI GENERATED YPAD,AI GENERATED YPAD
+UI,text_y1,y1Plans.csv,y1Plans.csv,y1Plans.csv
+UI,text_y2,y2Actions.csv,y2Actions.csv,y2Actions.csv
+UI,text_download,Download,Download,Download
+UI,expect_login_kw,xUI,xUI,xUI
+UI,expect_api_kw,xAPI,xAPI,xAPI
+UI,expect_math_kw,xMath,xMath,xMath
+UI,expect_any_ypad,PlanId,PlanId,PlanId

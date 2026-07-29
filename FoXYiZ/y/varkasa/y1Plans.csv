@@ -1,0 +1,44 @@
+PlanId,PlanName,DesignId,Run,Tags,Output,CreatedBy,CreatedAt
+PReuse_Varkasa_OpenSite,Open browser and navigate to varkasa,D1,N,Reuse,site_loaded,,2026-07-28T18:09:09+00:00
+PVarkasa_T1_Test_case_1,Test case 1,D1,Y,varkasa;Smoke;BRAHL;T1,case_1_ok,,2026-07-28T18:09:09+00:00
+PVarkasa_T2_Test_case_2,Test case 2,D1,Y,varkasa;Smoke;BRAHL;T2,case_2_ok,,2026-07-28T18:09:09+00:00
+PVarkasa_T4_Test_case_4,Test case 4,D1,Y,varkasa;Smoke;BRAHL;T4,case_3_ok,,2026-07-28T18:09:09+00:00
+PVarkasa_T5_Test_case_5,Test case 5,D1,Y,varkasa;Smoke;BRAHL;T5,case_4_ok,,2026-07-28T18:09:09+00:00
+PVarkasa_T7_Test_case_7,Test case 7,D1,Y,varkasa;Smoke;BRAHL;T7,case_5_ok,,2026-07-28T18:09:09+00:00
+PVarkasa_T8_Test_case_8,Test case 8,D1,Y,varkasa;Smoke;BRAHL;T8,case_6_ok,,2026-07-28T18:09:09+00:00
+PVarkasa_T10_Test_case_10,Test case 10,D1,Y,varkasa;Smoke;BRAHL;T10,case_7_ok,,2026-07-28T18:09:09+00:00
+PVarkasa_T11_Test_case_11,Test case 11,D1,Y,varkasa;Smoke;BRAHL;T11,case_8_ok,,2026-07-28T18:09:09+00:00
+PVarkasa_Man_T3_Test_case_3,Test case 3,D1,N,varkasa;Manual;T3,manual_1_ok,,2026-07-28T18:09:09+00:00
+PVarkasa_Man_T6_Test_case_6,Test case 6,D1,N,varkasa;Manual;T6,manual_2_ok,,2026-07-28T18:09:09+00:00
+PVarkasa_Man_T9_Test_case_9,Test case 9,D1,N,varkasa;Manual;T9,manual_3_ok,,2026-07-28T18:09:09+00:00
+PVarkasa_Man_T12_Test_case_12,Test case 12,D1,N,varkasa;Manual;T12,manual_4_ok,,2026-07-28T18:09:09+00:00
+PVarkasa_TC1_Verify_login_button_func,Verify login button functionality on home page,D1,Y,varkasa;Smoke;BRAHL;TC1,case_1_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC2_Test_search_bar_input_va,Test search bar input validation on products page,D1,Y,varkasa;Smoke;BRAHL;TC2,case_2_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC3_Verify_product_details_p,Verify product details page content and navigation,D1,Y,varkasa;Smoke;BRAHL;TC3,case_3_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC4_Test_cart_management_fun,Test cart management functionality on checkout page,D1,Y,varkasa;Smoke;BRAHL;TC4,case_4_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC5_Verify_payment_gateway_i,Verify payment gateway integration with credit card,D1,Y,varkasa;Smoke;BRAHL;TC5,case_5_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC7_Verify_user_profile_mana,Verify user profile management functionality on account page,D1,Y,varkasa;Smoke;BRAHL;TC7,case_6_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC8_Test_order_history_page_,Test order history page content and filtering,D1,Y,varkasa;Smoke;BRAHL;TC8,case_7_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC9_Verify_shipping_options_,Verify shipping options selection on checkout page,D1,Y,varkasa;Smoke;BRAHL;TC9,case_8_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC10_Test_return_policy_page,Test return policy page content and navigation,D1,Y,varkasa;Smoke;BRAHL;TC10,case_9_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC11_Verify_FAQs_page_conten,Verify FAQs page content and filtering,D1,Y,varkasa;Smoke;BRAHL;TC11,case_10_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC13_Verify_error_handling_o,Verify error handling on 404 page,D1,Y,varkasa;Smoke;BRAHL;TC13,case_11_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC19_Verify_product_category,Verify product category filtering on products page,D1,Y,varkasa;Smoke;BRAHL;TC19,case_12_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC20_Test_product_image_uplo,Test product image upload functionality,D1,Y,varkasa;Smoke;BRAHL;TC20,case_13_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC21_Verify_product_descript,Verify product description input validation,D1,Y,varkasa;Smoke;BRAHL;TC21,case_14_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC22_Test_product_price_upda,Test product price update functionality,D1,Y,varkasa;Smoke;BRAHL;TC22,case_15_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC23_Verify_product_quantity,Verify product quantity reduction on cart page,D1,Y,varkasa;Smoke;BRAHL;TC23,case_16_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC24_Test_product_removal_fr,Test product removal from cart functionality,D1,Y,varkasa;Smoke;BRAHL;TC24,case_17_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC25_Verify_order_status_upd,Verify order status update on order history page,D1,Y,varkasa;Smoke;BRAHL;TC25,case_18_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC26_Test_shipping_rate_calc,Test shipping rate calculation on checkout page,D1,Y,varkasa;Smoke;BRAHL;TC26,case_19_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC27_Verify_payment_method_s,Verify payment method selection on checkout page,D1,Y,varkasa;Smoke;BRAHL;TC27,case_20_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC28_Test_coupon_code_applic,Test coupon code application on checkout page,D1,Y,varkasa;Smoke;BRAHL;TC28,case_21_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC29_Verify_product_availabi,Verify product availability on products page,D1,Y,varkasa;Smoke;BRAHL;TC29,case_22_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_TC30_Test_product_rating_sub,Test product rating submission functionality,D1,Y,varkasa;Smoke;BRAHL;TC30,case_23_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_Man_TC6_Test_admin_dashboard_log,Test admin dashboard login functionality,D1,N,varkasa;Manual;TC6,manual_1_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_Man_TC12_Test_settings_page_func,Test settings page functionality and navigation,D1,N,varkasa;Manual;TC12,manual_2_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_Man_TC14_Test_manual_mobile_app_,Test manual mobile app installation on iOS device,D1,N,varkasa;Manual;TC14,manual_3_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_Man_TC15_Test_user_experience_on,Test user experience on home page navigation,D1,N,varkasa;Manual;TC15,manual_4_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_Man_TC16_Test_user_experience_on,Test user experience on product details page navigation,D1,N,varkasa;Manual;TC16,manual_5_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_Man_TC17_Test_user_experience_on,Test user experience on checkout page navigation,D1,N,varkasa;Manual;TC17,manual_6_ok,,2026-07-28T18:36:21+00:00
+PVarkasa_Man_TC18_Test_user_experience_on,Test user experience on account page navigation,D1,N,varkasa;Manual;TC18,manual_7_ok,,2026-07-28T18:36:21+00:00

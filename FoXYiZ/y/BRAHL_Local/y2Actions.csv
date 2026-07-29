@@ -1,0 +1,117 @@
+PlanId,StepId,StepInfo,ActionType,ActionName,Input,Output,Expected,Critical
+PReuse_OpenApp,1,Open browser,xUI,xOpenBrowser,edge,,,Y
+PReuse_OpenApp,2,Navigate /app,xUI,xNavigate,app_url,,http://127.0.0.1:8766/app,Y
+PReuse_OpenApp,3,Body present,xUI,xGetText,body_locator,,,Y
+PSmoke_Title,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PSmoke_Title,2,Arena boots — title BRAHL Local,xUI,xGetText,app_title_locator,,BRAHL Local,Y
+PSmoke_PhaseNav,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PSmoke_PhaseNav,2,Phase nav present,xUI,xGetText,phase_nav_locator,,Build,Y
+PSmoke_Workspace,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PSmoke_Workspace,2,Workspace chip present,xUI,xGetText,topbar_workspace,,Workspace,Y
+PSmoke_DesktopMode,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PSmoke_DesktopMode,2,desktop-mode brand present,xUI,xGetText,app_title_locator,,BRAHL Local,Y
+PSmoke_Health,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PSmoke_Health,2,Footer health pill,xUI,xGetText,health_pill,,,Y
+PSmoke_FoXYiZLink,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PSmoke_FoXYiZLink,2,Tagline FoXYiZ is clickable,xUI,xGetText,tagline_foxyiz,,FoXYiZ,Y
+PHint_Build,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PHint_Build,2,Build hint Tests (/y),xUI,xGetText,hint_build,,Tests,Y
+PHint_Run,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PHint_Run,2,Run hint Tests (/y),xUI,xGetText,hint_run,,Tests,Y
+PHint_Analyze,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PHint_Analyze,2,Analyze hint Results (/z),xUI,xGetText,hint_analyze,,Results,Y
+PHint_Heal,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PHint_Heal,2,Heal hint Heal Tests (/y),xUI,xGetText,hint_heal,,Heal Tests,Y
+PHint_Loop,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PHint_Loop,2,Loop hint Verify /y -> /z,xUI,xGetText,hint_loop,,Verify,Y
+PHint_Brahl,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PHint_Brahl,2,BRAHL hint Go / No-Go,xUI,xGetText,hint_brahl,,Go / No-Go,Y
+PHint_PathY,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PHint_PathY,2,Build /y path button present,xUI,xGetText,phase_path_y,,/y,Y
+PHint_PathZ,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PHint_PathZ,2,Analyze /z path button present,xUI,xGetText,phase_path_z,,/z,Y
+PNav_Run,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PNav_Run,2,Click Run,xUI,xClick,btn_phase_run,,,Y
+PNav_Run,3,Run panel visible,xUI,xGetText,panel_run,,,Y
+PNav_Analyze,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PNav_Analyze,2,Click Analyze,xUI,xClick,btn_phase_analyze,,,Y
+PNav_Analyze,3,Analyze panel visible,xUI,xGetText,panel_analyze,,,Y
+PNav_Heal,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PNav_Heal,2,Click Heal,xUI,xClick,btn_phase_heal,,,Y
+PNav_Heal,3,Heal panel visible,xUI,xGetText,panel_heal,,,Y
+PNav_Loop,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PNav_Loop,2,Click Loop,xUI,xClick,btn_phase_loop,,,Y
+PNav_Loop,3,Loop panel visible,xUI,xGetText,panel_loop,,,Y
+PNav_Brahl,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PNav_Brahl,2,Click BRAHL,xUI,xClick,btn_phase_brahl,,,Y
+PNav_Brahl,3,BRAHL panel visible,xUI,xGetText,panel_brahl,,,Y
+PNav_Build,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PNav_Build,2,Click Build,xUI,xClick,btn_phase_build,,,Y
+PNav_Build,3,Build panel visible,xUI,xGetText,panel_build,,,Y
+PNav_DeepRun,1,Open browser,xUI,xOpenBrowser,edge,,,Y
+PNav_DeepRun,2,Navigate hash,xUI,xNavigate,app_hash_run,,,Y
+PNav_DeepRun,3,Run panel,xUI,xGetText,panel_run,,,Y
+PNav_DeepBrahl,1,Open browser,xUI,xOpenBrowser,edge,,,Y
+PNav_DeepBrahl,2,Navigate hash,xUI,xNavigate,app_hash_brahl,,,Y
+PNav_DeepBrahl,3,BRAHL panel,xUI,xGetText,panel_brahl,,,Y
+PBuild_RebuildBtn,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PBuild_RebuildBtn,2,Rebuild button,xUI,xGetText,btn_rebuild,,Rebuild,Y
+PBuild_NoVerifyLine,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PBuild_NoVerifyLine,2,Title present,xUI,xGetText,build_title,,Build,Y
+PBuild_NoVerifyLine,3,Verify node exists (hidden),xUI,xGetText,build_verify,,,N
+PBuild_OpenRebuild,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PBuild_OpenRebuild,2,Click Rebuild,xUI,xClick,btn_rebuild,,,Y
+PBuild_OpenRebuild,3,Rebuild plan visible,xUI,xGetText,build_brahl_plan,,Rebuild,Y
+PBuild_OpenRebuild,4,Done label on button,xUI,xGetText,btn_rebuild,,Done,Y
+PBuild_FoXYiZDocs,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PBuild_FoXYiZDocs,2,Click FoXYiZ,xUI,xClick,tagline_foxyiz,,,Y
+PBuild_FoXYiZDocs,3,Docs modal body,xUI,xGetText,body_locator,,md,Y
+PBuild_YpadCoverage,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PBuild_YpadCoverage,2,Coverage chips,xUI,xGetText,ypad_coverage,,,N
+PWs_ProjectsSelect,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PWs_ProjectsSelect,2,Select present,xUI,xGetText,topbar_project_select,,,Y
+PWs_AddProject,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PWs_AddProject,2,Add button,xUI,xGetText,btn_topbar_add_project,,,Y
+PRun_Controls,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PRun_Controls,2,Go Run,xUI,xClick,btn_phase_run,,,Y
+PRun_Controls,3,Run panel,xUI,xGetText,panel_run,,,Y
+PAnalyze_Panel,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PAnalyze_Panel,2,Go Analyze,xUI,xClick,btn_phase_analyze,,,Y
+PAnalyze_Panel,3,Panel,xUI,xGetText,panel_analyze,,,Y
+PHeal_Panel,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PHeal_Panel,2,Go Heal,xUI,xClick,btn_phase_heal,,,Y
+PHeal_Panel,3,Panel,xUI,xGetText,panel_heal,,,Y
+PLoop_Panel,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PLoop_Panel,2,Go Loop,xUI,xClick,btn_phase_loop,,,Y
+PLoop_Panel,3,Panel,xUI,xGetText,panel_loop,,,Y
+PBrahl_Panel,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PBrahl_Panel,2,Go BRAHL,xUI,xClick,btn_phase_brahl,,,Y
+PBrahl_Panel,3,Panel,xUI,xGetText,panel_brahl,,,Y
+PSec_AuthRegisterOff,1,POST register,xAPI,xPost,post_register,,http_404,Y
+PSec_HealthNoSecrets,1,GET health,xAPI,xGet,get_health,,http_200,Y
+PSec_HealthNoSecrets,2,status ok,xJSON,xCompareJson,cmp_status_ok,,json_true,Y
+PSec_HealthNoSecrets,3,desktop true,xJSON,xCompareJson,cmp_desktop_true,,json_true,Y
+PSec_HealthNoSecrets,4,service BRAHL_Local,xJSON,xCompareJson,cmp_service,,json_true,Y
+PApi_Health,1,API GET /api/health,xAPI,xGet,get_health,,http_200,Y
+PApi_Version,1,API GET /api/version,xAPI,xGet,get_version,,http_200,Y
+PApi_Suites,1,API GET /api/suites,xAPI,xGet,get_suites,,http_200,Y
+PApi_Projects,1,API GET /api/projects,xAPI,xGet,get_projects,,http_200,Y
+PApi_Workspace,1,API GET /api/workspace,xAPI,xGet,get_workspace,,http_200,Y
+PApi_Configs,1,API GET /api/configs,xAPI,xGet,get_configs,,http_200,Y
+PApi_Runs,1,API GET /api/runs,xAPI,xGet,get_runs,,http_200,Y
+PApi_RevealY,1,Reveal y,xAPI,xPost,post_reveal_y,,http_200,Y
+PApi_RevealY,2,ok true,xJSON,xCompareJson,cmp_ok_true,,json_true,Y
+PApi_RevealY,3,which y,xJSON,xCompareJson,cmp_which_y,,json_true,Y
+PApi_RevealZ,1,Reveal z,xAPI,xPost,post_reveal_z,,http_200,Y
+PApi_RevealZ,2,ok true,xJSON,xCompareJson,cmp_ok_true,,json_true,Y
+PApi_RevealZ,3,which z,xJSON,xCompareJson,cmp_which_z,,json_true,Y
+PPerf_AppReady,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PPerf_AppReady,2,Title,xUI,xGetText,app_title_locator,,BRAHL Local,Y
+PPerf_Health,1,GET health,xAPI,xGet,get_health,,http_200,Y
+PPerf_PhaseSwitch,1,Open app,xReuse,PReuse_OpenApp,,,,Y
+PPerf_PhaseSwitch,2,Run,xUI,xClick,btn_phase_run,,,Y
+PPerf_PhaseSwitch,3,Analyze,xUI,xClick,btn_phase_analyze,,,Y
+PPerf_PhaseSwitch,4,Build,xUI,xClick,btn_phase_build,,,Y
+PPerf_PhaseSwitch,5,Build panel,xUI,xGetText,panel_build,,,Y
+PMan_TeamWorkspace,1,Visual check team hidden,xUI,xGetText,body_locator,,,N
+PMan_AdvancedHidden,1,Visual check,xUI,xGetText,body_locator,,,N

@@ -1,0 +1,13 @@
+Type,DataName,D1,D2,D3
+UI,base_url,https://foxyiz.com/,https://foxyiz.com/,https://foxyiz.com/
+UI,body_locator,css=body,css=body,css=body
+UI,prompt_locator,"css=textarea[placeholder*=""Describe your automation""]","css=textarea[placeholder*=""Describe your automation""]","css=textarea[placeholder*=""Describe your automation""]"
+UI,btn_send,"xpath=//button[contains(normalize-space(.),'Generate')]","xpath=//button[contains(normalize-space(.),'Generate')]","xpath=//button[contains(normalize-space(.),'Generate')]"
+UI,btn_send_locator,"xpath=//button[contains(normalize-space(.),'Generate')]","xpath=//button[contains(normalize-space(.),'Generate')]","xpath=//button[contains(normalize-space(.),'Generate')]"
+UI,response_locator,css=body,css=body,css=body
+UI,type_prompt,"Automate website login;css=textarea[placeholder*=""Describe your automation""]","Test a REST API;css=textarea[placeholder*=""Describe your automation""]","Run math calculations;css=textarea[placeholder*=""Describe your automation""]"
+UI,text_shell,AUTOMATE,AUTOMATE,AUTOMATE
+UI,expect_response_kw,AI GENERATED YPAD,AI GENERATED YPAD,AI GENERATED YPAD
+API,post_chat,https://httpbin.org;/post;y/AI_ux/payloads/chat_prompt.json,https://httpbin.org;/post;y/AI_ux/payloads/chat_prompt.json,https://httpbin.org;/post;y/AI_ux/payloads/chat_prompt.json
+API,cmp_message,json.prompt;hello AI,json.prompt;hello AI,json.prompt;hello AI
+AI,ai_text_prompt,https://api.openai.com/v1/chat/completions;REPLACE_KEY;Say hello in one word,https://api.openai.com/v1/chat/completions;REPLACE_KEY;Say hello in one word,https://api.openai.com/v1/chat/completions;REPLACE_KEY;Say hello in one word

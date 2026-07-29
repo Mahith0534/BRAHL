@@ -1,0 +1,26 @@
+{
+  "id": "20260726_085314_initial",
+  "label": "initial",
+  "author": "system",
+  "created_at": "2026-07-26T08:53:14+00:00",
+  "source_build": "auto-baseline",
+  "suite_config": "y/API_Petstore/API_Petstore.json",
+  "files": [
+    {
+      "sheet": "plans",
+      "source": "y/API_Petstore/y1Plans.csv",
+      "snapshot": "y/API_Petstore/versions/20260726_085314_initial/y1Plans.csv"
+    },
+    {
+      "sheet": "actions",
+      "source": "y/API_Petstore/y2Actions.csv",
+      "snapshot": "y/API_Petstore/versions/20260726_085314_initial/y2Actions.csv"
+    },
+    {
+      "sheet": "designs",
+      "source": "y/API_Petstore/y3Designs.csv",
+      "snapshot": "y/API_Petstore/versions/20260726_085314_initial/y3Designs.csv"
+    }
+  ],
+  "immutable": true
+}

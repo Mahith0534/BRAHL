@@ -1,0 +1,68 @@
+PlanId,StepId,StepInfo,ActionType,ActionName,Input,Output,Expected,Critical
+PReuse_BrahlLocal_OpenApp,1,Open Edge,xUI,xOpenBrowser,edge,,,Y
+PReuse_BrahlLocal_OpenApp,2,Navigate /app,xUI,xNavigate,app_url,,,Y
+PReuse_BrahlLocal_OpenApp,3,Wait boot,xTime,xTimeWait,3,,,Y
+PReuse_BrahlLocal_OpenApp,4,Body present,xUI,xGetText,body_locator,,,Y
+PQoa_Smoke_AppTitle,1,Open app,xReuse,PReuse_BrahlLocal_OpenApp,,,,Y
+PQoa_Smoke_AppTitle,2,Navigate /app,xUI,xNavigate,app_url,,,Y
+PQoa_Smoke_AppTitle,3,Wait,xTime,xTimeWait,2,,,Y
+PQoa_Smoke_AppTitle,4,Document title,xUI,xGetTitle,,,page_title_token,Y
+PQoa_Smoke_AppTitle,5,H1 brand,xUI,xGetText,app_title_locator,,title_token,Y
+PQoa_Smoke_AppTitle,6,Tagline,xUI,xGetText,body_locator,,text_tagline,Y
+PQoa_Smoke_PhaseNav,1,Open app,xReuse,PReuse_BrahlLocal_OpenApp,,,,Y
+PQoa_Smoke_PhaseNav,2,Navigate /app,xUI,xNavigate,app_url,,,Y
+PQoa_Smoke_PhaseNav,3,Wait,xTime,xTimeWait,2,,,Y
+PQoa_Smoke_PhaseNav,4,Nav Build,xUI,xGetText,phase_nav_locator,,text_phase_build,Y
+PQoa_Smoke_PhaseNav,5,Nav Run,xUI,xGetText,phase_nav_locator,,text_phase_run,Y
+PQoa_Smoke_PhaseNav,6,Nav Analyze,xUI,xGetText,phase_nav_locator,,text_phase_analyze,Y
+PQoa_Smoke_PhaseNav,7,Nav Heal,xUI,xGetText,phase_nav_locator,,text_phase_heal,Y
+PQoa_Smoke_PhaseNav,8,Nav Loop,xUI,xGetText,phase_nav_locator,,text_phase_loop,Y
+PQoa_Smoke_PhaseNav,9,Nav BRAHL,xUI,xGetText,phase_nav_locator,,text_phase_brahl,Y
+PQoa_Smoke_WorkspaceChrome,1,Open app,xReuse,PReuse_BrahlLocal_OpenApp,,,,Y
+PQoa_Smoke_WorkspaceChrome,2,Navigate /app,xUI,xNavigate,app_url,,,Y
+PQoa_Smoke_WorkspaceChrome,3,Wait,xTime,xTimeWait,2,,,Y
+PQoa_Smoke_WorkspaceChrome,4,Workspace chip label,xUI,xGetText,workspace_chip_locator,,text_workspace,Y
+PQoa_Smoke_WorkspaceChrome,5,Bound path short label,xUI,xGetText,workspace_label_locator,,,Y
+PQoa_Smoke_NoWalletChrome,1,Open app,xReuse,PReuse_BrahlLocal_OpenApp,,,,Y
+PQoa_Smoke_NoWalletChrome,2,Navigate /app,xUI,xNavigate,app_url,,,Y
+PQoa_Smoke_NoWalletChrome,3,Wait,xTime,xTimeWait,2,,,Y
+PQoa_Smoke_NoWalletChrome,4,desktop-mode class on body,xUI,xGetText,desktop_title_locator,,title_token,Y
+PQoa_Smoke_NoWalletChrome,5,Phase nav present,xUI,xGetText,phase_nav_locator,,text_phase_build,Y
+PQoa_UI_OpenRun,1,Open app,xReuse,PReuse_BrahlLocal_OpenApp,,,,Y
+PQoa_UI_OpenRun,2,Navigate /app,xUI,xNavigate,app_url,,,Y
+PQoa_UI_OpenRun,3,Wait,xTime,xTimeWait,2,,,Y
+PQoa_UI_OpenRun,4,Click Run phase,xUI,xClick,btn_phase_run,,,Y
+PQoa_UI_OpenRun,5,Wait panel,xTime,xTimeWait,1,,,Y
+PQoa_UI_OpenRun,6,Run panel heading,xUI,xGetText,panel_run_locator,,text_run_heading,Y
+PQoa_UI_OpenAnalyze,1,Open app,xReuse,PReuse_BrahlLocal_OpenApp,,,,Y
+PQoa_UI_OpenAnalyze,2,Navigate /app,xUI,xNavigate,app_url,,,Y
+PQoa_UI_OpenAnalyze,3,Wait,xTime,xTimeWait,2,,,Y
+PQoa_UI_OpenAnalyze,4,Click Analyze phase,xUI,xClick,btn_phase_analyze,,,Y
+PQoa_UI_OpenAnalyze,5,Wait panel,xTime,xTimeWait,1,,,Y
+PQoa_UI_OpenAnalyze,6,Analyze panel,xUI,xGetText,panel_analyze_locator,,text_analyze_heading,Y
+PQoa_UI_OpenHeal,1,Open app,xReuse,PReuse_BrahlLocal_OpenApp,,,,Y
+PQoa_UI_OpenHeal,2,Navigate /app,xUI,xNavigate,app_url,,,Y
+PQoa_UI_OpenHeal,3,Wait,xTime,xTimeWait,2,,,Y
+PQoa_UI_OpenHeal,4,Click Heal phase,xUI,xClick,btn_phase_heal,,,Y
+PQoa_UI_OpenHeal,5,Wait panel,xTime,xTimeWait,1,,,Y
+PQoa_UI_OpenHeal,6,Heal panel,xUI,xGetText,panel_heal_locator,,text_heal_heading,Y
+PQoa_UI_OpenLoop,1,Open app,xReuse,PReuse_BrahlLocal_OpenApp,,,,Y
+PQoa_UI_OpenLoop,2,Navigate /app,xUI,xNavigate,app_url,,,Y
+PQoa_UI_OpenLoop,3,Wait,xTime,xTimeWait,2,,,Y
+PQoa_UI_OpenLoop,4,Click Loop phase,xUI,xClick,btn_phase_loop,,,Y
+PQoa_UI_OpenLoop,5,Wait panel,xTime,xTimeWait,1,,,Y
+PQoa_UI_OpenLoop,6,Loop panel,xUI,xGetText,panel_loop_locator,,text_loop_heading,Y
+PQoa_UI_OpenBrahl,1,Open app,xReuse,PReuse_BrahlLocal_OpenApp,,,,Y
+PQoa_UI_OpenBrahl,2,Navigate /app,xUI,xNavigate,app_url,,,Y
+PQoa_UI_OpenBrahl,3,Wait,xTime,xTimeWait,2,,,Y
+PQoa_UI_OpenBrahl,4,Click BRAHL phase,xUI,xClick,btn_phase_brahl,,,Y
+PQoa_UI_OpenBrahl,5,Wait panel,xTime,xTimeWait,1,,,Y
+PQoa_UI_OpenBrahl,6,BRAHL panel,xUI,xGetText,panel_brahl_locator,,text_brahl_heading,Y
+PQoa_UI_BackToBuild,1,Open app,xReuse,PReuse_BrahlLocal_OpenApp,,,,Y
+PQoa_UI_BackToBuild,2,Navigate /app,xUI,xNavigate,app_url,,,Y
+PQoa_UI_BackToBuild,3,Wait,xTime,xTimeWait,2,,,Y
+PQoa_UI_BackToBuild,4,Click Run then Build,xUI,xClick,btn_phase_run,,,Y
+PQoa_UI_BackToBuild,5,Wait,xTime,xTimeWait,1,,,Y
+PQoa_UI_BackToBuild,6,Click Build phase,xUI,xClick,btn_phase_build,,,Y
+PQoa_UI_BackToBuild,7,Wait panel,xTime,xTimeWait,1,,,Y
+PQoa_UI_BackToBuild,8,Build panel visible,xUI,xGetText,panel_build_locator,,text_phase_build,Y
