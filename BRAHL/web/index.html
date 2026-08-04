@@ -45,6 +45,15 @@
 
   <div id="visual-reward-rail" class="visual-reward-rail" hidden aria-hidden="true"></div>
 
+  <div id="ai-progress" class="ai-progress" hidden role="status" aria-live="polite">
+    <span class="ai-progress-spinner" aria-hidden="true"></span>
+    <div class="ai-progress-copy">
+      <strong id="ai-progress-title">AI working…</strong>
+      <span id="ai-progress-step">Preparing prompt</span>
+    </div>
+    <span id="ai-progress-elapsed" class="ai-progress-elapsed">0s</span>
+  </div>
+
   <div id="context-strip" class="context-strip" hidden aria-hidden="true">
     <span id="status-bar" class="status-bar" hidden></span>
     <span id="project-banner-meta" class="project-banner-meta" hidden title="Open the yPAD widget (bottom right) for plans · steps · data"></span>
@@ -422,10 +431,9 @@
         <span class="phase-marker" data-phase="brahl" title="BRAHL — Go / No-Go report" hidden></span>
       </div>
     </div>
-    <button type="button" class="phase-btn phase-nalanda mvp-hidden" data-phase="nalanda" hidden>Nalanda</button>
-    <button type="button" class="phase-btn phase-atomic77 mvp-hidden" data-phase="atomic77" hidden>A77</button>
-    <button type="button" class="phase-btn phase-promoter mvp-hidden" data-phase="promoter" hidden>Promoter</button>
-    <button type="button" class="phase-btn phase-cost mvp-hidden" data-phase="cost" hidden>$</button>
+
+
+<button type="button" class="phase-btn phase-cost mvp-hidden" data-phase="cost" hidden>$</button>
   </nav>
 
   <main class="content">
@@ -849,7 +857,7 @@
             <input type="number" id="run-thread-count" min="1" max="8" value="1" title="1 = one job · 2+ with multiple tags can fan out workers" />
           </label>
         </div>
-        <p class="hint fstart-chip-hint">Tags filter which plans run (overrides fStart tags for this job). Parallel &gt; 1 with 2+ tags can fan out.</p>
+        <p class="hint fstart-chip-hint">One fStart per suite — Edit to change capture/timeout. <strong>Run tags</strong> filter which plans run (overrides fStart tags for this job).</p>
         <p id="fstart-fanout-hint" class="hint fstart-fanout-hint" hidden></p>
         <p id="fstart-empty-hint" class="hint" hidden>No fStart yet — one is created automatically for this project.</p>
         <p id="run-roll-hint" class="hint" hidden></p>
@@ -883,13 +891,14 @@
       <div id="analyze-content">
         <h2>Analyze — z-result review</h2>
         <p id="analyze-project-scope" class="phase-scope"></p>
-        <p class="blurb">Review what a verify run produced in z/ — pass/fail per plan, and the evidence for each failure (Input · Expected · Output). AI root-cause is optional when AI is on.</p>
+        <p class="blurb">Review what a verify run produced in z/ — pass/fail summary, failure table (Input · Expected · Output), and visual evidence (screenshots · video · playback). AI root-cause is optional when AI is on.</p>
         <div class="phase-action-bar analyze-actions">
           <button type="button" id="btn-refresh-runs">Refresh runs</button>
           <button type="button" id="btn-analyze-ai" hidden>AI root-cause</button>
         </div>
         <div id="analyze-ai-off-hint" class="hint" hidden>AI off — review the failure table; fix yPAD on Heal or Build.</div>
         <div id="analyze-ai-result" class="ai-panel" hidden></div>
+        <div id="analyze-run-summary" class="analyze-run-summary" hidden></div>
         <div class="split analyze-split">
           <ul id="runs-list" class="runs-list"></ul>
           <div class="fail-table-wrap">
@@ -910,6 +919,13 @@
         </div>
         <div id="dash-link" class="dash-link"></div>
         <div id="analyze-artifacts" class="analyze-artifacts" hidden></div>
+        <div id="analyze-evidence" class="analyze-evidence" hidden>
+          <h3 class="section-sub">Visual evidence</h3>
+          <p id="analyze-evidence-meta" class="hint"></p>
+          <div id="analyze-evidence-links" class="analyze-artifacts"></div>
+          <div id="analyze-evidence-grid" class="shots-grid"></div>
+          <div id="analyze-evidence-videos" class="analyze-evidence-videos"></div>
+        </div>
       </div>
     </section>
 
@@ -1252,169 +1268,7 @@
       </div>
     </section>
 
-    <section id="panel-atomic77" class="panel" data-panel="atomic77">
-      <header class="atomic77-header">
-        <h2>Atomic 77</h2>
-        <p class="blurb" id="atomic77-blurb">
-          Idea → Build → BRAHL → launch. FAQ, admin voice, and builder assistant for every avatar.
-          Respects <strong>AI on/off</strong> — token usage shows on the <strong>$</strong> tab.
-        </p>
-      </header>
-      <div class="atomic77-faq-bar" id="atomic77-faq-bar" role="toolbar" aria-label="Atomic 77 FAQ shortcuts">
-        <button type="button" class="atomic77-faq-chip" data-faq="idea">I have an idea</button>
-        <button type="button" class="atomic77-faq-chip" data-faq="brahl">What is BRAHL?</button>
-        <button type="button" class="atomic77-faq-chip" data-faq="launch">Launch checklist</button>
-        <button type="button" class="atomic77-faq-chip" data-faq="cost">$ &amp; XP wallet</button>
-        <button type="button" class="atomic77-faq-chip" data-faq="hunter">QA Hunter help</button>
-      </div>
-      <div class="atomic77-usage" id="atomic77-usage" hidden>
-        <span class="atomic77-usage-label">This challenge</span>
-        <span id="atomic77-usage-text">—</span>
-      </div>
-      <div id="atomic77-chat-thread" class="chat-thread atomic77-chat" aria-live="polite"></div>
-      <form id="atomic77-chat-form" class="chat-form">
-        <input type="text" id="atomic77-chat-input" placeholder="Ask Atomic 77 anything — scope, FAQ, launch, hunt…" autocomplete="off" />
-        <button type="submit" class="primary">Send</button>
-      </form>
-      <p class="hint atomic77-hint">
-        Atomic 77 uses skills from <strong>Docs/ATOMIC77.md</strong> and BRAHL docs. Creators: pair with Build chat for yPAD scope.
-        All messages contribute to admin analytics and your XP on <strong>$</strong>.
-      </p>
-    </section>
-
-    <section id="panel-nalanda" class="panel nalanda-panel" data-panel="nalanda">
-      <header class="nalanda-header">
-        <h2>Nalanda — free knowledge community</h2>
-        <p class="blurb">
-          Learn from <a href="https://nalanda.base44.app/" target="_blank" rel="noopener">Nalanda SkillFlow AI</a>
-          and <a href="https://itelearn.com/" target="_blank" rel="noopener">ITelearn</a>.
-          Teach what you know, discuss with peers, invite humans to join — knowledge is free.
-        </p>
-      </header>
-      <div id="nalanda-xp-strip" class="nalanda-xp-strip" aria-label="Community contribution"></div>
-      <p id="nalanda-status" class="nalanda-status" hidden aria-live="polite"></p>
-
-      <section class="nalanda-section" aria-labelledby="nalanda-learn-title">
-        <h3 id="nalanda-learn-title">Learn</h3>
-        <div class="nalanda-featured-grid">
-          <article class="nalanda-featured-card">
-            <h4>Nalanda SkillFlow AI</h4>
-            <p class="blurb">AI tutor, learning paths, quizzes, live trainings.</p>
-            <a href="https://nalanda.base44.app/" target="_blank" rel="noopener">nalanda.base44.app</a>
-          </article>
-          <article class="nalanda-featured-card">
-            <h4>ITelearn — QA to AI</h4>
-            <p class="blurb">Courses, bootcamps, hands-on AI projects.</p>
-            <a href="https://itelearn.com/" target="_blank" rel="noopener">itelearn.com</a>
-          </article>
-        </div>
-        <p class="hint">Quick help — tap a FAQ (works without AI key):</p>
-        <div class="nalanda-faq-row">
-          <button type="button" class="nalanda-faq-chip" data-faq="idea">I have an idea</button>
-          <button type="button" class="nalanda-faq-chip" data-faq="brahl">What is BRAHL?</button>
-          <button type="button" class="nalanda-faq-chip" data-faq="launch">Launch checklist</button>
-          <button type="button" class="nalanda-faq-chip" data-faq="hunter">QA Hunter help</button>
-        </div>
-        <div id="nalanda-faq-answer" class="hint" hidden aria-live="polite"></div>
-        <h4 class="section-sub">Community lessons</h4>
-        <ul id="nalanda-lesson-list" class="nalanda-lesson-list"></ul>
-      </section>
-
-      <section class="nalanda-section" aria-labelledby="nalanda-teach-title">
-        <h3 id="nalanda-teach-title">Teach</h3>
-        <p class="blurb">Share a lesson link, course, or resource with the community.</p>
-        <form id="nalanda-teach-form" class="nalanda-teach-form">
-          <input type="text" id="nalanda-lesson-title" placeholder="Lesson title" required maxlength="200" />
-          <input type="url" id="nalanda-lesson-url" placeholder="https://… (optional)" />
-          <textarea id="nalanda-lesson-blurb" rows="3" placeholder="Why this helps the community…"></textarea>
-          <button type="submit" class="primary">Share lesson</button>
-        </form>
-        <div class="nalanda-share-box">
-          <h4 class="section-sub">Share Nalanda</h4>
-          <p class="hint">Draft a social post about the free knowledge community.</p>
-          <textarea id="nalanda-community-share-draft" placeholder="Share draft…"></textarea>
-          <div class="nalanda-actions">
-            <button type="button" id="btn-nalanda-draft-share" class="secondary">Draft post</button>
-            <button type="button" id="btn-nalanda-copy-share" class="secondary">Copy post</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="nalanda-section" aria-labelledby="nalanda-discuss-title">
-        <h3 id="nalanda-discuss-title">Discuss</h3>
-        <ul id="nalanda-thread-list" class="nalanda-thread-list"></ul>
-        <div id="nalanda-thread-detail" class="nalanda-thread-detail" hidden></div>
-        <h4 class="section-sub">Start a discussion</h4>
-        <form id="nalanda-new-thread-form" class="nalanda-teach-form">
-          <input type="text" id="nalanda-thread-title" placeholder="Topic title" required maxlength="200" />
-          <textarea id="nalanda-thread-body" rows="4" placeholder="What's on your mind?" required></textarea>
-          <button type="submit" class="primary">Post discussion</button>
-        </form>
-      </section>
-
-      <section class="nalanda-section" aria-labelledby="nalanda-invite-title">
-        <h3 id="nalanda-invite-title">Invite</h3>
-        <p class="blurb">Your personal community link — friends get a 7-day trial and join Nalanda.</p>
-        <div id="nalanda-invite-code" class="nalanda-invite-code">—</div>
-        <p><a id="nalanda-invite-link" href="/welcome" class="linkish">Loading invite link…</a></p>
-        <textarea id="nalanda-invite-share-text" rows="3" readonly class="nalanda-share-box"></textarea>
-        <div class="nalanda-actions">
-          <button type="button" id="btn-nalanda-copy-invite" class="primary">Copy invite message</button>
-        </div>
-      </section>
-    </section>
-
-    <section id="panel-promoter" class="panel promoter-panel" data-panel="promoter">
-      <header class="promoter-header">
-        <p class="tc-kicker">Grow the arena</p>
-        <h2>Promoter</h2>
-        <p class="blurb">
-          Your referral code opens a 7-day trial on the homepage. Pick a channel, copy or publish a pre-built post,
-          and earn XP toward your wallet.
-        </p>
-      </header>
-
-      <div class="promoter-layout">
-        <aside class="promoter-referral-card">
-          <h3 class="section-sub">Your referral code</h3>
-          <div id="promoter-invite-code" class="promoter-invite-code">—</div>
-          <p class="hint">Share link</p>
-          <a id="promoter-invite-link" href="/welcome" class="promoter-link linkish">Loading…</a>
-          <div class="form-row actions">
-            <button type="button" id="btn-promoter-copy-code" class="primary">Copy code</button>
-            <button type="button" id="btn-promoter-copy-link" class="secondary">Copy link</button>
-          </div>
-          <div class="promoter-scoreboard visual-card visual-card-grid" aria-label="Promoter snapshot">
-            <div class="visual-card-item"><strong id="promoter-xp">—</strong><span>XP</span></div>
-            <div class="visual-card-item"><strong id="promoter-shares">0</strong><span>Publishes</span></div>
-            <div class="visual-card-item"><strong id="promoter-credits">—</strong><span>Est. $</span></div>
-          </div>
-        </aside>
-
-        <div class="promoter-studio">
-          <h3 class="section-sub">Pre-built posts</h3>
-          <p class="blurb">Choose a channel — edit if you like — then publish (opens the network) or copy.</p>
-          <div class="promoter-channels" role="tablist" aria-label="Share channels">
-            <button type="button" class="promoter-channel active" data-channel="linkedin" role="tab" aria-selected="true">LinkedIn</button>
-            <button type="button" class="promoter-channel" data-channel="instagram" role="tab" aria-selected="false">Instagram</button>
-            <button type="button" class="promoter-channel" data-channel="whatsapp" role="tab" aria-selected="false">WhatsApp</button>
-            <button type="button" class="promoter-channel" data-channel="blog" role="tab" aria-selected="false">Blog</button>
-          </div>
-          <label class="tc-label" for="promoter-share-text" id="promoter-channel-label">LinkedIn post</label>
-          <textarea id="promoter-share-text" rows="10" class="promoter-share-text"></textarea>
-          <div class="form-row actions promoter-publish-actions">
-            <button type="button" id="btn-promoter-publish" class="primary">Publish</button>
-            <button type="button" id="btn-promoter-copy" class="secondary">Copy post</button>
-            <button type="button" id="btn-promoter-draft" class="secondary">Reset template</button>
-            <button type="button" id="btn-promoter-wallet" class="secondary">Wallet</button>
-          </div>
-          <p id="promoter-status" class="hint" hidden aria-live="polite"></p>
-          <p class="hint">Publish opens the channel with your post ready where supported (WhatsApp / LinkedIn). Instagram &amp; blog copy to clipboard for paste.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="panel-cost" class="panel" data-panel="cost">
+<section id="panel-cost" class="panel" data-panel="cost">
       <div id="cost-locked" class="phase-locked" hidden>
         <p class="phase-locked-msg">Select a project on Build first to see budget and phase costs.</p>
         <div class="phase-locked-actions">

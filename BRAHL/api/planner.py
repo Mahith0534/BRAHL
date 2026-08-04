@@ -6,7 +6,7 @@ import re
 from typing import Any
 from urllib.parse import urlparse
 
-from ai_assist import chat_metered, is_ai_available, brahl_doc_context
+from ai_assist import chat_metered, is_ai_available, brahl_doc_context, is_local_openai_compatible
 from brahl_plan import generate_brahl_plan
 from runner import create_ypad_suite, default_fstart_for_suite, slug_suite_name
 import projects as project_store
@@ -173,7 +173,14 @@ def planner_turn(
         reply = _fallback_reply(merged, message)
 
     plan_preview = None
-    if merged.get("ready") and (merged.get("purpose") or "").strip():
+    # Skip heavy generate_brahl_plan during chat on local Ollama — that call alone
+    # is often 60–120s and stacks after the planner reply (double wait / timeouts).
+    # Create & quick BRAHL already generates the plan when the user confirms.
+    if (
+        merged.get("ready")
+        and (merged.get("purpose") or "").strip()
+        and not is_local_openai_compatible()
+    ):
         try:
             gen = generate_brahl_plan(
                 merged["purpose"],
@@ -191,6 +198,16 @@ def planner_turn(
             }
         except Exception:
             plan_preview = None
+    elif merged.get("ready"):
+        plan_preview = {
+            "summary": "Ready — click Create & quick BRAHL to generate the strategy on Create.",
+            "automated_count": None,
+            "manual_count": None,
+            "preview_markdown": None,
+            "brahl_plan": None,
+            "ai": is_ai_available(),
+            "deferred": True,
+        }
 
     return {
         "reply": reply,

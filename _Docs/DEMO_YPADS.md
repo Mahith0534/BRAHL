@@ -8,9 +8,10 @@ Ready-to-run sample suites in this end-user package — **Math**, **API_Petstore
 | **API_Petstore** | `FoXYiZ/y/API_Petstore/` | `…/API_Petstore.json` | [Swagger Petstore](https://petstore.swagger.io/) xAPI: pet/store/user CRUD, security, smoke |
 | **UI_internet** | `FoXYiZ/y/UI_internet/` | `…/UI_internet.json` | [the-internet](https://the-internet.herokuapp.com/) heavy UI: forms, alerts, DnD, upload, waits, tables |
 | **BRAHL_Local** | `FoXYiZ/y/BRAHL_Local/` | `…/BRAHL_Local.json` | Desktop self-test of BRAHL UI (white pads; needs UI on port **8766**) |
-| **AI_foxyiz** | `FoXYiZ/y/AI_foxyiz/` | `…/AI_foxyiz.json` | [foxyiz.com](https://foxyiz.com/) AI Generate — chips/prompts → yPAD contract checks + Manual quality |
-| **AI_ux** | `FoXYiZ/y/AI_ux/` | `…/AI_ux.json` | Portable AI chatbot template (UI dataset D1–D3 + optional API/AI + Manual) |
+| **AI_foxyiz** | `FoXYiZ/y/AI_foxyiz/` | `…/AI_foxyiz.json` | [foxyiz.com](https://foxyiz.com/) Generate→yPAD exams (`EX-FXZ-*`) + Manual scorecard · `_Docs/AI_tests.md` |
+| **AI_ux** | `FoXYiZ/y/AI_ux/` | `…/AI_ux.json` | Portable chat/Generate template (D1–D3 domain anchors + chips + Manual) — retarget from FoXYiZ seed |
 | **KonfigAI** | `FoXYiZ/y/KonfigAI/` | `…/KonfigAI.json` | [konfigai.com](https://www.konfigai.com/) public links, titles, form chrome |
+| **LAEats** | `FoXYiZ/y/LAEats/` | `…/LAEats.json` | [laeats.base44.app](https://laeats.base44.app/) Fusion by Fire menu + Chef AI |
 
 ## Quick start (CLI)
 

@@ -294,7 +294,11 @@ def _read_csv_file(path: Path) -> tuple[list[str], list[dict[str, str]]]:
 
 
 def _sheet_source_kind(rel_path: str) -> str:
-    """Classify a sheet file as gate or journey based on filename."""
+    """Classify a sheet file as gate or journey based on filename.
+
+    ``*_reusable*`` modules are shared (not journey) — treat as gate so they
+    remain visible when the Arena filters to the gate sheet set.
+    """
     name = Path(str(rel_path).replace("\\", "/")).name.lower()
     return "journey" if "_journey" in name else "gate"
 

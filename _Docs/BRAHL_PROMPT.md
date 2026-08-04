@@ -1,8 +1,8 @@
 # BRAHL (prompt) — slim in-app AI skill
 
 **Formula:** `f(x,y)=z` — FoXYiZ engine + yPAD → `z/` results.  
-**Product:** local web UI (qoa_web) drives FoXYiZ; spells **BRAHL** / **FoXYiZ**.  
-**Glossary:** [terminology.md](./terminology.md) (**brawled** = completed this lifecycle).
+**Product:** local BRAHL Arena drives FoXYiZ; spells **BRAHL** / **FoXYiZ**.  
+**Glossary:** (**brawled** = completed this lifecycle).
 
 ## Phases (one job each)
 
@@ -20,6 +20,10 @@
 - **y1Plans** — what (PlanId, Run, Tags)
 - **y2Actions** — how (steps, xUI/xAPI/xReuse…)
 - **y3Designs** — data/locators (D1… columns)
+
+## Coverage (Build / Rebuild plans)
+
+Span **journeys** (visitor + signed-in + admin if any), **auth**, **≥1 negative**, **security/PII should-not-see**, not only happy path. If the app has chat/generate/RAG/AI: include chrome + contract cases **and** Manual Quality/Safety for Go/No-Go. Details: Test_Coverage skill.
 
 ## Hard rules for every AI reply
 

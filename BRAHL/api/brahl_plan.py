@@ -196,9 +196,17 @@ def _plan_system_prompt() -> str:
         "(more if the requirement asks for deep regression / full E2E).\n"
         "Each test_cases.title must be a concrete scenario (page + action + expected), "
         "never generic names like 'Test case 1'.\n"
-        "Cover: landing, nav, auth, forms, lists/detail, submit/checkout, settings, errors, "
-        "and a few manual mobile/UX cases (automated:false).\n"
-        "FoXYiZ automates; QA Hunters cover manual-only scenarios."
+        "Balanced coverage required (not happy-path only):\n"
+        "- Journeys: visitor/anonymous + signed-in; admin/role-gated if the product has it.\n"
+        "- Auth: sign-in (and sign-up/reset when relevant).\n"
+        "- Negatives/edge: bad input, denied actions, expired session.\n"
+        "- Security/PII: at least one should-not-see or threat probe "
+        "(automated when assertable; else automated:false for QA Hunter).\n"
+        "- UI/API as fits the app; a few mobile/UX Manual cases (automated:false).\n"
+        "- If URL/purpose implies chat, generate, copilot, RAG, or AI: include chrome/contract "
+        "automated cases PLUS Manual AI Quality/Safety/PII scoring cases "
+        "(relevance, faithfulness, jailbreak/toxicity, latency feel).\n"
+        "FoXYiZ automates Run=Y; QA Hunters cover Manual-only judgment."
     )
 
 
@@ -227,8 +235,9 @@ def generate_brahl_plan(
     user = (
         f"Project: {project_name}\nApp URL: {app_url or 'not set'}\nBudget: ${budget_usd:.0f}\n\n"
         f"Requirement:\n{requirement}\n\n"
-        "Produce a deep regression-oriented plan. Prefer specific page names and flows "
-        "inferred from the URL/requirement. JSON only."
+        "Produce a deep regression-oriented plan with balanced coverage "
+        "(journeys, auth, negatives, security/PII; AI Quality/Safety Manual if the app has AI). "
+        "Prefer specific page names and flows inferred from the URL/requirement. JSON only."
     )
 
     raw, meta = chat_metered(

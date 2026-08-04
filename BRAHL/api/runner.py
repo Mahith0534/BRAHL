@@ -180,14 +180,39 @@ def _backfill_job_log_from_zlogs(job: Job) -> None:
     job.log_lines = prefix + chunks
 
 
+def _suite_name_from_fstart_path(config_path: str | None) -> str | None:
+    """Resolve y/<suite> from an fStart path (canonical or .runtime override)."""
+    rel = str(config_path or "").replace("\\", "/").strip()
+    if not rel:
+        return None
+    stem = Path(rel).stem
+    # Runtime overrides are named run_* — read configs[] from the JSON
+    try:
+        data = read_fstart_config(rel)
+    except (OSError, ValueError, json.JSONDecodeError):
+        data = {}
+    for raw in data.get("configs") or []:
+        suite = _suite_name_from_config_rel(str(raw))
+        if suite:
+            return suite
+    # Canonical f/fStart/{Suite}.json or legacy Suite_smoke.json
+    if stem and not stem.startswith("run_"):
+        if (Y_DIR / stem).is_dir():
+            return stem
+        for suite in _y_suite_names():
+            if stem == suite or stem.startswith(suite + "_"):
+                return suite
+    return None
+
+
 def _ensure_job_run_dirs(job: Job) -> None:
     """Fill output_dir/run_dirs when emoji Output Directory lines never reached the pipe."""
     if job.output_dir or job.run_dirs:
         return
     if not Z_DIR.is_dir() or not job.started_at:
         return
-    suite = Path(job.config_path or "").stem
-    if not suite or suite.startswith("run_"):
+    suite = _suite_name_from_fstart_path(job.config_path)
+    if not suite:
         return
     suffix = f"_{suite}"
     started = float(job.started_at) - 5.0
@@ -498,7 +523,11 @@ def _read_suite_json(suite_rel: str) -> dict[str, Any] | None:
 def _filter_input_files_for_mode(
     input_files: dict[str, Any], mode: str
 ) -> dict[str, Any] | None:
-    """Return a copy of input_files limited to gate or journey CSVs."""
+    """Return a copy of input_files limited to gate or journey CSVs.
+
+    Files named *_reusable* are always kept for yPlans/yActions (shared modules).
+    yDesigns always keep the full list (shared + suite-specific).
+    """
     if mode not in ("gate", "journey"):
         return None
     out: dict[str, Any] = {}
@@ -507,10 +536,19 @@ def _filter_input_files_for_mode(
         if key == "yDesigns":
             out[key] = files
             continue
+
+        def _is_reusable(rel: object) -> bool:
+            return "_reusable" in Path(str(rel)).name.lower()
+
+        reusable = [f for f in files if _is_reusable(f)]
         if mode == "journey":
             picked = [f for f in files if "_journey" in Path(str(f)).name.lower()]
         else:
             picked = [f for f in files if "_journey" not in Path(str(f)).name.lower()]
+        # Journey mode would otherwise drop shared modules — keep them.
+        for rel in reusable:
+            if rel not in picked:
+                picked.append(rel)
         if not picked:
             return None
         out[key] = picked
@@ -570,6 +608,51 @@ def _materialize_suite_override(
     return rel
 
 
+def _merge_attach_into_suite(
+    suite: dict[str, Any], attach: dict[str, Any]
+) -> dict[str, Any]:
+    """Prepend fStart attach CSVs into suite input_files (dedupe, preserve order)."""
+    input_files = dict(suite.get("input_files") or {})
+    out_files: dict[str, Any] = {}
+    for key in ("yPlans", "yActions", "yDesigns"):
+        existing = [str(x) for x in (input_files.get(key) or [])]
+        extra = [str(x) for x in (attach.get(key) or []) if str(x).strip()]
+        merged: list[str] = []
+        seen: set[str] = set()
+        for rel in extra + existing:
+            norm = rel.replace("\\", "/")
+            if norm in seen:
+                continue
+            seen.add(norm)
+            merged.append(norm)
+        out_files[key] = merged
+    data = dict(suite)
+    data["input_files"] = out_files
+    return data
+
+
+def _materialize_suite_with_attach(
+    suite_rel: str, attach: dict[str, Any] | None
+) -> str:
+    """Write runtime suite JSON with optional fStart attach CSVs; return rel path."""
+    suite = _read_suite_json(suite_rel)
+    if not suite:
+        return suite_rel
+    if not attach:
+        return suite_rel
+    data = _merge_attach_into_suite(suite, attach)
+    data["description"] = (
+        f"{suite.get('description') or suite.get('name') or 'suite'} "
+        f"[runtime attach]"
+    )
+    FSTART_RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
+    name = f"suite_attach_{uuid.uuid4().hex[:8]}.json"
+    rel = f"f/fStart/.runtime/{name}"
+    path = FSTART_RUNTIME_DIR / name
+    path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+    return rel
+
+
 def materialize_runtime_fstart(
     base_config_path: str,
     *,
@@ -596,15 +679,23 @@ def materialize_runtime_fstart(
     if thread_count is not None:
         data["thread_count"] = max(1, int(thread_count))
 
+    attach = data.get("attach") if isinstance(data.get("attach"), dict) else None
     suite_mode = _suite_mode_for_profiles(profiles)
-    if suite_mode in ("gate", "journey"):
-        configs = list(data.get("configs") or [])
-        new_configs: list[str] = []
-        for cfg in configs:
-            override = _materialize_suite_override(str(cfg), suite_mode)
-            new_configs.append(override or str(cfg))
-        if new_configs:
-            data["configs"] = new_configs
+    configs = list(data.get("configs") or [])
+    new_configs: list[str] = []
+    for cfg in configs:
+        cfg_rel = str(cfg)
+        if attach:
+            cfg_rel = _materialize_suite_with_attach(cfg_rel, attach)
+        if suite_mode in ("gate", "journey"):
+            override = _materialize_suite_override(cfg_rel, suite_mode)
+            new_configs.append(override or cfg_rel)
+        else:
+            new_configs.append(cfg_rel)
+    if new_configs:
+        data["configs"] = new_configs
+    # attach already folded into runtime suite JSON — drop so engine ignores unknown key
+    data.pop("attach", None)
 
     FSTART_RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
     name = f"run_{uuid.uuid4().hex[:10]}.json"
@@ -646,7 +737,7 @@ def default_fstart_template(suite_name: str, variant: str = "smoke") -> dict[str
     return {
         "configs": [cfg_path],
         "thread_count": 1,
-        "timeout": 8,
+        "timeout": 5,
         "headless": True,
         "debug": False,
         "tags": ["Smoke"],
@@ -890,6 +981,186 @@ def load_failures(run_dir: Path) -> list[dict[str, str]]:
     return out
 
 
+def _plan_names_map(suite_name: str) -> dict[str, str]:
+    suite_dir = Y_DIR / suite_name
+    if not suite_dir.is_dir():
+        return {}
+    out: dict[str, str] = {}
+    for csv_path in sorted(suite_dir.glob("y1*.csv")):
+        try:
+            with csv_path.open(encoding="utf-8-sig", newline="") as f:
+                for row in csv.DictReader(f):
+                    pid = (row.get("PlanId") or "").strip()
+                    if pid:
+                        out[pid] = (row.get("PlanName") or pid).strip()
+        except OSError:
+            continue
+    return out
+
+
+def load_ai_eval_ledger(run_name: str, suite_name: str | None = None) -> dict[str, Any]:
+    """Build Input → Expected → Actual → Eval rows for AI-tagged plans in a run.
+
+    Used by BRAHL reports when the Verify run includes `AI` tag coverage.
+    Soft quality is still Manual — this ledger is the FoXYiZ contract/chrome layer.
+    """
+    run_dir = Z_DIR / run_name
+    suite = suite_name or _suite_from_run(run_name)
+    results = next(run_dir.glob("*_zResults.csv"), None) if run_dir.is_dir() else None
+    empty = {
+        "has_ai": False,
+        "rows": [],
+        "plans": 0,
+        "assert_pass": 0,
+        "assert_fail": 0,
+        "markdown": "",
+    }
+    if not results or not results.is_file():
+        return empty
+
+    plan_tags = _plan_tags_map(suite)
+    plan_names = _plan_names_map(suite)
+    ai_plans = {
+        pid
+        for pid, tags in plan_tags.items()
+        if any(t.lower() == "ai" for t in tags)
+    }
+    # Also include PlanIds that start with PAI_ / PMan_AI_ even if tag parse missed
+    with results.open(encoding="utf-8-sig", newline="") as f:
+        all_rows = list(csv.DictReader(f))
+    seen_plans = {(r.get("PlanId") or "").strip() for r in all_rows}
+    for pid in seen_plans:
+        if pid.startswith(("PAI_", "PMan_AI_")) or "AIEntry" in pid:
+            ai_plans.add(pid)
+
+    if not ai_plans.intersection(seen_plans):
+        return empty
+
+    # Prefer assert steps (Expected set) + type/click prompt steps for Input
+    ledger: list[dict[str, str]] = []
+    plan_results: dict[str, str] = {}
+    last_prompt: dict[str, str] = {}
+    for row in all_rows:
+        pid = (row.get("PlanId") or "").strip()
+        if not pid or pid not in ai_plans:
+            continue
+        result = (row.get("Result") or "").strip().lower()
+        if result == "fail":
+            plan_results[pid] = "fail"
+        elif pid not in plan_results:
+            plan_results[pid] = "pass"
+
+        expected = (row.get("Expected") or "").strip()
+        action = (row.get("ActionName") or "").strip()
+        step_info = (row.get("StepInfo") or "").strip()
+        raw_in = (row.get("Input") or "").strip()
+        if raw_in.lower() in ("nan", "none"):
+            raw_in = ""
+        # Contract asserts + prompt send steps
+        is_assert = bool(expected) and expected.lower() not in ("nan", "none")
+        info_l = step_info.lower()
+        is_prompt = action in ("xType", "xClick") and any(
+            k in info_l
+            for k in (
+                "prompt",
+                "chip",
+                "type",
+                "ask",
+                "send",
+                "how many",
+                "quality",
+                "hold",
+                "on-time",
+                "material",
+                "prime",
+                "completion",
+                "dispatch",
+                "gap",
+                "orders",
+            )
+        )
+        if not is_assert and not is_prompt:
+            continue
+        # For typed prompts, Input is often "text;locator" — keep the text side
+        prompt_in = raw_in.split(";")[0].strip() if raw_in else step_info
+        if is_prompt and prompt_in and not prompt_in.startswith("css=") and not prompt_in.startswith("xpath="):
+            last_prompt[pid] = prompt_in
+        elif is_prompt and step_info:
+            last_prompt[pid] = step_info
+        out_snip = _trim_keep_png_refs(row.get("Output") or "", 220)
+        if is_assert:
+            shown_in = last_prompt.get(pid) or step_info or prompt_in or "—"
+            ledger.append(
+                {
+                    "planId": pid,
+                    "feature": plan_names.get(pid, pid),
+                    "step": f"{row.get('StepId', '')} {step_info}".strip(),
+                    "input": shown_in,
+                    "expected": expected,
+                    "actual": out_snip or "—",
+                    "eval": "Pass" if result == "pass" else ("Fail" if result == "fail" else result or "—"),
+                    "kind": "assert",
+                }
+            )
+        elif is_prompt and (prompt_in or step_info):
+            ledger.append(
+                {
+                    "planId": pid,
+                    "feature": plan_names.get(pid, pid),
+                    "step": f"{row.get('StepId', '')} {step_info}".strip(),
+                    "input": last_prompt.get(pid) or prompt_in or step_info,
+                    "expected": "(prompt sent — anchors asserted on later step)",
+                    "actual": out_snip or "sent",
+                    "eval": "Pass" if result == "pass" else ("Fail" if result == "fail" else result or "—"),
+                    "kind": "prompt",
+                }
+            )
+
+    assert_rows = [r for r in ledger if r.get("kind") == "assert"]
+    ap = sum(1 for r in assert_rows if r["eval"] == "Pass")
+    af = sum(1 for r in assert_rows if r["eval"] == "Fail")
+
+    if not ledger:
+        return empty
+
+    lines = [
+        "| Plan / feature | Input (prompt / step) | Expected | Actual (snippet) | Eval |",
+        "|----------------|----------------------|----------|------------------|------|",
+    ]
+    for r in ledger[:80]:
+        feat = (r["feature"] or r["planId"]).replace("|", "/")
+        if len(feat) > 60:
+            feat = feat[:57] + "…"
+        inp = (r["input"] or "—").replace("|", "/")
+        if len(inp) > 48:
+            inp = inp[:45] + "…"
+        exp = (r["expected"] or "—").replace("|", "/")
+        if len(exp) > 36:
+            exp = exp[:33] + "…"
+        act = (r["actual"] or "—").replace("|", "/").replace("\n", " ")
+        if len(act) > 48:
+            act = act[:45] + "…"
+        lines.append(
+            f"| `{r['planId']}`<br>{feat} | {inp} | {exp} | {act} | **{r['eval']}** |"
+        )
+
+    note = (
+        "\n\n*Contract layer only — anchors must match live KPIs. "
+        "Soft quality (relevance / safety / PII) is scored on Manual pads per "
+        "`_Docs/AI_tests.md`. Perfect verbatim essays are **not** required.*\n"
+    )
+    md = "\n".join(lines) + note
+    return {
+        "has_ai": True,
+        "rows": ledger,
+        "plans": len(plan_results),
+        "assert_pass": ap,
+        "assert_fail": af,
+        "plan_pass": sum(1 for v in plan_results.values() if v == "pass"),
+        "plan_fail": sum(1 for v in plan_results.values() if v == "fail"),
+        "markdown": md,
+    }
+
 def load_errors_excerpt(run_dir: Path, max_lines: int = 40) -> str:
     err = run_dir / "_errors.csv"
     if not err.is_file():
@@ -957,40 +1228,11 @@ def start_run(
         runtime_rel: str | None = None
         try:
             if mode == "cloud":
-                import cloud_worker as cw
-
-                if not cw.cloud_configured():
-                    job.status = "failed"
-                    job.log_lines.append(
-                        "[ERROR] runtime_mode=cloud but FOXYIZ_CLOUD_WORKER_URL is unset"
-                    )
-                    return
-                job.log_lines.append("[i] Dispatching to FOXYIZ_CLOUD_WORKER_URL …")
-                remote = cw.submit_job(
-                    config_path=config_path,
-                    step_label=step_label,
-                    tags=tags,
-                    thread_count=tc,
-                    profiles=clean_profiles or None,
-                )
-                remote_id = remote.get("remote_job_id") or remote.get("job_id")
-                job.log_lines.append(f"[i] Cloud job: {remote_id}")
-                # Poll until terminal
-                for _ in range(3600):
-                    time.sleep(2)
-                    st = cw.poll_job(str(remote_id))
-                    for line in st.get("log_lines") or []:
-                        if line not in job.log_lines:
-                            job.log_lines.append(line)
-                    if st.get("output_dir"):
-                        job.output_dir = st["output_dir"]
-                    status = (st.get("status") or "").lower()
-                    if status in ("completed", "failed"):
-                        job.return_code = st.get("return_code")
-                        job.status = status
-                        return
                 job.status = "failed"
-                job.log_lines.append("[ERROR] cloud job poll timeout")
+                job.log_lines.append(
+                    "[ERROR] runtime_mode=cloud is not supported in FoXYiZ_User desktop "
+                    "(cloud_worker removed). Use local FoXYiZ.exe only."
+                )
                 return
 
             use_override = tags is not None or tc is not None or bool(clean_profiles)
@@ -1188,12 +1430,17 @@ def list_run_artifacts(run_name: str) -> dict[str, Any]:
         "brahl_report": None,
         "screenshots": [],
         "overlay_shots": [],
+        "videos": [],
+        "video_frame_dirs": [],
+        "summary": None,
         "filmstrip": None,
         "gif": None,
         "counts": {
             "screenshots": 0,
             "overlays": 0,
             "total_png": 0,
+            "videos": 0,
+            "video_frame_dirs": 0,
         },
     }
     if not run_dir.is_dir():
@@ -1230,6 +1477,26 @@ def list_run_artifacts(run_name: str) -> dict[str, Any]:
     zlogs = run_dir / "zlogs.txt"
     if zlogs.is_file():
         out["zlogs"] = {"path": "zlogs.txt", "url": _file_url("zlogs.txt")}
+        try:
+            ztext = zlogs.read_text(encoding="utf-8", errors="replace")
+            passes = fails = None
+            for line in ztext.splitlines():
+                if "Passed:" in line:
+                    m = re.search(r"Passed:\s*(\d+)", line)
+                    if m:
+                        passes = int(m.group(1))
+                if "Failed:" in line:
+                    m = re.search(r"Failed:\s*(\d+)", line)
+                    if m:
+                        fails = int(m.group(1))
+            if passes is not None or fails is not None:
+                out["summary"] = {
+                    "passes": passes or 0,
+                    "fails": fails or 0,
+                    "total": (passes or 0) + (fails or 0),
+                }
+        except OSError:
+            pass
 
     brahl = run_dir / "brahl_report.md"
     if brahl.is_file():
@@ -1251,6 +1518,42 @@ def list_run_artifacts(run_name: str) -> dict[str, Any]:
         else:
             screenshots.append(entry)
 
+    videos: list[dict[str, str]] = []
+    for vid in sorted(run_dir.rglob("*")):
+        if not vid.is_file():
+            continue
+        if vid.suffix.lower() not in {".webm", ".mp4", ".mkv"}:
+            continue
+        rel = vid.relative_to(run_dir).as_posix()
+        videos.append({"path": rel, "url": _file_url(rel), "name": vid.name})
+
+    frame_dirs: list[dict[str, Any]] = []
+    for d in sorted(run_dir.rglob("*")):
+        if not d.is_dir():
+            continue
+        name_l = d.name.lower()
+        if "video_frame" not in name_l and not name_l.endswith("_frames"):
+            continue
+        pngs = sorted(d.glob("*.png"))[:8]
+        if not pngs:
+            continue
+        rel = d.relative_to(run_dir).as_posix()
+        frame_dirs.append(
+            {
+                "path": rel,
+                "name": d.name,
+                "count": len(list(d.glob("*.png"))),
+                "preview": [
+                    {
+                        "path": p.relative_to(run_dir).as_posix(),
+                        "url": _file_url(p.relative_to(run_dir).as_posix()),
+                        "name": p.name,
+                    }
+                    for p in pngs
+                ],
+            }
+        )
+
     for gif in sorted(run_dir.rglob("*.gif")):
         if gif.is_file() and ("roll" in gif.name.lower() or "site_shots" in gif.name.lower()):
             rel = gif.relative_to(run_dir).as_posix()
@@ -1259,10 +1562,14 @@ def list_run_artifacts(run_name: str) -> dict[str, Any]:
 
     out["screenshots"] = screenshots
     out["overlay_shots"] = overlays
+    out["videos"] = videos
+    out["video_frame_dirs"] = frame_dirs
     out["counts"] = {
         "screenshots": len(screenshots),
         "overlays": len(overlays),
         "total_png": len(screenshots) + len(overlays) + (1 if out["filmstrip"] else 0),
+        "videos": len(videos),
+        "video_frame_dirs": len(frame_dirs),
     }
     return out
 
@@ -1587,6 +1894,23 @@ def generate_brahl_report_md(
     else:
         area_table = "*No tag breakdown available for this run.*"
 
+    ai_ledger = load_ai_eval_ledger(run_name, suite)
+    if ai_ledger.get("has_ai"):
+        ai_section = f"""## AI eval ledger (chatbot exams)
+
+Contract / chrome asserts for plans tagged **AI** — what we prompted, what we expected, what FoXYiZ saw.
+See `_Docs/AI_tests.md` · `_Docs/AI_prompts.md`. Soft quality remains Manual.
+
+**AI plans:** {ai_ledger.get('plan_pass', 0)}/{ai_ledger.get('plans', 0)} pass · **Anchor asserts:** {ai_ledger.get('assert_pass', 0)} pass · {ai_ledger.get('assert_fail', 0)} fail
+
+{ai_ledger.get('markdown') or '*No AI assert rows in zResults.*'}
+"""
+    else:
+        ai_section = """## AI eval ledger (chatbot exams)
+
+*No AI-tagged plans in this run.* Re-run with Run tags = **AI** (or include `AI` in fStart tags) to populate Input → Expected → Actual → Eval.
+"""
+
     context_items = project.get("context_items") or []
     ctx_lines = ""
     if context_items:
@@ -1669,6 +1993,7 @@ Human-verified: **{critical_n} Critical** · **{issue_n} Issue** · **{len(thoug
 
 {area_table}
 
+{ai_section}
 ## Human verified — thought captures
 
 {thought_lines}

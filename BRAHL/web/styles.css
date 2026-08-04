@@ -1677,6 +1677,70 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   white-space: pre-wrap;
 }
 
+.ai-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 1.25rem;
+  background: linear-gradient(90deg, rgba(61, 139, 253, 0.14), rgba(61, 139, 253, 0.05));
+  border-bottom: 1px solid rgba(61, 139, 253, 0.35);
+  color: var(--text);
+  font-size: 0.86rem;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.ai-progress[hidden] {
+  display: none !important;
+}
+
+.ai-progress-spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(61, 139, 253, 0.25);
+  border-top-color: var(--accent, #3d8bfd);
+  border-radius: 50%;
+  animation: ai-spin 0.8s linear infinite;
+  flex: 0 0 auto;
+}
+
+.ai-progress-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.ai-progress-copy strong {
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.ai-progress-copy span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ai-progress-elapsed {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  font-size: 0.78rem;
+  flex: 0 0 auto;
+}
+
+@keyframes ai-spin {
+  to { transform: rotate(360deg); }
+}
+
+body.ai-busy {
+  cursor: progress;
+}
+
 .ai-panel h2,
 .ai-panel h3,
 .ai-panel h4,
@@ -1923,14 +1987,8 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .avatar-btn.avatar-networker.active .avatar-icon { background: #a855f7; }
 .avatar-label { font-size: 0.7rem; }
 
-.mode-networker .phase-nav .phase-btn[data-phase="build"],
-.mode-networker .phase-nav .phase-btn[data-phase="run"],
-.mode-networker .phase-nav .phase-btn[data-phase="analyze"],
-.mode-networker .phase-nav .phase-btn[data-phase="heal"],
-.mode-networker .phase-nav .phase-btn[data-phase="loop"],
-.mode-networker .phase-nav .phase-btn[data-phase="brahl"] {
-  display: none;
-}
+/* Desktop BRAHL Local: keep Build→BRAHL phases visible for all avatars.
+   Marketplace Nalanda chrome was removed; do not hide Run behind community UI. */
 
 .phase-btn.phase-nalanda { border-color: rgba(168, 85, 247, 0.45); }
 .phase-btn.phase-nalanda.active { background: rgba(168, 85, 247, 0.2); border-color: #a855f7; }
@@ -4032,6 +4090,58 @@ button.link-btn {
   flex-wrap: wrap;
   gap: 0.45rem;
   margin: 0.5rem 0 0.75rem;
+}
+
+.analyze-run-summary {
+  margin: 0.35rem 0 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--surface2);
+  background: rgba(61, 139, 253, 0.08);
+  font-size: 0.92rem;
+}
+
+.analyze-evidence {
+  margin: 0.85rem 0 1rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--surface2);
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.analyze-evidence .section-sub {
+  margin: 0 0 0.35rem;
+}
+
+.analyze-evidence-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.65rem;
+}
+
+.analyze-video-card {
+  margin: 0;
+  padding: 0.4rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--surface2);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.analyze-video-card figcaption {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.analyze-video-card video {
+  width: 100%;
+  max-height: 200px;
+  background: #000;
+  border-radius: 3px;
 }
 
 .shots-grid {

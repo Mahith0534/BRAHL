@@ -105,9 +105,14 @@ Flat index: `z/zlogs.txt`. Optional helpers: `_pyUtils/` (needs Python) — see 
 | `y1Plans.csv` | What: PlanId, Run, Tags, DesignId |
 | `y2Actions.csv` | How: ActionType, ActionName, Expected, Critical |
 | `y3Designs.csv` | Data: DataName + D1…D9 |
-| `<suite>.json` | `input_files` + metadata |
+| `*_reusable.csv` | Optional shared modules — list in `input_files` arrays; use **`vbrowser`** |
+| `<suite>.json` | `input_files` (+ multi-CSV) + metadata |
 
 Tags: `Smoke` · `UI` · `Func` · `Edge` · `Security` · `API` · `Perf` · `Manual` · `BRAHL` · `Conclusion` · `Reuse`
+
+### Coverage skill (Build)
+
+Plans must balance **journeys + auth + negatives + security/PII** — and **AI eval** when the product has chat/generate/RAG. Smoke-only is not launch-ready. Full matrix, tags, and AI Go/No-Go scoring: [Test_Coverage.md](Test_Coverage.md).
 
 ---
 
@@ -115,4 +120,5 @@ Tags: `Smoke` · `UI` · `Func` · `Edge` · `Security` · `API` · `Perf` · `M
 
 - [Vision.md](Vision.md) — QA on Air vision (canonical; sync with [qaonair.com/vision](https://qaonair.com/vision))
 - [FoXYiZ.md](FoXYiZ.md) — package layout, exe, `.env` / Ollama, `_pyUtils`
+- [Test_Coverage.md](Test_Coverage.md) — coverage pillars · AI scoring · Go/No-Go
 - [DEMO_YPADS.md](DEMO_YPADS.md) — demo suites

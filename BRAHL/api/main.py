@@ -51,9 +51,6 @@ from runner import (
 )
 import ypad as ypad_store
 import ypad_versions as ypad_versions_store
-import waitlist as waitlist_store
-import invites as invite_store
-import nalanda as nalanda_store
 import auth as auth_store
 import brahl_plan as brahl_plan_store
 import admin_panel as admin_panel_store
@@ -202,13 +199,6 @@ class AuthResetRequest(BaseModel):
 def _auth_user(request: Request) -> dict[str, Any] | None:
     return auth_store.user_from_request(request.headers.get("Authorization"))
 
-
-def _claim_billing_after_auth(user: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
-    """Apply any pending Stripe entitlements waiting on this email."""
-    import billing
-
-    claimed, refreshed = billing.claim_pending_entitlements(user)
-    return refreshed, claimed
 
 
 def _require_project(project_id: str, request: Request) -> dict[str, Any]:
@@ -921,7 +911,7 @@ def auth_register(body: AuthRegisterRequest) -> dict[str, Any]:
         )
     except ValueError as exc:
         raise HTTPException(400, str(exc)) from exc
-    user, claimed = _claim_billing_after_auth(user)
+    claimed = []
     token = auth_store.create_token(user)
     return {"user": user, "token": token, "billing_claimed": claimed}
 
@@ -931,7 +921,7 @@ def auth_login(body: AuthLoginRequest) -> dict[str, Any]:
     user = auth_store.authenticate_user(body.email, body.password)
     if not user:
         raise HTTPException(401, "Invalid email or password")
-    user, claimed = _claim_billing_after_auth(user)
+    claimed = []
     token = auth_store.create_token(user)
     return {"user": user, "token": token, "billing_claimed": claimed}
 
@@ -974,7 +964,6 @@ def auth_google_callback(
         user = auth_store.login_with_google_profile(info)
     except ValueError as exc:
         return RedirectResponse(f"/login?oauth_error={urllib_quote(str(exc))}", status_code=302)
-    user, _claimed = _claim_billing_after_auth(user)
     token = auth_store.create_token(user)
     dest = "/signup" if not user.get("profile_complete") else (next_path if next_path != "/login" else "/app")
     sep = "&" if "?" in dest else "?"
@@ -993,7 +982,7 @@ def auth_social(body: AuthSocialRequest) -> dict[str, Any]:
         user = auth_store.social_login_or_register(body.provider, body.email, body.name)
     except ValueError as exc:
         raise HTTPException(400, str(exc)) from exc
-    user, claimed = _claim_billing_after_auth(user)
+    claimed = []
     token = auth_store.create_token(user)
     return {"user": user, "token": token, "needs_profile": not user.get("profile_complete"), "billing_claimed": claimed}
 
@@ -1003,7 +992,7 @@ def auth_me(request: Request) -> dict[str, Any]:
     user = auth_store.user_from_request(request.headers.get("Authorization"))
     if not user:
         raise HTTPException(401, "Not authenticated")
-    user, claimed = _claim_billing_after_auth(user)
+    claimed = []
     return {"user": user, "billing_claimed": claimed}
 
 
@@ -1208,9 +1197,16 @@ def ai_status(request: Request, project_id: str | None = None) -> dict[str, Any]
         "byok": ai_assist.is_byok_mode(),
         "hosted": not ai_assist.is_byok_mode(),
         "model": os.environ.get("OPENAI_MODEL", "gpt-4o-mini") if ai_assist.is_ai_available() else None,
+        "local": ai_assist.is_local_openai_compatible(),
+        "base_url": (os.environ.get("OPENAI_BASE_URL") or "").strip() or None,
         "note": (
             "Master docs (everyone) + living Journey (this project) pack into AI. "
             "Open .md in the top bar to inspect what the assistant sees."
+            + (
+                " Local Ollama replies often take 30–90s — watch the AI progress bar."
+                if ai_assist.is_local_openai_compatible()
+                else ""
+            )
         ),
         "docs_loaded": bool(packed),
         "journey_in_prompt": bool(project),
@@ -2050,161 +2046,10 @@ def project_cost_meter(project_id: str, request: Request, runtime: str | None = 
 
 @app.get("/api/consultant/wallet")
 def consultant_wallet() -> dict[str, Any]:
+    """Desktop lean — local earnings preview only (no marketplace pricing)."""
     wallet = project_store.consultant_wallet()
-    from pricing import get_pricing_rules
-
-    wallet["pricing"] = get_pricing_rules(wallet_balance_usd=float(wallet.get("total_earned_usd") or 0))
+    wallet["pricing"] = None
     return {"wallet": wallet}
-
-
-@app.get("/api/pricing")
-def pricing_rules(
-    budget_usd: float = 0,
-    automation_pct: int = 50,
-    human_pct: int = 50,
-    wallet_balance_usd: float = 0,
-) -> dict[str, Any]:
-    from pricing import get_pricing_rules
-
-    return {
-        "pricing": get_pricing_rules(
-            budget_usd=budget_usd,
-            automation_pct=automation_pct,
-            human_pct=human_pct,
-            wallet_balance_usd=wallet_balance_usd,
-        )
-    }
-
-
-class CheckoutRequest(BaseModel):
-    kind: str = Field(..., description="membership | wallet")
-    amount_usd: float | None = None
-    customer_email: str | None = None
-    project_id: str | None = None
-
-
-@app.get("/api/billing/status")
-def billing_status() -> dict[str, Any]:
-    import billing
-
-    return billing.billing_status()
-
-
-@app.get("/api/billing/me")
-def billing_me(request: Request) -> dict[str, Any]:
-    """Return current user's membership + Creator wallet entitlements."""
-    import billing
-
-    user = _auth_user(request)
-    claimed: list[dict[str, Any]] = []
-    if user:
-        user, claimed = _claim_billing_after_auth(user)
-    out = billing.entitlements_for_user(user)
-    out["claimed"] = claimed
-    if user:
-        # Optional project list for wallet top-up / apply targeting
-        owned = [
-            {"id": p.get("id"), "name": p.get("name"), "budget_usd": float(p.get("budget_usd") or 0)}
-            for p in project_store.list_client_projects(owner_user_id=user["id"])
-            if project_store.user_owns_project(p, user)
-        ]
-        out["projects"] = owned[:50]
-    return out
-
-
-@app.post("/api/billing/checkout")
-def billing_checkout(request: Request, body: CheckoutRequest) -> dict[str, Any]:
-    import billing
-
-    user = _auth_user(request)
-    if not user:
-        raise HTTPException(401, "Sign in required to start Checkout")
-    email = (body.customer_email or "").strip().lower() or None
-    email = email or (user.get("email") or "").strip().lower() or None
-    project_id = (body.project_id or "").strip() or None
-    if project_id:
-        project = project_store.get_project(project_id)
-        if not project:
-            raise HTTPException(404, "Project not found")
-        if not project_store.user_owns_project(project, user):
-            raise HTTPException(403, "Only the project owner can fund this project wallet")
-
-    try:
-        return billing.create_checkout_session(
-            body.kind,
-            amount_usd=body.amount_usd,
-            customer_email=email,
-            user_id=user["id"],
-            project_id=project_id,
-        )
-    except ValueError as exc:
-        raise HTTPException(400, str(exc)) from exc
-    except RuntimeError as exc:
-        raise HTTPException(503, str(exc)) from exc
-
-
-class WalletApplyRequest(BaseModel):
-    project_id: str
-    amount_usd: float | None = None
-
-
-@app.post("/api/billing/wallet/apply")
-def billing_wallet_apply(request: Request, body: WalletApplyRequest) -> dict[str, Any]:
-    """Move portable Creator wallet balance onto an owned project budget."""
-    import billing
-
-    user = _auth_user(request)
-    if not user:
-        raise HTTPException(401, "Sign in required")
-    try:
-        return billing.apply_creator_wallet_to_project(
-            user,
-            project_id=body.project_id,
-            amount_usd=body.amount_usd,
-        )
-    except ValueError as exc:
-        raise HTTPException(400, str(exc)) from exc
-
-
-class PortalRequest(BaseModel):
-    return_path: str | None = "/pricing"
-
-
-@app.post("/api/billing/portal")
-def billing_portal(request: Request, body: PortalRequest | None = None) -> dict[str, Any]:
-    """Open Stripe Customer Portal (cancel, payment method, invoices)."""
-    import billing
-
-    user = _auth_user(request)
-    if not user:
-        raise HTTPException(401, "Sign in required")
-    # Refresh user so stripe_customer_id is current
-    user = auth_store.get_user(user["id"]) or user
-    return_path = (body.return_path if body else None) or "/pricing"
-    try:
-        return billing.create_billing_portal_session(
-            user,
-            return_path=return_path,
-        )
-    except ValueError as exc:
-        raise HTTPException(400, str(exc)) from exc
-    except RuntimeError as exc:
-        raise HTTPException(503, str(exc)) from exc
-
-
-@app.post("/api/billing/webhook")
-async def billing_webhook(request: Request) -> dict[str, Any]:
-    """Stripe webhook — verifies signature and applies membership / wallet entitlements."""
-    import billing
-
-    payload = await request.body()
-    sig = request.headers.get("stripe-signature")
-    try:
-        return billing.handle_webhook(payload, sig)
-    except ValueError as exc:
-        raise HTTPException(400, str(exc)) from exc
-    except RuntimeError as exc:
-        raise HTTPException(503, str(exc)) from exc
 
 
 @app.get("/api/projects/{project_id}")
@@ -2803,77 +2648,6 @@ def patch_team_task(project_id: str, task_id: str, body: TeamTaskPatch) -> dict[
     return {"task": task, "project": project, "team_tasks": (project or {}).get("team_tasks") or []}
 
 
-@app.post("/api/projects/{project_id}/atomic77/chat")
-def atomic77_project_chat(project_id: str, body: Atomic77ChatMessage) -> dict[str, Any]:
-    project = project_store.get_project(project_id)
-    if not project:
-        raise HTTPException(404, "Project not found")
-    ai_on = project.get("ai_enabled", True)
-    if not ai_on and not body.faq_key:
-        raise HTTPException(400, "AI is off — use FAQ chips or turn AI on")
-    user_msg = project_store.add_atomic77_chat_message(project_id, "user", body.text)
-    project = project_store.get_project(project_id)
-    assert project
-    history = [
-        {"role": m.get("role"), "text": m.get("text", "")}
-        for m in (project.get("atomic77_chat_messages") or [])[-10:]
-        if m.get("role") in ("user", "assistant")
-    ][:-1]
-    avatar = body.avatar or project.get("owner_avatar") or "client"
-    import ai_assist
-
-    reply_text, tokens_est = ai_assist.atomic77_assistant_reply(
-        project,
-        body.text,
-        avatar=avatar,
-        faq_key=body.faq_key,
-        history=history if ai_on else None,
-    )
-    project_store.record_atomic77_tokens(project_id, tokens_est)
-    assistant_msg = project_store.add_atomic77_chat_message(project_id, "assistant", reply_text)
-    project = project_store.get_project(project_id)
-    return {
-        "user_message": user_msg,
-        "assistant_message": assistant_msg,
-        "project": project,
-        "tokens_est": tokens_est,
-    }
-
-
-@app.post("/api/atomic77/chat")
-def atomic77_platform_chat(body: Atomic77PlatformChat) -> dict[str, Any]:
-    """Platform Atomic 77 — works without a selected project (e.g. Networker)."""
-    project = None
-    if body.project_id:
-        project = project_store.get_project(body.project_id)
-    import ai_assist
-
-    history: list[dict[str, str]] = []
-    if project:
-        history = [
-            {"role": m.get("role"), "text": m.get("text", "")}
-            for m in (project.get("atomic77_chat_messages") or [])[-10:]
-            if m.get("role") in ("user", "assistant")
-        ]
-    reply_text, tokens_est = ai_assist.atomic77_assistant_reply(
-        project,
-        body.text,
-        avatar=body.avatar,
-        faq_key=body.faq_key,
-        history=history if ai_assist.is_ai_available() else None,
-    )
-    if project and body.project_id:
-        project_store.add_atomic77_chat_message(body.project_id, "user", body.text)
-        project_store.record_atomic77_tokens(body.project_id, tokens_est)
-        project_store.add_atomic77_chat_message(body.project_id, "assistant", reply_text)
-        project = project_store.get_project(body.project_id)
-    return {
-        "assistant_message": {"role": "assistant", "text": reply_text},
-        "tokens_est": tokens_est,
-        "project": project,
-    }
-
-
 @app.get("/api/files/z/{run_name}/{filename:path}")
 def z_artifact(run_name: str, filename: str):
     path = resolve_z_file(run_name, filename)
@@ -2898,182 +2672,16 @@ if WEB_DIR.is_dir():
 
 @app.get("/api/about/ecosystem")
 def about_ecosystem() -> dict[str, Any]:
-    inv = invite_store.list_admin_summary()
     return {
         "ecosystem": project_store.ecosystem_stats(),
-        "waitlist_count": waitlist_store.count_entries(),
+        "waitlist_count": 0,
         "gtm": {
-            "batch_count": inv.get("batch_count", 0),
-            "code_count": inv.get("code_count", 0),
-            "redeemed_count": inv.get("redeemed_count", 0),
-            "active_trials": inv.get("active_trials", 0),
+            "batch_count": 0,
+            "code_count": 0,
+            "redeemed_count": 0,
+            "active_trials": 0,
         },
     }
-
-
-@app.post("/api/waitlist")
-def waitlist_join(body: WaitlistRequest, request: Request) -> dict[str, Any]:
-    ip = request.client.host if request.client else None
-    try:
-        result = waitlist_store.add_entry(
-            body.email,
-            role=body.role,
-            note=body.note,
-            source=body.source,
-            ip=ip,
-        )
-    except ValueError as exc:
-        raise HTTPException(400, str(exc)) from exc
-    entry = result["entry"]
-    return {
-        "ok": True,
-        "duplicate": result["duplicate"],
-        "count": result["count"],
-        "message": "Already on the list — try the demo below."
-        if result["duplicate"]
-        else "You're on the list — try the demo now.",
-        "entry": {"id": entry["id"], "email": entry["email"], "role": entry["role"]},
-    }
-
-
-@app.get("/api/waitlist/count")
-def waitlist_count() -> dict[str, int]:
-    return {"count": waitlist_store.count_entries()}
-
-
-@app.get("/api/admin/waitlist")
-def admin_waitlist(request: Request) -> dict[str, Any]:
-    _require_admin(request)
-    return {"entries": waitlist_store.list_entries(), "count": waitlist_store.count_entries()}
-
-
-@app.get("/api/admin/waitlist/export")
-def admin_waitlist_export(request: Request):
-    from fastapi.responses import Response
-
-    _require_admin(request)
-    csv_text = waitlist_store.export_csv()
-    return Response(
-        content=csv_text,
-        media_type="text/csv",
-        headers={"Content-Disposition": "attachment; filename=brahl_waitlist.csv"},
-    )
-
-
-@app.get("/api/invites/validate")
-def invites_validate(code: str) -> dict[str, Any]:
-    return invite_store.validate_code(code)
-
-
-@app.post("/api/invites/redeem")
-def invites_redeem(body: InviteRedeemRequest) -> dict[str, Any]:
-    try:
-        return invite_store.redeem_code(body.code, body.email, body.note)
-    except ValueError as exc:
-        raise HTTPException(400, str(exc)) from exc
-
-
-@app.get("/api/admin/invites")
-def admin_invites(request: Request) -> dict[str, Any]:
-    _require_admin(request)
-    return invite_store.list_admin_summary()
-
-
-@app.post("/api/admin/invites/batch")
-def admin_invites_batch(request: Request, body: InviteBatchRequest) -> dict[str, Any]:
-    _require_admin(request)
-    try:
-        return invite_store.generate_batch(body.batch_type, body.label, body.count, body.trial_days)
-    except ValueError as exc:
-        raise HTTPException(400, str(exc)) from exc
-
-
-@app.get("/api/admin/invites/export")
-def admin_invites_export(request: Request, batch_id: str):
-    from fastapi.responses import Response
-
-    _require_admin(request)
-    try:
-        csv_text = invite_store.export_batch_csv(batch_id)
-    except ValueError as exc:
-        raise HTTPException(404, str(exc)) from exc
-    return Response(
-        content=csv_text,
-        media_type="text/csv",
-        headers={"Content-Disposition": f"attachment; filename=invites_{batch_id}.csv"},
-    )
-
-
-@app.get("/api/nalanda/lessons")
-def nalanda_list_lessons(limit: int = 50) -> dict[str, Any]:
-    return {"lessons": nalanda_store.list_lessons(limit)}
-
-
-@app.post("/api/nalanda/lessons")
-def nalanda_add_lesson(body: NalandaLessonRequest) -> dict[str, Any]:
-    try:
-        lesson = nalanda_store.add_lesson(
-            body.profile_id,
-            body.title,
-            body.blurb,
-            body.url,
-            body.tags,
-            body.author_name,
-        )
-    except ValueError as exc:
-        raise HTTPException(400, str(exc)) from exc
-    return {"lesson": lesson}
-
-
-@app.get("/api/nalanda/threads")
-def nalanda_list_threads(limit: int = 50) -> dict[str, Any]:
-    return {"threads": nalanda_store.list_threads(limit)}
-
-
-@app.get("/api/nalanda/threads/{thread_id}")
-def nalanda_get_thread(thread_id: str) -> dict[str, Any]:
-    try:
-        thread = nalanda_store.get_thread(thread_id)
-    except ValueError as exc:
-        raise HTTPException(404, str(exc)) from exc
-    return {"thread": thread}
-
-
-@app.post("/api/nalanda/threads")
-def nalanda_add_thread(body: NalandaThreadRequest) -> dict[str, Any]:
-    try:
-        thread = nalanda_store.add_thread(
-            body.profile_id, body.title, body.body, body.author_name
-        )
-    except ValueError as exc:
-        raise HTTPException(400, str(exc)) from exc
-    return {"thread": thread}
-
-
-@app.post("/api/nalanda/threads/{thread_id}/replies")
-def nalanda_add_reply(thread_id: str, body: NalandaReplyRequest) -> dict[str, Any]:
-    try:
-        result = nalanda_store.add_reply(
-            thread_id, body.profile_id, body.body, body.author_name
-        )
-        thread = nalanda_store.get_thread(thread_id)
-    except ValueError as exc:
-        raise HTTPException(400, str(exc)) from exc
-    return {"reply": result["reply"], "thread": thread}
-
-
-@app.get("/api/nalanda/invite")
-def nalanda_profile_invite(profile_id: str, author_name: str = "") -> dict[str, Any]:
-    try:
-        invite = nalanda_store.get_or_create_profile_invite(profile_id, author_name)
-    except ValueError as exc:
-        raise HTTPException(400, str(exc)) from exc
-    return invite
-
-
-@app.get("/api/nalanda/stats")
-def nalanda_stats() -> dict[str, Any]:
-    return nalanda_store.community_stats()
 
 
 @app.get("/about")
@@ -3086,20 +2694,8 @@ def about_page():
 
 @app.get("/welcome")
 def welcome_page():
-    if DESKTOP_MODE:
-        return RedirectResponse("/app", status_code=302)
-    welcome_path = WEB_DIR / "welcome.html"
-    if not welcome_path.is_file():
-        raise HTTPException(404, "Welcome page not found")
-    return _html_page(welcome_path)
-
-
-@app.get("/pricing")
-def pricing_page():
-    pricing_path = WEB_DIR / "pricing.html"
-    if not pricing_path.is_file():
-        raise HTTPException(404, "Pricing page not found")
-    return _html_page(pricing_path)
+    """Marketplace welcome funnel removed — Arena only."""
+    return RedirectResponse("/app", status_code=302)
 
 
 @app.get("/signin")
@@ -3150,9 +2746,6 @@ def index():
         if not index_path.is_file():
             raise HTTPException(404, "Frontend not built")
         return _html_page(index_path)
-    welcome_path = WEB_DIR / "welcome.html"
-    if welcome_path.is_file():
-        return _html_page(welcome_path)
     index_path = WEB_DIR / "index.html"
     if not index_path.is_file():
         raise HTTPException(404, "Frontend not built")

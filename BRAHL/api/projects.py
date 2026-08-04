@@ -412,8 +412,19 @@ def assistant_reply(project: dict[str, Any], user_text: str) -> str:
             )
             if ai_text:
                 return ai_text
-        except Exception:
-            pass
+            if ai_assist.is_ai_available():
+                scripted = _scripted_assistant_reply(project, user_text)
+                return (
+                    "Local AI did not return a reply (model busy, timed out, or empty). "
+                    "Confirm Ollama is running and OPENAI_MODEL in FoXYiZ/f/.env, then retry.\n\n"
+                    f"{scripted}"
+                )
+        except Exception as exc:
+            scripted = _scripted_assistant_reply(project, user_text)
+            return (
+                f"Local AI error: {exc}. Check Ollama + FoXYiZ/f/.env, then retry.\n\n"
+                f"{scripted}"
+            )
     return _scripted_assistant_reply(project, user_text)
 
 
@@ -1118,9 +1129,18 @@ def compute_cost_meter(project: dict[str, Any], runtime_mode: str | None = None)
     total_spent = round(spent_auto + spent_human, 2)
     remaining = round(max(0, budget - total_spent), 2)
 
-    from pricing import CREATOR_WALLET_MIN_USD, PLATFORM_FEE_PCT, get_pricing_rules
-
-    deposit_split = get_pricing_rules(budget, auto_pct, human_pct)["project_deposit_split"]
+    # Desktop lean: no marketplace pricing module — local budget hints only
+    CREATOR_WALLET_MIN_USD = 50.0
+    PLATFORM_FEE_PCT = 5
+    deposit_split = {
+        "budget_usd": budget,
+        "platform_fee_pct": PLATFORM_FEE_PCT,
+        "net_pool_usd": round(budget * (100 - PLATFORM_FEE_PCT) / 100, 2),
+        "automation_pct": auto_pct,
+        "human_pct": human_pct,
+        "ai_cost_usd": auto_pool,
+        "human_payout_usd": human_pool,
+    }
 
     return {
         "budget_usd": budget,

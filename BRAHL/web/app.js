@@ -124,7 +124,111 @@ function escapeHtml(s) {
 }
 
 function setStatus(msg) {
-  $("#status-bar").textContent = msg;
+  const el = $("#status-bar");
+  if (el) el.textContent = msg;
+}
+
+/** Visible AI progress banner — status-bar alone is hidden by CSS. */
+let _aiProgressTimer = null;
+let _aiProgressStarted = 0;
+let _aiProgressDepth = 0;
+
+const AI_PROGRESS_STEPS = {
+  chat: [
+    "Packing project context + Journey docs…",
+    "Sending prompt to local Ollama…",
+    "Model is generating a Build reply…",
+    "Still working — local 7B models often take 30–90s…",
+  ],
+  plan: [
+    "Building BRAHL Plan prompt (coverage schema)…",
+    "Asking local model for JSON test cases…",
+    "Parsing / repairing structured plan JSON…",
+    "Large plans can take 1–3 minutes on local Ollama…",
+  ],
+  analyze: [
+    "Loading z/ failures + error excerpts…",
+    "Classifying fails (T1/T2/T3/A1) via local AI…",
+    "Writing root-cause markdown…",
+    "Still analyzing — hang tight…",
+  ],
+  heal: [
+    "Reading RCA + failed steps…",
+    "Drafting yPAD heal suggestions…",
+    "Extracting structured CSV patches…",
+    "Heal can take about a minute on local Ollama…",
+  ],
+  brahl: [
+    "Loading BRAHL report context…",
+    "Asking local AI about this run…",
+    "Grounding the answer in zResults…",
+  ],
+  planner: [
+    "Planner is drafting scope…",
+    "Talking to local Ollama…",
+    "Updating suite draft preview…",
+  ],
+  default: [
+    "Preparing AI request…",
+    "Waiting on local model…",
+    "Still working…",
+  ],
+};
+
+function startAiProgress(title, kind = "default") {
+  _aiProgressDepth += 1;
+  const root = $("#ai-progress");
+  const titleEl = $("#ai-progress-title");
+  const stepEl = $("#ai-progress-step");
+  const elapsedEl = $("#ai-progress-elapsed");
+  if (!root) return;
+  root.hidden = false;
+  document.body.classList.add("ai-busy");
+  if (titleEl) titleEl.textContent = title || "AI working…";
+  const steps = AI_PROGRESS_STEPS[kind] || AI_PROGRESS_STEPS.default;
+  let idx = 0;
+  if (stepEl) stepEl.textContent = steps[0];
+  setStatus(steps[0]);
+  _aiProgressStarted = Date.now();
+  if (_aiProgressTimer) clearInterval(_aiProgressTimer);
+  _aiProgressTimer = setInterval(() => {
+    const sec = Math.round((Date.now() - _aiProgressStarted) / 1000);
+    if (elapsedEl) elapsedEl.textContent = `${sec}s`;
+    idx = Math.min(idx + 1, steps.length - 1);
+    if (stepEl) stepEl.textContent = steps[idx];
+    const bar = $("#status-bar");
+    if (bar) bar.textContent = `${title || "AI"} · ${steps[idx]} (${sec}s)`;
+  }, 4500);
+}
+
+function stopAiProgress(finalMsg) {
+  _aiProgressDepth = Math.max(0, _aiProgressDepth - 1);
+  if (_aiProgressDepth > 0) {
+    if (finalMsg) setStatus(finalMsg);
+    return;
+  }
+  if (_aiProgressTimer) {
+    clearInterval(_aiProgressTimer);
+    _aiProgressTimer = null;
+  }
+  const root = $("#ai-progress");
+  if (root) root.hidden = true;
+  document.body.classList.remove("ai-busy");
+  const elapsedEl = $("#ai-progress-elapsed");
+  if (elapsedEl) elapsedEl.textContent = "0s";
+  if (finalMsg) setStatus(finalMsg);
+}
+
+async function withAiProgress(title, kind, fn) {
+  startAiProgress(title, kind);
+  try {
+    const result = await fn();
+    stopAiProgress();
+    return result;
+  } catch (err) {
+    stopAiProgress(`AI failed: ${err.message || err}`);
+    throw err;
+  }
 }
 
 function hasScope() {
@@ -142,23 +246,25 @@ function isNalanda() {
 function applyAvatarModeNav() {
   document.body.classList.toggle("mode-networker", isNetworker());
   const brahlPhases = ["build", "run", "analyze", "heal", "loop", "brahl"];
-  const utilityPhases = new Set(["nalanda", "atomic77", "promoter", "cost"]);
+  // Marketplace phases removed from FoXYiZ_User desktop package
+  const utilityPhases = new Set(["cost"]);
   $$(".phase-btn").forEach((btn) => {
     const ph = btn.dataset.phase;
-    if (ph === "nalanda") {
-      // Visible in phase nav for Nalanda avatar; others open it from the user menu
-      btn.hidden = !isNetworker();
-    } else if (ph === "atomic77" || ph === "cost" || ph === "promoter") {
-      btn.hidden = true; // menu / deep-link surfaces
+    if (ph === "nalanda" || ph === "atomic77" || ph === "promoter") {
+      btn.hidden = true;
+    } else if (ph === "cost") {
+      btn.hidden = true;
     } else if (brahlPhases.includes(ph)) {
-      btn.hidden = isNetworker();
+      btn.hidden = false;
     }
     const item = btn.closest(".phase-nav-item");
     if (item) item.hidden = !!btn.hidden;
   });
-  // Don't yank users off Promoter / A77 / Wallet / menu-opened Nalanda
-  if (utilityPhases.has(state.phase)) return;
-  if (isNetworker() && brahlPhases.includes(state.phase)) showPhase("nalanda");
+  if (utilityPhases.has(state.phase) || ["nalanda", "atomic77", "promoter"].includes(state.phase)) {
+    showPhase("build");
+    return;
+  }
+  if (isNetworker() && !brahlPhases.includes(state.phase)) showPhase("build");
 }
 
 function showPhase(name) {
@@ -1399,7 +1505,88 @@ function renderArtifactActionsHtml(arts, { asButtons = true, linkClass = "linkis
       `<a href="${escapeHtml(arts.filmstrip.url)}" target="_blank" class="${linkClass}">Filmstrip</a>`
     );
   }
+  if (arts.dashboard?.url) {
+    bits.push(`<a href="${escapeHtml(arts.dashboard.url)}" target="_blank" class="${linkClass}">zDash</a>`);
+  }
+  if (arts.zlogs?.url) {
+    bits.push(`<a href="${escapeHtml(arts.zlogs.url)}" target="_blank" class="${linkClass}">zlogs</a>`);
+  }
+  for (const v of arts.videos || []) {
+    bits.push(
+      `<a href="${escapeHtml(v.url)}" target="_blank" class="${linkClass}">Video · ${escapeHtml(v.name || "clip")}</a>`
+    );
+  }
   return bits.join(" ");
+}
+
+function renderAnalyzeEvidence(arts) {
+  const wrap = $("#analyze-evidence");
+  const meta = $("#analyze-evidence-meta");
+  const links = $("#analyze-evidence-links");
+  const grid = $("#analyze-evidence-grid");
+  const vids = $("#analyze-evidence-videos");
+  const summaryEl = $("#analyze-run-summary");
+  if (summaryEl) {
+    if (arts?.summary) {
+      const p = arts.summary.passes ?? 0;
+      const f = arts.summary.fails ?? 0;
+      summaryEl.hidden = false;
+      summaryEl.innerHTML =
+        `<strong>Execution summary</strong> — Passed: ${p} · Failed: ${f}` +
+        (arts.summary.total != null ? ` · Total: ${arts.summary.total}` : "");
+    } else {
+      summaryEl.hidden = true;
+      summaryEl.textContent = "";
+    }
+  }
+  if (!wrap || !grid) return;
+  const shots = [...(arts?.overlay_shots || []), ...(arts?.screenshots || [])];
+  const framePreviews = (arts?.video_frame_dirs || []).flatMap((d) => d.preview || []);
+  const allThumbs = [...shots, ...framePreviews];
+  const videoList = arts?.videos || [];
+  const hasLinks = Boolean(renderArtifactActionsHtml(arts, { asButtons: true }));
+  if (!allThumbs.length && !videoList.length && !hasLinks) {
+    wrap.hidden = true;
+    wrap.querySelector("#analyze-evidence-meta") && (meta.textContent = "");
+    return;
+  }
+  wrap.hidden = false;
+  if (meta) {
+    const parts = [];
+    if (shots.length) parts.push(`${shots.length} screenshot(s)`);
+    if (videoList.length) parts.push(`${videoList.length} video(s)`);
+    if ((arts?.video_frame_dirs || []).length) {
+      parts.push(`${arts.video_frame_dirs.length} video-frame folder(s)`);
+    }
+    if (!parts.length) parts.push("Open links below for zDash / playback");
+    meta.textContent = parts.join(" · ") + " — set Capture image/video in fStart Edit (every_step for full trail).";
+  }
+  if (links) {
+    links.innerHTML = renderArtifactActionsHtml(arts, { asButtons: true });
+    bindArtifactActionClicks(links);
+  }
+  const preview = allThumbs.slice(0, 24);
+  grid.innerHTML = preview.length
+    ? preview
+        .map(
+          (it) =>
+            `<a class="shot-card" href="${escapeHtml(it.url)}" target="_blank" title="${escapeHtml(it.path || it.name || "")}">` +
+            `<img src="${escapeHtml(it.url)}" alt="${escapeHtml(it.name || "")}" loading="lazy" />` +
+            `<span>${escapeHtml(it.name || it.path || "")}</span></a>`
+        )
+        .join("")
+    : `<p class="hint">No PNGs yet for this run. Edit fStart → Screenshots = on_fail or every_step, then re-run.</p>`;
+  if (vids) {
+    vids.innerHTML = videoList.length
+      ? videoList
+          .map(
+            (v) =>
+              `<figure class="analyze-video-card"><figcaption>${escapeHtml(v.name || "video")}</figcaption>` +
+              `<video src="${escapeHtml(v.url)}" controls playsinline preload="metadata"></video></figure>`
+          )
+          .join("")
+      : "";
+  }
 }
 
 function bindArtifactActionClicks(root) {
@@ -2953,12 +3140,20 @@ async function sendBrahlChat(ev) {
   const text = input.value.trim();
   if (!text || !state.projectId) return;
   input.value = "";
-  const data = await api(`/api/projects/${state.projectId}/brahl/chat`, {
-    method: "POST",
-    body: JSON.stringify({ text, run_name: selectedBrahlRun }),
-  });
-  activeProject = data.project;
-  renderBrahlChat();
+  try {
+    const data = await withAiProgress("BRAHL report AI", "brahl", () =>
+      api(`/api/projects/${state.projectId}/brahl/chat`, {
+        method: "POST",
+        body: JSON.stringify({ text, run_name: selectedBrahlRun }),
+      })
+    );
+    activeProject = data.project;
+    renderBrahlChat();
+    setStatus("BRAHL report AI replied");
+  } catch (err) {
+    input.value = text;
+    setStatus(`BRAHL chat failed: ${err.message}`);
+  }
 }
 
 async function autoEnsureBrahlReport(runName, stepLabel) {
@@ -3161,14 +3356,17 @@ async function sendPlannerChat(ev) {
   appendPlannerMessage("user", message);
   plannerHistory.push({ role: "user", text: message });
   try {
-    const data = await api("/api/planner/chat", {
-      method: "POST",
-      body: JSON.stringify({ message, draft: plannerDraft, history: plannerHistory.slice(-8) }),
-    });
+    const data = await withAiProgress("Planner AI", "planner", () =>
+      api("/api/planner/chat", {
+        method: "POST",
+        body: JSON.stringify({ message, draft: plannerDraft, history: plannerHistory.slice(-8) }),
+      })
+    );
     appendPlannerMessage("assistant", data.reply);
     plannerHistory.push({ role: "assistant", text: data.reply });
     updatePlannerDraftUI(data.draft);
     showPlannerPlanPreview(data.plan_preview);
+    setStatus("Planner replied");
   } catch (e) {
     appendPlannerMessage("assistant", `Could not reach planner: ${e.message}`);
     setStatus(`Planner error: ${e.message}`);
@@ -4048,6 +4246,7 @@ async function generateBrahlPlan() {
   sessionStorage.setItem(STORAGE_DRAFT_REQUIREMENT, req);
   const btn = $("#btn-generate-brahl-plan");
   if (btn) btn.disabled = true;
+  startAiProgress("Generating BRAHL Plan", "plan");
   try {
     const data = await api(`/api/projects/${state.projectId}/brahl-plan/generate`, {
       method: "POST",
@@ -4070,17 +4269,17 @@ async function generateBrahlPlan() {
     if (body) body.textContent = data.preview_markdown || "";
     if (accept) accept.hidden = false;
     if (data.source === "fallback" || data.ai === false) {
-      setStatus(
+      stopAiProgress(
         data.warning
           ? `BRAHL Plan (template): ${data.warning}`
           : "BRAHL Plan (template) — local AI JSON failed; review and accept or regenerate"
       );
     } else {
       const retryNote = data.retries ? ` (repaired after ${data.retries} retry)` : "";
-      setStatus(`BRAHL Plan ready — review and accept${retryNote}`);
+      stopAiProgress(`BRAHL Plan ready — review and accept${retryNote}`);
     }
   } catch (e) {
-    setStatus(`BRAHL Plan error: ${e.message}`);
+    stopAiProgress(`BRAHL Plan error: ${e.message}`);
   } finally {
     if (btn) btn.disabled = false;
   }
@@ -5611,8 +5810,11 @@ async function loadBuildAiStatus() {
       ? ` · ${st.context_doc_count} in prompt${journeyHint} · click .md for Master + Journey`
       : "";
     el.textContent = st.available
-      ? `BRAHL AI active (${st.model || "OpenAI"})${docHint}`
+      ? `BRAHL AI active (${st.model || "OpenAI"}${st.local ? " · local" : ""})${docHint}`
       : `AI on — guided replies (OPENAI_API_KEY or Ollama in FoXYiZ/f/.env)${docHint}`;
+    if (st.local && st.available) {
+      el.title = "Local Ollama replies often take 30–90s — a progress bar appears while AI runs.";
+    }
   } catch {
     el.textContent = "BRAHL AI — describe changes in chat below · .md for Master + Journey context";
   }
@@ -6618,10 +6820,12 @@ async function sendChat(ev) {
       setStatus("Note saved (AI off — turn AI on for BRAHL replies)");
       return;
     }
-    const data = await api(`/api/projects/${state.projectId}/chat`, {
-      method: "POST",
-      body: JSON.stringify({ text }),
-    });
+    const data = await withAiProgress("Build AI", "chat", () =>
+      api(`/api/projects/${state.projectId}/chat`, {
+        method: "POST",
+        body: JSON.stringify({ text }),
+      })
+    );
     activeProject = data.project;
     renderChat($("#chat-thread"), activeProject.chat_messages || []);
     renderBuildChecklist();
@@ -6762,6 +6966,7 @@ async function runAnalyzeAi() {
     el.classList.add("ai-loading");
     el.textContent = "Analyzing z/ failures (BRAHL T1/T2/T3/A1 classification)…";
   }
+  startAiProgress("Analyze AI", "analyze");
   try {
     const data = await api(
       `/api/projects/${state.projectId}/runs/${encodeURIComponent(runName)}/analyze-ai`,
@@ -6769,10 +6974,14 @@ async function runAnalyzeAi() {
     );
     lastAnalyzeMarkdown = data.markdown || "";
     renderAiMarkdown(el, lastAnalyzeMarkdown);
-    if (data.fallback) setStatus("Analyze: manual RCA (set OPENAI_API_KEY in f/.env for AI)");
-    else setStatus("Analyze: AI root-cause complete");
+    if (data.fallback) {
+      stopAiProgress("Analyze: manual RCA (set OPENAI_API_KEY in f/.env for AI)");
+    } else {
+      stopAiProgress("Analyze: AI root-cause complete");
+    }
   } catch (e) {
     renderAiMarkdown(el, `Error: ${e.message}`);
+    stopAiProgress(`Analyze failed: ${e.message}`);
   }
 }
 
@@ -6803,6 +7012,7 @@ async function runHealAi() {
     el.classList.add("ai-loading");
     el.textContent = "Generating yPAD heal suggestions per BRAHL.md…";
   }
+  startAiProgress("Heal AI", "heal");
   try {
     const data = await api(
       `/api/projects/${state.projectId}/runs/${encodeURIComponent(runName)}/heal-suggest`,
@@ -6822,9 +7032,9 @@ async function runHealAi() {
         applyHint.textContent =
           `${lastHealPatches.length} structured patch(es) ready — review the heal plan, then Apply to write CSV changes.`;
       }
-      setStatus(`Heal: ${lastHealPatches.length} patch(es) ready to Apply`);
+      stopAiProgress(`Heal: ${lastHealPatches.length} patch(es) ready to Apply`);
     } else {
-      setStatus(
+      stopAiProgress(
         data.ai
           ? "Heal: AI suggestions ready — no auto-apply patches parsed"
           : "Heal: manual guide (no API key)"
@@ -6832,6 +7042,7 @@ async function runHealAi() {
     }
   } catch (e) {
     renderAiMarkdown(el, `Error: ${e.message}`);
+    stopAiProgress(`Heal failed: ${e.message}`);
   }
 }
 
@@ -7493,18 +7704,21 @@ async function selectRun(name, li, run) {
   if (artWrap) {
     artWrap.hidden = true;
     artWrap.innerHTML = "";
-    try {
-      const arts = await api(`/api/runs/${encodeURIComponent(name)}/artifacts`);
-      if (!dashHref && arts.dashboard?.url) dashHref = arts.dashboard.url;
+  }
+  try {
+    const arts = await api(`/api/runs/${encodeURIComponent(name)}/artifacts`);
+    if (!dashHref && arts.dashboard?.url) dashHref = arts.dashboard.url;
+    if (artWrap) {
       const html = renderArtifactActionsHtml(arts, { asButtons: true });
       if (html) {
         artWrap.innerHTML = html;
         artWrap.hidden = false;
         bindArtifactActionClicks(artWrap);
       }
-    } catch {
-      /* artifacts optional */
     }
+    renderAnalyzeEvidence(arts);
+  } catch {
+    renderAnalyzeEvidence(null);
   }
   $("#dash-link").innerHTML = dashHref
     ? `<a href="${dashHref}" target="_blank" class="primary link-btn">Open zDash</a> <span class="hint">— results, playback, screens, logs</span>`

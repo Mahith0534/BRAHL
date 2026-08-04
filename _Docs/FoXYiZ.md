@@ -43,7 +43,7 @@ f(x, y) = z
 | **y/** | Editable yPAD suites |
 | **z/** | Results (`*_zResults.csv`, `*_zDash.html`, `zlogs.txt`, reports) |
 | **_pyUtils/** | Only editable Python in the package (Analyze helpers; needs Python) |
-| **_Docs/** | BRAHL · FoXYiZ · DEMO_YPADS (at FoXYiZ_User root) |
+| **_Docs/** | BRAHL · FoXYiZ · Test_Coverage · DEMO_YPADS (at FoXYiZ_User root) |
 
 ---
 
@@ -114,7 +114,44 @@ Results: `z\<timestamp>_<suite>\` including **`zlogs.txt`**. Flat index: `z\zlog
 
 Use **`x\xCapa.csv`** for valid `ActionType` / `ActionName` pairs.
 
----
+### Modular reuse (scale past ~100 plans)
+
+Keep the three core sheets, then **attach** shared modules via `input_files` arrays (already supported by FoXYiZ + BRAHL):
+
+| File | Role |
+|------|------|
+| `y1Plans.csv` | Plan catalog (always one primary sheet is fine) |
+| `y2Actions.csv` | Suite-specific steps |
+| `y2Actions_reusable.csv` | Shared `PReuse_*` / common flows |
+| `y3Designs.csv` | Suite-specific DataNames |
+| `y3Designs_reusable.csv` | Shared vars — especially **`vbrowser`** |
+
+```json
+"input_files": {
+  "yPlans":   ["y/MySuite/y1Plans.csv"],
+  "yActions": ["y/MySuite/y2Actions_reusable.csv", "y/MySuite/y2Actions.csv"],
+  "yDesigns": ["y/MySuite/y3Designs_reusable.csv", "y/MySuite/y3Designs.csv"]
+}
+```
+
+**Rules:** do not duplicate `PlanId` / `DataName` across merged files. Never hard-code the browser — use `xOpenBrowser,vbrowser` with `UI,vbrowser,edge,edge,edge` in `y3Designs_reusable.csv`. Templates: `y/_reusable/`. fStart still points at the suite JSON (one fStart per suite); multi-CSV lives in that suite config.
+
+**Also attach from fStart** (optional overlay — BRAHL folds this into a runtime suite JSON before Run):
+
+```json
+{
+  "configs": ["y/MySuite/MySuite.json"],
+  "attach": {
+    "yActions": ["y/_reusable/y2Actions_reusable.csv"],
+    "yDesigns": ["y/_reusable/y3Designs_reusable.csv"]
+  },
+  "tags": ["Smoke"]
+}
+```
+
+Prefer listing reusables in the suite JSON for day-to-day authorship; use fStart `attach` when sharing package-level modules across suites without editing each suite file.
+
+BRAHL gate/journey filters always keep `*_reusable*` action/plan files so shared modules are not dropped.---
 
 ## Ship layout (was DISTRIBUTION)
 
@@ -163,11 +200,15 @@ python _pyUtils\zBatchDash.py --name mybatch --since 20260721
 
 | Term | Meaning |
 |------|---------|
-| **yPAD** | y1Plans · y2Actions · y3Designs |
+| **yPAD** | y1Plans · y2Actions · y3Designs (+ optional `*_reusable`) |
 | **fStart** | `f/fStart/{suite}.json` |
 | **zlogs.txt** | Per-run console transcript (+ flat `z/zlogs.txt`) |
 | **brawl** | Full BRAHL cycle to Verify |
 | **smoke** / **deep** | Shell only vs expanded tags |
+
+### Coverage (what to author)
+
+yPAD Tags and Expected should cover journeys, auth, negatives, security/PII—not only happy path. For “should not see,” assert denied/empty/absent text when stable; otherwise `Run=N` Hunter. Full matrix + **AI scoring → Go/No-Go**: [Test_Coverage.md](Test_Coverage.md).
 
 ### Rebuild (architects)
 
@@ -191,5 +232,6 @@ Produces **FoXYiZ_User/** with `FoXYiZ\f\FoXYiZ.exe` for end users. Do not ship 
 
 - [Vision.md](Vision.md) — QA on Air vision (marketplace + desktop)  
 - [BRAHL.md](BRAHL.md) — lifecycle, failure classes, report  
+- [Test_Coverage.md](Test_Coverage.md) — coverage pillars · AI eval · Go/No-Go  
 - [DEMO_YPADS.md](DEMO_YPADS.md) — demo suites  
 - [README.md](README.md) — doc index + skill map  

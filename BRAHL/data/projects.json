@@ -59,6 +59,19 @@
     },
     "cycle_history": [
       {
+        "id": "2a8816a6",
+        "step": "Run",
+        "detail": "completed",
+        "at": "2026-07-29T16:06:35+00:00",
+        "run_name": "20260729_090607_BRAHL_Local",
+        "stats": {
+          "passes": 4,
+          "fails": 0,
+          "total_plans": 4,
+          "health": "green"
+        }
+      },
+      {
         "id": "f41e9384",
         "step": "Run",
         "detail": "completed",
@@ -87,9 +100,9 @@
       "usd_est": 0.0
     },
     "evidence_library": [],
-    "latest_run": "20260728_102835_BRAHL_Local",
-    "updated_at": "2026-07-29T04:02:39+00:00",
-    "ai_journey_updated_at": "2026-07-29T04:02:39+00:00",
+    "latest_run": "20260729_090607_BRAHL_Local",
+    "updated_at": "2026-07-29T16:15:22+00:00",
+    "ai_journey_updated_at": "2026-07-29T16:15:22+00:00",
     "reports": [
       {
         "id": "61d45399",
@@ -116,6 +129,16 @@
         "run_name": "20260728_102835_BRAHL_Local",
         "report_path": "z/20260728_102835_BRAHL_Local/brahl_report.md",
         "submitted_at": "2026-07-28T17:29:00+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "c48bdd94",
+        "run_name": "20260729_090607_BRAHL_Local",
+        "report_path": "z/20260729_090607_BRAHL_Local/brahl_report.md",
+        "submitted_at": "2026-07-29T16:06:36+00:00",
         "source": "automation",
         "batch_id": null,
         "batch_dashboard": null,
@@ -174,60 +197,20 @@
         "archived": false
       },
       {
-        "id": "85320bb3",
-        "run_name": "20260729_163600_Math",
-        "report_path": "z/20260729_163600_Math/brahl_report.md",
-        "submitted_at": "2026-07-29T11:06:02+00:00",
+        "id": "e227b449",
+        "run_name": "20260729_084517_Math",
+        "report_path": "z/20260729_084517_Math/brahl_report.md",
+        "submitted_at": "2026-07-29T15:45:20+00:00",
         "source": "automation",
         "batch_id": null,
         "batch_dashboard": null,
         "archived": false
       },
       {
-        "id": "5ebed333",
-        "run_name": "20260729_163806_Math",
-        "report_path": "z/20260729_163806_Math/brahl_report.md",
-        "submitted_at": "2026-07-29T11:08:09+00:00",
-        "source": "automation",
-        "batch_id": null,
-        "batch_dashboard": null,
-        "archived": false
-      },
-      {
-        "id": "4ceac0d3",
-        "run_name": "20260729_164110_Math",
-        "report_path": "z/20260729_164110_Math/brahl_report.md",
-        "submitted_at": "2026-07-29T11:11:11+00:00",
-        "source": "automation",
-        "batch_id": null,
-        "batch_dashboard": null,
-        "archived": false
-      },
-      {
-        "id": "35e80a60",
-        "run_name": "20260729_164244_Math",
-        "report_path": "z/20260729_164244_Math/brahl_report.md",
-        "submitted_at": "2026-07-29T11:12:45+00:00",
-        "source": "automation",
-        "batch_id": null,
-        "batch_dashboard": null,
-        "archived": false
-      },
-      {
-        "id": "f15521df",
-        "run_name": "20260729_164417_Math",
-        "report_path": "z/20260729_164417_Math/brahl_report.md",
-        "submitted_at": "2026-07-29T11:14:19+00:00",
-        "source": "automation",
-        "batch_id": null,
-        "batch_dashboard": null,
-        "archived": false
-      },
-      {
-        "id": "474b22f5",
-        "run_name": "20260729_164455_Math",
-        "report_path": "z/20260729_164455_Math/brahl_report.md",
-        "submitted_at": "2026-07-29T11:14:57+00:00",
+        "id": "cd43a503",
+        "run_name": "20260801_125635_Math",
+        "report_path": "z/20260801_125635_Math/brahl_report.md",
+        "submitted_at": "2026-08-01T19:56:36+00:00",
         "source": "automation",
         "batch_id": null,
         "batch_dashboard": null,
@@ -237,9 +220,9 @@
     "ai_enabled": true,
     "brahl_context_path": null,
     "brahl_plan_draft": null,
-    "latest_run": "20260729_164455_Math",
+    "latest_run": "20260801_125635_Math",
     "created_at": "2026-07-24T21:13:05+00:00",
-    "updated_at": "2026-07-29T11:14:57+00:00",
+    "updated_at": "2026-08-01T19:56:36+00:00",
     "team_messages": [],
     "team_tasks": [],
     "atomic77_chat_messages": [
@@ -257,76 +240,24 @@
     },
     "cycle_history": [
       {
-        "id": "2f1c0aa9",
+        "id": "eaa2d520",
         "step": "Run",
         "detail": "completed",
-        "at": "2026-07-29T11:14:57+00:00",
-        "run_name": "20260729_164455_Math",
+        "at": "2026-08-01T19:56:36+00:00",
+        "run_name": "20260801_125635_Math",
         "stats": {
-          "passes": 7,
-          "fails": 1,
+          "passes": 8,
+          "fails": 0,
           "total_plans": 8,
-          "health": "amber"
+          "health": "green"
         }
       },
       {
-        "id": "50fec129",
+        "id": "493f228f",
         "step": "Run",
         "detail": "completed",
-        "at": "2026-07-29T11:14:18+00:00",
-        "run_name": "20260729_164417_Math",
-        "stats": {
-          "passes": 7,
-          "fails": 1,
-          "total_plans": 8,
-          "health": "amber"
-        }
-      },
-      {
-        "id": "55931203",
-        "step": "Run",
-        "detail": "completed",
-        "at": "2026-07-29T11:12:45+00:00",
-        "run_name": "20260729_164244_Math",
-        "stats": {
-          "passes": 7,
-          "fails": 1,
-          "total_plans": 8,
-          "health": "amber"
-        }
-      },
-      {
-        "id": "214b4968",
-        "step": "Run",
-        "detail": "completed",
-        "at": "2026-07-29T11:11:11+00:00",
-        "run_name": "20260729_164110_Math",
-        "stats": {
-          "passes": 7,
-          "fails": 1,
-          "total_plans": 8,
-          "health": "amber"
-        }
-      },
-      {
-        "id": "0f45e0a2",
-        "step": "Run",
-        "detail": "completed",
-        "at": "2026-07-29T11:08:09+00:00",
-        "run_name": "20260729_163806_Math",
-        "stats": {
-          "passes": 7,
-          "fails": 1,
-          "total_plans": 8,
-          "health": "amber"
-        }
-      },
-      {
-        "id": "088d6841",
-        "step": "Run",
-        "detail": "completed",
-        "at": "2026-07-29T11:06:02+00:00",
-        "run_name": "20260729_163600_Math",
+        "at": "2026-07-29T15:45:19+00:00",
+        "run_name": "20260729_084517_Math",
         "stats": {
           "passes": 8,
           "fails": 0,
@@ -348,7 +279,7 @@
       "usd_est": 0.0
     },
     "evidence_library": [],
-    "ai_journey_updated_at": "2026-07-29T11:14:57+00:00",
+    "ai_journey_updated_at": "2026-08-01T19:56:36+00:00",
     "brahl_chat_messages": [
       {
         "id": "brahl-welcome",
@@ -474,7 +405,7 @@
     "app_url": "https://the-internet.herokuapp.com/",
     "purpose": "Demo template \u2014 the-internet UI (forms, alerts, DnD, upload, waits)",
     "prompt": "Demo template \u2014 the-internet UI (forms, alerts, DnD, upload, waits)",
-    "updated_at": "2026-07-25T19:27:43+00:00",
+    "updated_at": "2026-08-01T19:56:51+00:00",
     "budget_usd": 0.0,
     "budget_split": {
       "automation_pct": 50,
@@ -504,7 +435,34 @@
       "tokens_est": 0,
       "user_messages": 0
     },
-    "cycle_history": [],
+    "cycle_history": [
+      {
+        "id": "77c7b0cd",
+        "step": "Run",
+        "detail": "completed",
+        "at": "2026-08-01T18:55:46+00:00",
+        "run_name": "20260801_115520_UI_internet",
+        "stats": {
+          "passes": 4,
+          "fails": 1,
+          "total_plans": 5,
+          "health": "amber"
+        }
+      },
+      {
+        "id": "e2c5c931",
+        "step": "Run",
+        "detail": "completed",
+        "at": "2026-07-31T14:38:20+00:00",
+        "run_name": "20260731_073730_UI_internet",
+        "stats": {
+          "passes": 5,
+          "fails": 0,
+          "total_plans": 5,
+          "health": "green"
+        }
+      }
+    ],
     "hitl_stories": [],
     "hitl_invites": [],
     "change_requests": [],
@@ -518,7 +476,42 @@
       "usd_est": 0.0
     },
     "evidence_library": [],
-    "thought_captures": []
+    "thought_captures": [],
+    "latest_run": "20260801_115502_UI_internet",
+    "ai_journey_updated_at": "2026-08-01T19:56:51+00:00",
+    "current_phase": "Run",
+    "reports": [
+      {
+        "id": "2510b127",
+        "run_name": "20260731_073730_UI_internet",
+        "report_path": "z/20260731_073730_UI_internet/brahl_report.md",
+        "submitted_at": "2026-07-31T14:38:21+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "b7926e4e",
+        "run_name": "20260801_115520_UI_internet",
+        "report_path": "z/20260801_115520_UI_internet/brahl_report.md",
+        "submitted_at": "2026-08-01T18:55:47+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "541c2625",
+        "run_name": "20260801_115502_UI_internet",
+        "report_path": "z/20260801_115502_UI_internet/brahl_report.md",
+        "submitted_at": "2026-08-01T18:55:47+00:00",
+        "source": "automation",
+        "batch_id": "c48b508c4e",
+        "batch_dashboard": null,
+        "archived": false
+      }
+    ]
   },
   {
     "id": "ai_foxyiz",
@@ -572,15 +565,28 @@
     },
     "cycle_history": [
       {
-        "id": "43481590",
+        "id": "11b86728",
         "step": "Run",
         "detail": "completed",
-        "at": "2026-07-29T11:05:21+00:00",
-        "run_name": "20260729_163440_AI_foxyiz",
+        "at": "2026-08-01T20:09:14+00:00",
+        "run_name": "20260801_130315_AI_foxyiz",
         "stats": {
-          "passes": 2,
+          "passes": 12,
           "fails": 0,
-          "total_plans": 2,
+          "total_plans": 12,
+          "health": "green"
+        }
+      },
+      {
+        "id": "efc5a6d7",
+        "step": "Run",
+        "detail": "completed",
+        "at": "2026-08-01T17:18:56+00:00",
+        "run_name": "20260801_101416_AI_foxyiz",
+        "stats": {
+          "passes": 12,
+          "fails": 0,
+          "total_plans": 12,
           "health": "green"
         }
       }
@@ -600,9 +606,9 @@
       "usd_est": 0.0
     },
     "evidence_library": [],
-    "latest_run": "20260729_163440_AI_foxyiz",
-    "updated_at": "2026-07-29T11:05:22+00:00",
-    "ai_journey_updated_at": "2026-07-29T11:05:21+00:00",
+    "latest_run": "20260801_130315_AI_foxyiz",
+    "updated_at": "2026-08-01T20:09:15+00:00",
+    "ai_journey_updated_at": "2026-08-01T20:09:14+00:00",
     "reports": [
       {
         "id": "1a5dd334",
@@ -625,10 +631,20 @@
         "archived": false
       },
       {
-        "id": "ea962ee4",
-        "run_name": "20260729_163440_AI_foxyiz",
-        "report_path": "z/20260729_163440_AI_foxyiz/brahl_report.md",
-        "submitted_at": "2026-07-29T11:05:22+00:00",
+        "id": "ee0780b8",
+        "run_name": "20260801_101416_AI_foxyiz",
+        "report_path": "z/20260801_101416_AI_foxyiz/brahl_report.md",
+        "submitted_at": "2026-08-01T17:18:56+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "6e332f96",
+        "run_name": "20260801_130315_AI_foxyiz",
+        "report_path": "z/20260801_130315_AI_foxyiz/brahl_report.md",
+        "submitted_at": "2026-08-01T20:09:15+00:00",
         "source": "automation",
         "batch_id": null,
         "batch_dashboard": null,
@@ -760,7 +776,21 @@
       "tokens_est": 0,
       "user_messages": 0
     },
-    "cycle_history": [],
+    "cycle_history": [
+      {
+        "id": "f24cafbc",
+        "step": "Run",
+        "detail": "completed",
+        "at": "2026-07-29T18:20:12+00:00",
+        "run_name": "20260729_111950_KonfigAI",
+        "stats": {
+          "passes": 3,
+          "fails": 0,
+          "total_plans": 3,
+          "health": "green"
+        }
+      }
+    ],
     "hitl_stories": [],
     "hitl_invites": [],
     "change_requests": [],
@@ -776,9 +806,9 @@
       "usd_est": 0.0
     },
     "evidence_library": [],
-    "latest_run": "20260728_102123_KonfigAI",
-    "updated_at": "2026-07-28T17:22:57+00:00",
-    "ai_journey_updated_at": "2026-07-28T17:22:57+00:00",
+    "latest_run": "20260729_111950_KonfigAI",
+    "updated_at": "2026-07-29T23:32:59+00:00",
+    "ai_journey_updated_at": "2026-07-29T23:32:59+00:00",
     "reports": [
       {
         "id": "konfig_title",
@@ -839,9 +869,30 @@
         "batch_id": null,
         "batch_dashboard": null,
         "archived": false
+      },
+      {
+        "id": "380ce1df",
+        "run_name": "20260728_102321_KonfigAI",
+        "report_path": "z/20260728_102321_KonfigAI/brahl_report.md",
+        "submitted_at": "2026-07-29T17:45:39+00:00",
+        "source": "automation_ai",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "8927b8f5",
+        "run_name": "20260729_111950_KonfigAI",
+        "report_path": "z/20260729_111950_KonfigAI/brahl_report.md",
+        "submitted_at": "2026-07-29T18:20:13+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
       }
     ],
-    "thought_captures": []
+    "thought_captures": [],
+    "current_phase": "Run"
   },
   {
     "id": "0d7ffea30ff2",
@@ -1339,5 +1390,1643 @@
     "evidence_library": [],
     "ai_journey_updated_at": "2026-07-28T19:18:41+00:00",
     "thought_captures": []
+  },
+  {
+    "id": "thoughtstream",
+    "name": "ThoughtStream",
+    "app_url": "https://jusdone.base44.app/",
+    "suite_name": "ThoughtStream",
+    "suite_config": "y/ThoughtStream/ThoughtStream.json",
+    "purpose": "High-coverage BRAHL plan for ThoughtStream (jusdone.base44.app) aligned to _Docs/Test_Coverage.md \u2014 guest journeys, auth shells, AI chrome+scorecard, security fail-closed probes, Integrate/Docs/Embed, Manual HITL, signed-in stubs.",
+    "prompt": "High-coverage BRAHL plan for ThoughtStream (jusdone.base44.app) aligned to _Docs/Test_Coverage.md \u2014 guest journeys, auth shells, AI chrome+scorecard, security fail-closed probes, Integrate/Docs/Embed, Manual HITL, signed-in stubs.",
+    "owner_avatar": "client",
+    "status": "open",
+    "ai_enabled": true,
+    "documents": [],
+    "context_items": [
+      {
+        "id": "ctx1",
+        "kind": "url",
+        "label": "App URL",
+        "value": "https://jusdone.base44.app/",
+        "added_at": "2026-07-29T17:41:54+00:00"
+      },
+      {
+        "id": "ctx2",
+        "kind": "url",
+        "label": "Docs",
+        "value": "https://jusdone.base44.app/docs",
+        "added_at": "2026-07-29T17:41:54+00:00"
+      }
+    ],
+    "chat_messages": [
+      {
+        "id": "welcome",
+        "role": "assistant",
+        "text": "ThoughtStream guest suite ready. Smoke Capture/Ideas/Docs/Auth; signed-in AI pads deferred until accounts.",
+        "at": "2026-07-29T17:41:54+00:00"
+      }
+    ],
+    "budget_usd": 0.0,
+    "budget_split": {
+      "automation_pct": 50,
+      "human_pct": 50
+    },
+    "hitl_consultants": [],
+    "brahl_chat_messages": [
+      {
+        "id": "brahl-welcome",
+        "role": "assistant",
+        "text": "I'm the BRAHL model for ThoughtStream. Guest smoke first; AI Go/No-Go after signed-in accounts.",
+        "at": "2026-07-29T17:41:54+00:00"
+      }
+    ],
+    "team_messages": [],
+    "team_tasks": [],
+    "atomic77_chat_messages": [
+      {
+        "id": "a77-welcome",
+        "role": "assistant",
+        "text": "I'm **Atomic 77** \u2014 idea to launch inside QA on Air. Ask about scope, BRAHL, launch, costs, or QA Hunter workflows. Toggle **AI on** for full assistant mode.",
+        "at": "2026-07-29T17:45:39+00:00"
+      }
+    ],
+    "atomic77_usage": {
+      "messages": 0,
+      "tokens_est": 0,
+      "user_messages": 0
+    },
+    "cycle_history": [],
+    "hitl_stories": [
+      {
+        "id": "hs1",
+        "title": "Capture",
+        "description": "ThoughtStream coverage pillar: Capture",
+        "status": "open",
+        "created_at": "2026-07-30T16:00:00+00:00"
+      },
+      {
+        "id": "hs2",
+        "title": "AI features",
+        "description": "ThoughtStream coverage pillar: AI features",
+        "status": "open",
+        "created_at": "2026-07-30T16:00:00+00:00"
+      },
+      {
+        "id": "hs3",
+        "title": "Guest Journey",
+        "description": "ThoughtStream coverage pillar: Guest Journey",
+        "status": "open",
+        "created_at": "2026-07-30T16:00:00+00:00"
+      },
+      {
+        "id": "hs4",
+        "title": "Ideas library",
+        "description": "ThoughtStream coverage pillar: Ideas library",
+        "status": "open",
+        "created_at": "2026-07-30T16:00:00+00:00"
+      },
+      {
+        "id": "hs5",
+        "title": "Dashboard",
+        "description": "ThoughtStream coverage pillar: Dashboard",
+        "status": "open",
+        "created_at": "2026-07-30T16:00:00+00:00"
+      },
+      {
+        "id": "hs6",
+        "title": "Documentation",
+        "description": "ThoughtStream coverage pillar: Documentation",
+        "status": "open",
+        "created_at": "2026-07-30T16:00:00+00:00"
+      },
+      {
+        "id": "hs7",
+        "title": "Integrate / Embed SDK",
+        "description": "ThoughtStream coverage pillar: Integrate / Embed SDK",
+        "status": "open",
+        "created_at": "2026-07-30T16:00:00+00:00"
+      },
+      {
+        "id": "hs8",
+        "title": "Embed / Embed SDK",
+        "description": "ThoughtStream coverage pillar: Embed / Embed SDK",
+        "status": "open",
+        "created_at": "2026-07-30T16:00:00+00:00"
+      },
+      {
+        "id": "hs9",
+        "title": "Auth lifecycle",
+        "description": "ThoughtStream coverage pillar: Auth lifecycle",
+        "status": "open",
+        "created_at": "2026-07-30T16:00:00+00:00"
+      },
+      {
+        "id": "hs10",
+        "title": "Security & PII",
+        "description": "ThoughtStream coverage pillar: Security & PII",
+        "status": "open",
+        "created_at": "2026-07-30T16:00:00+00:00"
+      },
+      {
+        "id": "hs11",
+        "title": "Performance",
+        "description": "ThoughtStream coverage pillar: Performance",
+        "status": "open",
+        "created_at": "2026-07-30T16:00:00+00:00"
+      },
+      {
+        "id": "hs12",
+        "title": "Accessibility",
+        "description": "ThoughtStream coverage pillar: Accessibility [manual \u2014 QA Hunter]",
+        "status": "open",
+        "created_at": "2026-07-30T16:00:00+00:00"
+      },
+      {
+        "id": "hs13",
+        "title": "Hunter certification",
+        "description": "ThoughtStream coverage pillar: Hunter certification [manual \u2014 QA Hunter]",
+        "status": "open",
+        "created_at": "2026-07-30T16:00:00+00:00"
+      }
+    ],
+    "hitl_invites": [],
+    "change_requests": [],
+    "runtime_mode": "local",
+    "app_version": "",
+    "baseline_version": "",
+    "baseline_run": null,
+    "owner_user_id": null,
+    "brahl_plan_draft": {
+      "summary": "High-coverage BRAHL plan for ThoughtStream (jusdone.base44.app) aligned to _Docs/Test_Coverage.md \u2014 guest journeys, auth shells, AI chrome+scorecard, security fail-closed probes, Integrate/Docs/Embed, Manual HITL, signed-in stubs.",
+      "user_stories": [
+        {
+          "id": "US1",
+          "title": "Capture",
+          "description": "ThoughtStream coverage pillar: Capture",
+          "automated": true
+        },
+        {
+          "id": "US2",
+          "title": "AI features",
+          "description": "ThoughtStream coverage pillar: AI features",
+          "automated": true
+        },
+        {
+          "id": "US3",
+          "title": "Guest Journey",
+          "description": "ThoughtStream coverage pillar: Guest Journey",
+          "automated": true
+        },
+        {
+          "id": "US4",
+          "title": "Ideas library",
+          "description": "ThoughtStream coverage pillar: Ideas library",
+          "automated": true
+        },
+        {
+          "id": "US5",
+          "title": "Dashboard",
+          "description": "ThoughtStream coverage pillar: Dashboard",
+          "automated": true
+        },
+        {
+          "id": "US6",
+          "title": "Documentation",
+          "description": "ThoughtStream coverage pillar: Documentation",
+          "automated": true
+        },
+        {
+          "id": "US7",
+          "title": "Integrate / Embed SDK",
+          "description": "ThoughtStream coverage pillar: Integrate / Embed SDK",
+          "automated": true
+        },
+        {
+          "id": "US8",
+          "title": "Embed / Embed SDK",
+          "description": "ThoughtStream coverage pillar: Embed / Embed SDK",
+          "automated": true
+        },
+        {
+          "id": "US9",
+          "title": "Auth lifecycle",
+          "description": "ThoughtStream coverage pillar: Auth lifecycle",
+          "automated": true
+        },
+        {
+          "id": "US10",
+          "title": "Security & PII",
+          "description": "ThoughtStream coverage pillar: Security & PII",
+          "automated": true
+        },
+        {
+          "id": "US11",
+          "title": "Performance",
+          "description": "ThoughtStream coverage pillar: Performance",
+          "automated": true
+        },
+        {
+          "id": "US12",
+          "title": "Accessibility",
+          "description": "ThoughtStream coverage pillar: Accessibility",
+          "automated": false
+        },
+        {
+          "id": "US13",
+          "title": "Hunter certification",
+          "description": "ThoughtStream coverage pillar: Hunter certification",
+          "automated": false
+        }
+      ],
+      "test_cases": [
+        {
+          "id": "T1",
+          "title": "Smoke \u2014 Capture home chrome (heading Voice Screen)",
+          "automated": true,
+          "plan_id": "PSmoke_TS_CaptureShell",
+          "tags": "ThoughtStream;Smoke;UI;Guest;Capture;Journey"
+        },
+        {
+          "id": "T2",
+          "title": "Smoke \u2014 all AI output chips on Capture (chrome contract)",
+          "automated": true,
+          "plan_id": "PSmoke_TS_AIChips",
+          "tags": "ThoughtStream;Smoke;UI;Guest;AI;Capture"
+        },
+        {
+          "id": "T3",
+          "title": "UI \u2014 guest types into Add text (D1 golden prompt)",
+          "automated": true,
+          "plan_id": "PUI_TS_TypeThought",
+          "tags": "ThoughtStream;Smoke;UI;Guest;Capture;Dataset;AI"
+        },
+        {
+          "id": "T4",
+          "title": "UI \u2014 guest types Add text dataset D2",
+          "automated": true,
+          "plan_id": "PUI_TS_TypeThought_D2",
+          "tags": "ThoughtStream;UI;Guest;Capture;Dataset;AI"
+        },
+        {
+          "id": "T5",
+          "title": "UI \u2014 guest types Add text dataset D3 (PII-themed)",
+          "automated": true,
+          "plan_id": "PUI_TS_TypeThought_D3",
+          "tags": "ThoughtStream;UI;Guest;Capture;Dataset;AI;PII"
+        },
+        {
+          "id": "T6",
+          "title": "UI \u2014 Try samples affordance clickable",
+          "automated": true,
+          "plan_id": "PUI_TS_TrySamples",
+          "tags": "ThoughtStream;UI;Guest;Capture;Func"
+        },
+        {
+          "id": "T7",
+          "title": "UI \u2014 context attachments + control present",
+          "automated": true,
+          "plan_id": "PUI_TS_ContextBtn",
+          "tags": "ThoughtStream;UI;Guest;Capture;Func"
+        },
+        {
+          "id": "T8",
+          "title": "UI \u2014 Capture supporting copy + tap to record",
+          "automated": true,
+          "plan_id": "PUI_TS_CaptureSubcopy",
+          "tags": "ThoughtStream;UI;Guest;Capture"
+        },
+        {
+          "id": "T9",
+          "title": "UI \u2014 primary nav Capture Ideas Dashboard Integrate Docs",
+          "automated": true,
+          "plan_id": "PUI_TS_NavChrome",
+          "tags": "ThoughtStream;Smoke;UI;Guest;Journey"
+        },
+        {
+          "id": "T10",
+          "title": "UI \u2014 Ideas Library openable as guest",
+          "automated": true,
+          "plan_id": "PUI_TS_IdeasGuest",
+          "tags": "ThoughtStream;Smoke;UI;Guest;Ideas;Journey"
+        },
+        {
+          "id": "T11",
+          "title": "UI \u2014 Ideas empty state + search field",
+          "automated": true,
+          "plan_id": "PUI_TS_IdeasEmpty",
+          "tags": "ThoughtStream;UI;Guest;Ideas;Edge"
+        },
+        {
+          "id": "T12",
+          "title": "UI \u2014 Dashboard guest empty insights + CTA",
+          "automated": true,
+          "plan_id": "PUI_TS_DashboardGuest",
+          "tags": "ThoughtStream;Smoke;UI;Guest;Dashboard;Journey"
+        },
+        {
+          "id": "T13",
+          "title": "UI \u2014 Documentation page loads",
+          "automated": true,
+          "plan_id": "PUI_TS_Docs",
+          "tags": "ThoughtStream;Smoke;UI;Docs"
+        },
+        {
+          "id": "T14",
+          "title": "UI \u2014 Docs mentions processVoiceNote + guest localStorage",
+          "automated": true,
+          "plan_id": "PUI_TS_DocsDeep",
+          "tags": "ThoughtStream;UI;Docs;AI;Func"
+        },
+        {
+          "id": "T15",
+          "title": "UI \u2014 Integrate page loads",
+          "automated": true,
+          "plan_id": "PUI_TS_Integrate",
+          "tags": "ThoughtStream;UI;Integrate"
+        },
+        {
+          "id": "T16",
+          "title": "UI \u2014 Integrate SDK embed.js init setContext SSO",
+          "automated": true,
+          "plan_id": "PUI_TS_IntegrateSDK",
+          "tags": "ThoughtStream;UI;Integrate;API;Func"
+        },
+        {
+          "id": "T17",
+          "title": "UI \u2014 Embed route loads (sidebar iframe surface)",
+          "automated": true,
+          "plan_id": "PUI_TS_Embed",
+          "tags": "ThoughtStream;UI;Embed"
+        },
+        {
+          "id": "T18",
+          "title": "UI \u2014 guest sample ideas nudge copy",
+          "automated": true,
+          "plan_id": "PUI_TS_GuestNudge",
+          "tags": "ThoughtStream;UI;Guest"
+        },
+        {
+          "id": "T19",
+          "title": "UI \u2014 Settings control present on Capture",
+          "automated": true,
+          "plan_id": "PUI_TS_Settings",
+          "tags": "ThoughtStream;UI;Guest;Func"
+        },
+        {
+          "id": "T20",
+          "title": "UI \u2014 Login Welcome back + fields + Google",
+          "automated": true,
+          "plan_id": "PUI_TS_LoginShell",
+          "tags": "ThoughtStream;Smoke;UI;Auth"
+        },
+        {
+          "id": "T21",
+          "title": "UI \u2014 invalid credentials leave login chrome intact",
+          "automated": true,
+          "plan_id": "PUI_TS_BadLogin",
+          "tags": "ThoughtStream;UI;Auth;Negative"
+        },
+        {
+          "id": "T22",
+          "title": "Negative \u2014 Log in with empty fields stays on auth",
+          "automated": true,
+          "plan_id": "PNeg_TS_EmptyLogin",
+          "tags": "ThoughtStream;UI;Auth;Negative;Edge"
+        },
+        {
+          "id": "T23",
+          "title": "UI \u2014 Register Create surface",
+          "automated": true,
+          "plan_id": "PUI_TS_RegisterShell",
+          "tags": "ThoughtStream;UI;Auth"
+        },
+        {
+          "id": "T24",
+          "title": "UI \u2014 Forgot password Reset password shell",
+          "automated": true,
+          "plan_id": "PUI_TS_ForgotPw",
+          "tags": "ThoughtStream;UI;Auth;Smoke"
+        },
+        {
+          "id": "T25",
+          "title": "UI \u2014 Reset password route shell loads",
+          "automated": true,
+          "plan_id": "PUI_TS_ResetPwShell",
+          "tags": "ThoughtStream;UI;Auth"
+        },
+        {
+          "id": "T26",
+          "title": "Security \u2014 unknown idea id shows Idea not found (no leak)",
+          "automated": true,
+          "plan_id": "PSec_TS_BogusIdea",
+          "tags": "ThoughtStream;Security;PII;UI;Edge"
+        },
+        {
+          "id": "T27",
+          "title": "Security \u2014 unknown /ideas subpath returns Page Not Found",
+          "automated": true,
+          "plan_id": "PSec_TS_BogusRoute404",
+          "tags": "ThoughtStream;Security;UI;Edge"
+        },
+        {
+          "id": "T28",
+          "title": "Security \u2014 private /view id does not expose other-user content",
+          "automated": true,
+          "plan_id": "PSec_TS_PrivateView",
+          "tags": "ThoughtStream;Security;PII;UI"
+        },
+        {
+          "id": "T29",
+          "title": "Perf \u2014 Capture home body ready within wait budget",
+          "automated": true,
+          "plan_id": "PPerf_TS_CaptureLoad",
+          "tags": "ThoughtStream;Perf;UI;Smoke"
+        },
+        {
+          "id": "T30",
+          "title": "Manual \u2014 AI task success / relevance Go/No-Go",
+          "automated": false,
+          "plan_id": "PMan_TS_AIQuality",
+          "tags": "ThoughtStream;AI;Manual;Quality"
+        },
+        {
+          "id": "T31",
+          "title": "Manual \u2014 AI faithfulness / groundedness",
+          "automated": false,
+          "plan_id": "PMan_TS_AIFaithfulness",
+          "tags": "ThoughtStream;AI;Manual;Quality"
+        },
+        {
+          "id": "T32",
+          "title": "Manual \u2014 AI safety jailbreak / harmful",
+          "automated": false,
+          "plan_id": "PMan_TS_AISafety",
+          "tags": "ThoughtStream;AI;Manual;Safety"
+        },
+        {
+          "id": "T33",
+          "title": "Manual \u2014 AI PII leakage / regurgitation",
+          "automated": false,
+          "plan_id": "PMan_TS_AIPII",
+          "tags": "ThoughtStream;AI;Manual;PII;Security"
+        },
+        {
+          "id": "T34",
+          "title": "Manual \u2014 capture\u2192insight latency feel",
+          "automated": false,
+          "plan_id": "PMan_TS_AILatency",
+          "tags": "ThoughtStream;AI;Manual;Perf"
+        },
+        {
+          "id": "T35",
+          "title": "Manual \u2014 AI brand / policy tone",
+          "automated": false,
+          "plan_id": "PMan_TS_AIBrand",
+          "tags": "ThoughtStream;AI;Manual;Quality"
+        },
+        {
+          "id": "T36",
+          "title": "Manual \u2014 keyboard / labels / contrast sample",
+          "automated": false,
+          "plan_id": "PMan_TS_A11y",
+          "tags": "ThoughtStream;A11y;Manual"
+        },
+        {
+          "id": "T37",
+          "title": "Manual \u2014 mobile viewport Capture + Ideas",
+          "automated": false,
+          "plan_id": "PMan_TS_Responsive",
+          "tags": "ThoughtStream;Manual;Responsive"
+        },
+        {
+          "id": "T38",
+          "title": "Manual \u2014 refresh mid-capture / offline resume",
+          "automated": false,
+          "plan_id": "PMan_TS_Interruptions",
+          "tags": "ThoughtStream;Manual;Edge"
+        },
+        {
+          "id": "T39",
+          "title": "Manual \u2014 microphone Voice capture \u2192 processVoiceNote",
+          "automated": false,
+          "plan_id": "PMan_TS_VoiceCapture",
+          "tags": "ThoughtStream;Manual;AI;Capture"
+        },
+        {
+          "id": "T40",
+          "title": "Manual \u2014 Screen record \u2192 processVoiceNote",
+          "automated": false,
+          "plan_id": "PMan_TS_ScreenCapture",
+          "tags": "ThoughtStream;Manual;AI;Capture"
+        },
+        {
+          "id": "T41",
+          "title": "Manual \u2014 share is_public + /view read-only",
+          "automated": false,
+          "plan_id": "PMan_TS_PublicShare",
+          "tags": "ThoughtStream;Manual;Security;PII"
+        },
+        {
+          "id": "T42",
+          "title": "Manual \u2014 Idea Detail AI panels after processing",
+          "automated": false,
+          "plan_id": "PMan_TS_IdeaDetailAI",
+          "tags": "ThoughtStream;Manual;AI;Ideas"
+        },
+        {
+          "id": "T43",
+          "title": "Manual \u2014 Test_Coverage \u00a78 threat & privacy checklist",
+          "automated": false,
+          "plan_id": "PMan_TS_ThreatChecklist",
+          "tags": "ThoughtStream;Manual;Security;PII"
+        },
+        {
+          "id": "T44",
+          "title": "Manual \u2014 guest tc_guest_* keys behave; no cross-user leak",
+          "automated": false,
+          "plan_id": "PMan_TS_GuestLocalStorage",
+          "tags": "ThoughtStream;Manual;Security;PII;Guest"
+        },
+        {
+          "id": "T45",
+          "title": "Manual \u2014 exploratory UX Capture \u2192 Ideas \u2192 Dashboard",
+          "automated": false,
+          "plan_id": "PMan_TS_UXExplore",
+          "tags": "ThoughtStream;Manual;UI"
+        },
+        {
+          "id": "T46",
+          "title": "Stub \u2014 signed-in email/password login",
+          "automated": false,
+          "plan_id": "PStub_TS_SignedInLogin",
+          "tags": "ThoughtStream;Auth;Smoke"
+        },
+        {
+          "id": "T47",
+          "title": "Stub \u2014 signed-in capture + AI pipeline",
+          "automated": false,
+          "plan_id": "PStub_TS_SignedInCapture",
+          "tags": "ThoughtStream;Auth;AI;Manual"
+        },
+        {
+          "id": "T48",
+          "title": "Stub \u2014 signed-in Dashboard with real stats",
+          "automated": false,
+          "plan_id": "PStub_TS_SignedInDashboard",
+          "tags": "ThoughtStream;Auth;Dashboard;Manual"
+        },
+        {
+          "id": "T49",
+          "title": "Stub \u2014 signed-in share toggle + public view",
+          "automated": false,
+          "plan_id": "PStub_TS_SignedInShare",
+          "tags": "ThoughtStream;Auth;Security;Manual"
+        },
+        {
+          "id": "T50",
+          "title": "Stub \u2014 logout / session clear",
+          "automated": false,
+          "plan_id": "PStub_TS_SignedInLogout",
+          "tags": "ThoughtStream;Auth;Manual"
+        },
+        {
+          "id": "T51",
+          "title": "Stub \u2014 admin role should-not-see (if roles exist)",
+          "automated": false,
+          "plan_id": "PStub_TS_AdminRole",
+          "tags": "ThoughtStream;Auth;Security;Manual"
+        }
+      ],
+      "automated_count": 29,
+      "manual_count": 22,
+      "run_how": "Run FoXYiZ fStart ThoughtStream_smoke.json (Smoke) or ThoughtStream_full.json (UI+Security+Auth+Perf). AI Go/No-Go via Manual scorecard after signed-in accounts.",
+      "source": "coverage_expansion",
+      "updated_at": "2026-07-30T15:56:58+00:00"
+    },
+    "ai_usage": {
+      "calls": 0,
+      "total_tokens": 0,
+      "usd_est": 0.0
+    },
+    "evidence_library": [],
+    "latest_run": "20260730_090242_ThoughtStream",
+    "updated_at": "2026-07-30T19:25:33+00:00",
+    "ai_journey_updated_at": "2026-07-30T19:25:33+00:00",
+    "reports": [
+      {
+        "id": "a0d25a07",
+        "run_name": "20260729_104206_ThoughtStream",
+        "report_path": "z/20260729_104206_ThoughtStream/brahl_report.md",
+        "submitted_at": "2026-07-29T23:33:05+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "f956d30b",
+        "run_name": "20260729_163624_ThoughtStream",
+        "report_path": "z/20260729_163624_ThoughtStream/brahl_report.md",
+        "submitted_at": "2026-07-29T23:37:00+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "b027060c",
+        "run_name": "20260730_085143_ThoughtStream",
+        "report_path": "z/20260730_085143_ThoughtStream/brahl_report.md",
+        "submitted_at": "2026-07-30T15:57:47+00:00",
+        "source": "automation_ai",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "14236a85",
+        "run_name": "20260730_090242_ThoughtStream",
+        "report_path": "z/20260730_090242_ThoughtStream/brahl_report.md",
+        "submitted_at": "2026-07-30T19:25:32+00:00",
+        "source": "automation_ai",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      }
+    ],
+    "thought_captures": []
+  },
+  {
+    "id": "ops_dashboard",
+    "name": "OpsDashboard",
+    "app_url": "https://dashboardpresentation.netlify.app/",
+    "suite_name": "OpsDashboard",
+    "suite_config": "y/OpsDashboard/OpsDashboard.json",
+    "purpose": "Reply in 8 words: next Build action?",
+    "prompt": "Reply in 8 words: next Build action?",
+    "owner_avatar": "client",
+    "status": "open",
+    "ai_enabled": true,
+    "documents": [],
+    "context_items": [
+      {
+        "id": "ctx1",
+        "kind": "url",
+        "label": "App URL",
+        "value": "https://dashboardpresentation.netlify.app/",
+        "added_at": "2026-07-30T19:23:44+00:00"
+      }
+    ],
+    "chat_messages": [
+      {
+        "id": "welcome",
+        "role": "assistant",
+        "text": "OpsDashboard demo suite ready \u2014 Smoke \u00b7 Regression \u00b7 Performance \u00b7 Security \u00b7 AI. Run smoke for the live walkthrough.",
+        "at": "2026-07-30T19:23:44+00:00"
+      },
+      {
+        "id": "f16d6f77",
+        "role": "user",
+        "text": "In one sentence: what should Smoke cover for OpsDashboard?",
+        "at": "2026-07-30T21:07:25+00:00"
+      },
+      {
+        "id": "2ded52ad",
+        "role": "assistant",
+        "text": "Smoke should cover the basic functionality and navigation of key features on https://dashboardpresentation.netlify.app/.",
+        "at": "2026-07-30T21:08:25+00:00"
+      },
+      {
+        "id": "4731a4c6",
+        "role": "user",
+        "text": "One sentence: next Build step?",
+        "at": "2026-07-30T21:18:12+00:00"
+      },
+      {
+        "id": "f435ac04",
+        "role": "assistant",
+        "text": "Next Build step: Define the key functionalities to be tested in yPAD (y1Plans, y2Actions, y3Designs) for Smoke testing.",
+        "at": "2026-07-30T21:18:39+00:00"
+      },
+      {
+        "id": "eedb9568",
+        "role": "user",
+        "text": "Reply in 8 words: next Build action?",
+        "at": "2026-07-30T21:23:58+00:00"
+      },
+      {
+        "id": "b006d51e",
+        "role": "assistant",
+        "text": "Define test cases in yPAD (y1Plans, y2Actions, y3Designs).",
+        "at": "2026-07-30T21:24:17+00:00"
+      }
+    ],
+    "budget_usd": 0.0,
+    "budget_split": {
+      "automation_pct": 55,
+      "human_pct": 45
+    },
+    "hitl_consultants": [],
+    "brahl_chat_messages": [
+      {
+        "id": "brahl-welcome",
+        "role": "assistant",
+        "text": "I'm the BRAHL model for OpsDashboard. Demo Smoke first, then AI groundedness, then Security.",
+        "at": "2026-07-30T19:23:44+00:00"
+      },
+      {
+        "id": "d64181ba",
+        "role": "user",
+        "text": "Summarize the latest run health in one sentence.",
+        "at": "2026-07-30T21:15:32+00:00"
+      },
+      {
+        "id": "bb94b15e",
+        "role": "assistant",
+        "text": "The latest run for OpsDashboard had 8 out of 10 plans pass, resulting in an overall health status of amber.",
+        "at": "2026-07-30T21:17:08+00:00"
+      },
+      {
+        "id": "fa028669",
+        "role": "user",
+        "text": "One sentence health summary.",
+        "at": "2026-07-30T21:20:56+00:00"
+      },
+      {
+        "id": "a2d75754",
+        "role": "assistant",
+        "text": "Next action: Verify the failing steps PSmoke_Ops_AIEntry and PAI_Ops_OpenAssistant. Ensure the period filters and card drills are functioning correctly. Send execution to Run/Loop.",
+        "at": "2026-07-30T21:21:49+00:00"
+      },
+      {
+        "id": "b7d022c7",
+        "role": "user",
+        "text": "One sentence health?",
+        "at": "2026-07-30T21:26:27+00:00"
+      },
+      {
+        "id": "a7881303",
+        "role": "assistant",
+        "text": "Next Build action: Heal yPAD.",
+        "at": "2026-07-30T21:27:18+00:00"
+      }
+    ],
+    "team_messages": [],
+    "team_tasks": [],
+    "atomic77_chat_messages": [
+      {
+        "id": "a77-welcome",
+        "role": "assistant",
+        "text": "I'm **Atomic 77** \u2014 idea to launch inside QA on Air. Ask about scope, BRAHL, launch, costs, or QA Hunter workflows. Toggle **AI on** for full assistant mode.",
+        "at": "2026-07-30T19:25:32+00:00"
+      }
+    ],
+    "atomic77_usage": {
+      "messages": 0,
+      "tokens_est": 0,
+      "user_messages": 0
+    },
+    "cycle_history": [
+      {
+        "id": "d4b7661a",
+        "step": "Run",
+        "detail": "completed",
+        "at": "2026-07-31T14:32:32+00:00",
+        "run_name": "20260731_073026_OpsDashboard",
+        "stats": {
+          "passes": 11,
+          "fails": 15,
+          "total_plans": 26,
+          "health": "amber"
+        }
+      },
+      {
+        "id": "5293fc18",
+        "step": "Run",
+        "detail": "completed",
+        "at": "2026-07-31T03:33:54+00:00",
+        "run_name": "20260730_203153_OpsDashboard",
+        "stats": {
+          "passes": 2,
+          "fails": 9,
+          "total_plans": 11,
+          "health": "amber"
+        }
+      },
+      {
+        "id": "9adb8e6a",
+        "step": "Run",
+        "detail": "completed",
+        "at": "2026-07-30T20:12:24+00:00",
+        "run_name": "20260730_131141_OpsDashboard",
+        "stats": {
+          "passes": 8,
+          "fails": 2,
+          "total_plans": 10,
+          "health": "amber"
+        }
+      },
+      {
+        "id": "ec3dd999",
+        "step": "Run",
+        "detail": "completed",
+        "at": "2026-07-30T20:08:00+00:00",
+        "run_name": "20260730_130713_OpsDashboard",
+        "stats": {
+          "passes": 8,
+          "fails": 2,
+          "total_plans": 10,
+          "health": "amber"
+        }
+      }
+    ],
+    "hitl_stories": [
+      {
+        "id": "hs1",
+        "title": "Live demo smoke \u2014 overview loads and core chrome",
+        "description": "Live demo smoke \u2014 overview loads and core chrome",
+        "status": "open",
+        "created_at": "2026-07-30T19:23:44+00:00"
+      },
+      {
+        "id": "hs2",
+        "title": "Ops analyst regression \u2014 filters, KPIs, drill-downs",
+        "description": "Ops analyst regression \u2014 filters, KPIs, drill-downs",
+        "status": "open",
+        "created_at": "2026-07-30T19:23:44+00:00"
+      },
+      {
+        "id": "hs3",
+        "title": "Performance \u2014 load and interaction budgets",
+        "description": "Performance \u2014 load and interaction budgets",
+        "status": "open",
+        "created_at": "2026-07-30T19:23:44+00:00"
+      },
+      {
+        "id": "hs4",
+        "title": "Security \u2014 public routes fail closed",
+        "description": "Security \u2014 public routes fail closed",
+        "status": "open",
+        "created_at": "2026-07-30T19:23:44+00:00"
+      },
+      {
+        "id": "hs5",
+        "title": "Ops Assistant AI \u2014 chrome, contract, groundedness",
+        "description": "Ops Assistant AI \u2014 chrome, contract, groundedness",
+        "status": "open",
+        "created_at": "2026-07-30T19:23:44+00:00"
+      }
+    ],
+    "hitl_invites": [],
+    "change_requests": [],
+    "runtime_mode": "local",
+    "app_version": "",
+    "baseline_version": "",
+    "baseline_run": null,
+    "owner_user_id": null,
+    "brahl_plan_draft": {
+      "summary": "Demo-ready BRAHL suite for Operations Overview (https://dashboardpresentation.netlify.app/) \u2014 Smoke \u00b7 Regression \u00b7 Performance \u00b7 Security \u00b7 AI. Covers KPI cards, period filters, chart drill-downs, Ops Assistant grounded answers, and fail-closed routes.",
+      "user_stories": [
+        {
+          "id": "US1",
+          "title": "Live demo smoke \u2014 overview loads and core chrome",
+          "description": "Live demo smoke \u2014 overview loads and core chrome",
+          "automated": true
+        },
+        {
+          "id": "US2",
+          "title": "Ops analyst regression \u2014 filters, KPIs, drill-downs",
+          "description": "Ops analyst regression \u2014 filters, KPIs, drill-downs",
+          "automated": true
+        },
+        {
+          "id": "US3",
+          "title": "Performance \u2014 load and interaction budgets",
+          "description": "Performance \u2014 load and interaction budgets",
+          "automated": true
+        },
+        {
+          "id": "US4",
+          "title": "Security \u2014 public routes fail closed",
+          "description": "Security \u2014 public routes fail closed",
+          "automated": true
+        },
+        {
+          "id": "US5",
+          "title": "Ops Assistant AI \u2014 chrome, contract, groundedness",
+          "description": "Ops Assistant AI \u2014 chrome, contract, groundedness",
+          "automated": true
+        }
+      ],
+      "test_cases": [
+        {
+          "id": "T1",
+          "title": "Smoke \u2014 document title Operations Overview",
+          "automated": true,
+          "plan_id": "PSmoke_Ops_Title",
+          "tags": "OpsDashboard;Smoke"
+        },
+        {
+          "id": "T2",
+          "title": "Smoke \u2014 Operations Overview heading + drill-down hint",
+          "automated": true,
+          "plan_id": "PSmoke_Ops_Heading",
+          "tags": "OpsDashboard;Smoke"
+        },
+        {
+          "id": "T3",
+          "title": "Smoke \u2014 four KPI cards visible with H1 values",
+          "automated": true,
+          "plan_id": "PSmoke_Ops_KPIRow",
+          "tags": "OpsDashboard;Smoke"
+        },
+        {
+          "id": "T4",
+          "title": "Smoke \u2014 key chart titles present on overview",
+          "automated": true,
+          "plan_id": "PSmoke_Ops_Charts",
+          "tags": "OpsDashboard;Smoke"
+        },
+        {
+          "id": "T5",
+          "title": "Smoke \u2014 Period H1 Q1 Q2 + Custom Range chrome",
+          "automated": true,
+          "plan_id": "PSmoke_Ops_PeriodChrome",
+          "tags": "OpsDashboard;Smoke"
+        },
+        {
+          "id": "T6",
+          "title": "Smoke \u2014 Ask Ops Assistant entry visible",
+          "automated": true,
+          "plan_id": "PSmoke_Ops_AIEntry",
+          "tags": "OpsDashboard;Smoke;AI"
+        },
+        {
+          "id": "T7",
+          "title": "Smoke \u2014 fulfillment pipeline stage labels",
+          "automated": true,
+          "plan_id": "PSmoke_Ops_PipelineStages",
+          "tags": "OpsDashboard;Smoke"
+        },
+        {
+          "id": "T8",
+          "title": "Regression \u2014 Q1 filter updates subtitle and order count",
+          "automated": true,
+          "plan_id": "PReg_Ops_FilterQ1",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T9",
+          "title": "Regression \u2014 Q2 filter updates period subtitle",
+          "automated": true,
+          "plan_id": "PReg_Ops_FilterQ2",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T10",
+          "title": "Regression \u2014 return to H1 restores 1,347 orders",
+          "automated": true,
+          "plan_id": "PReg_Ops_FilterH1",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T11",
+          "title": "Regression \u2014 custom range date inputs present",
+          "automated": true,
+          "plan_id": "PReg_Ops_CustomRangeChrome",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T12",
+          "title": "Regression \u2014 Total Orders card opens drill-down table",
+          "automated": true,
+          "plan_id": "PReg_Ops_DrillTotalOrders",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T13",
+          "title": "Regression \u2014 On-Time Dispatch Rate drill-down opens",
+          "automated": true,
+          "plan_id": "PReg_Ops_DrillOnTime",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T14",
+          "title": "Regression \u2014 Prime Quality Rate drill-down opens",
+          "automated": true,
+          "plan_id": "PReg_Ops_DrillPrime",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T15",
+          "title": "Regression \u2014 Avg Fulfillment Time drill-down opens",
+          "automated": true,
+          "plan_id": "PReg_Ops_DrillFulfill",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T16",
+          "title": "Regression \u2014 Order Volume & Fulfillment Trend drill",
+          "automated": true,
+          "plan_id": "PReg_Ops_DrillTrend",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T17",
+          "title": "Regression \u2014 Order Pipeline Status drill",
+          "automated": true,
+          "plan_id": "PReg_Ops_DrillPipeStatus",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T18",
+          "title": "Regression \u2014 Dispatch vs Ordered Quantity drill",
+          "automated": true,
+          "plan_id": "PReg_Ops_DrillDispatchQty",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T19",
+          "title": "Regression \u2014 Order Volume by Material Group drill",
+          "automated": true,
+          "plan_id": "PReg_Ops_DrillMaterial",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T20",
+          "title": "Regression \u2014 Monthly Production Output drill",
+          "automated": true,
+          "plan_id": "PReg_Ops_DrillProduction",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T21",
+          "title": "Regression \u2014 Hold Reason Analysis drill",
+          "automated": true,
+          "plan_id": "PReg_Ops_DrillHold",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T22",
+          "title": "Regression \u2014 Prime Quality Rate Trend drill",
+          "automated": true,
+          "plan_id": "PReg_Ops_DrillQualityTrend",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T23",
+          "title": "Regression \u2014 Grade Distribution drill",
+          "automated": true,
+          "plan_id": "PReg_Ops_DrillGrade",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T24",
+          "title": "Regression \u2014 Order Fulfillment Pipeline drill",
+          "automated": true,
+          "plan_id": "PReg_Ops_DrillFulfillPipe",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T25",
+          "title": "Regression \u2014 H1 KPI targets and deltas visible",
+          "automated": true,
+          "plan_id": "PReg_Ops_H1KPITargets",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T26",
+          "title": "Regression \u2014 chart legends Received Completed Prime Hold Scrap",
+          "automated": true,
+          "plan_id": "PReg_Ops_LegendChrome",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T27",
+          "title": "Regression \u2014 Q1 pipeline counts update",
+          "automated": true,
+          "plan_id": "PReg_Ops_Q1PipelineCounts",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T28",
+          "title": "Regression \u2014 Units label on grade distribution",
+          "automated": true,
+          "plan_id": "PReg_Ops_UnitsChrome",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T29",
+          "title": "Performance \u2014 overview body ready within wait budget",
+          "automated": true,
+          "plan_id": "PPerf_Ops_InitialLoad",
+          "tags": "OpsDashboard;Performance;Smoke"
+        },
+        {
+          "id": "T30",
+          "title": "Performance \u2014 Q1\u2192Q2\u2192H1 switches within short waits",
+          "automated": true,
+          "plan_id": "PPerf_Ops_PeriodSwitch",
+          "tags": "OpsDashboard;Performance;Regression"
+        },
+        {
+          "id": "T31",
+          "title": "Performance \u2014 drill-down open and close feels instant",
+          "automated": true,
+          "plan_id": "PPerf_Ops_DrillOpenClose",
+          "tags": "OpsDashboard;Performance;Regression"
+        },
+        {
+          "id": "T32",
+          "title": "Manual \u2014 chart render / scroll / mobile viewport feel",
+          "automated": false,
+          "plan_id": "PMan_Ops_PerfFeel",
+          "tags": "OpsDashboard;Performance;Manual"
+        },
+        {
+          "id": "T33",
+          "title": "Security \u2014 /api/orders returns Page not found (no data leak)",
+          "automated": true,
+          "plan_id": "PSec_Ops_BogusApi404",
+          "tags": "OpsDashboard;Security"
+        },
+        {
+          "id": "T34",
+          "title": "Security \u2014 /admin path does not expose admin console",
+          "automated": true,
+          "plan_id": "PSec_Ops_BogusAdmin",
+          "tags": "OpsDashboard;Security"
+        },
+        {
+          "id": "T35",
+          "title": "Security \u2014 public demo loads without login wall",
+          "automated": true,
+          "plan_id": "PSec_Ops_PublicDemoShell",
+          "tags": "OpsDashboard;Security;Smoke"
+        },
+        {
+          "id": "T36",
+          "title": "Manual \u2014 no API keys/tokens visible in DOM or network",
+          "automated": false,
+          "plan_id": "PMan_Ops_SecTokens",
+          "tags": "OpsDashboard;Security;Manual"
+        },
+        {
+          "id": "T37",
+          "title": "Manual \u2014 XSS / HTML injection via custom range or assistant",
+          "automated": false,
+          "plan_id": "PMan_Ops_SecXSS",
+          "tags": "OpsDashboard;Security;Manual"
+        },
+        {
+          "id": "T38",
+          "title": "Manual \u2014 Test_Coverage threat checklist sample on ops data",
+          "automated": false,
+          "plan_id": "PMan_Ops_SecThreat",
+          "tags": "OpsDashboard;Security;Manual"
+        },
+        {
+          "id": "T39",
+          "title": "AI \u2014 open Ops Assistant panel chrome",
+          "automated": true,
+          "plan_id": "PAI_Ops_OpenAssistant",
+          "tags": "OpsDashboard;AI;Smoke"
+        },
+        {
+          "id": "T40",
+          "title": "AI \u2014 suggested question chips present",
+          "automated": true,
+          "plan_id": "PAI_Ops_SuggestedChips",
+          "tags": "OpsDashboard;AI"
+        },
+        {
+          "id": "T41",
+          "title": "AI \u2014 Ask about your data textbox + Speak + Send",
+          "automated": true,
+          "plan_id": "PAI_Ops_InputChrome",
+          "tags": "OpsDashboard;AI"
+        },
+        {
+          "id": "T42",
+          "title": "AI \u2014 suggested How many orders? grounded to Q1 621",
+          "automated": true,
+          "plan_id": "PAI_Ops_AskOrdersQ1",
+          "tags": "OpsDashboard;AI;Regression"
+        },
+        {
+          "id": "T43",
+          "title": "AI \u2014 type freeform prompt and Send (D1)",
+          "automated": true,
+          "plan_id": "PAI_Ops_TypePrompt",
+          "tags": "OpsDashboard;AI;Dataset"
+        },
+        {
+          "id": "T44",
+          "title": "AI \u2014 freeform prompt dataset D2 quality rate",
+          "automated": true,
+          "plan_id": "PAI_Ops_TypePrompt_D2",
+          "tags": "OpsDashboard;AI;Dataset"
+        },
+        {
+          "id": "T45",
+          "title": "AI \u2014 freeform prompt dataset D3 hold reasons",
+          "automated": true,
+          "plan_id": "PAI_Ops_TypePrompt_D3",
+          "tags": "OpsDashboard;AI;Dataset"
+        },
+        {
+          "id": "T46",
+          "title": "AI \u2014 close Ops Assistant returns to overview",
+          "automated": true,
+          "plan_id": "PAI_Ops_CloseAssistant",
+          "tags": "OpsDashboard;AI"
+        },
+        {
+          "id": "T47",
+          "title": "Manual \u2014 AI task success / relevance Go/No-Go",
+          "automated": false,
+          "plan_id": "PMan_AI_Quality",
+          "tags": "OpsDashboard;AI;Manual;Quality"
+        },
+        {
+          "id": "T48",
+          "title": "Manual \u2014 AI answers match KPI cards (no invented facts)",
+          "automated": false,
+          "plan_id": "PMan_AI_Faithfulness",
+          "tags": "OpsDashboard;AI;Manual;Quality"
+        },
+        {
+          "id": "T49",
+          "title": "Manual \u2014 AI refuses harmful / off-domain jailbreak",
+          "automated": false,
+          "plan_id": "PMan_AI_Safety",
+          "tags": "OpsDashboard;AI;Manual;Safety"
+        },
+        {
+          "id": "T50",
+          "title": "Manual \u2014 AI does not invent customer PII",
+          "automated": false,
+          "plan_id": "PMan_AI_PII",
+          "tags": "OpsDashboard;AI;Manual;Security"
+        },
+        {
+          "id": "T51",
+          "title": "Manual \u2014 assistant answer latency feel",
+          "automated": false,
+          "plan_id": "PMan_AI_Latency",
+          "tags": "OpsDashboard;AI;Manual;Performance"
+        },
+        {
+          "id": "T52",
+          "title": "Manual \u2014 Speak / voice input to Ops Assistant",
+          "automated": false,
+          "plan_id": "PMan_AI_Voice",
+          "tags": "OpsDashboard;AI;Manual"
+        },
+        {
+          "id": "T53",
+          "title": "Manual \u2014 assistant answers respect active period filter",
+          "automated": false,
+          "plan_id": "PMan_AI_PeriodAware",
+          "tags": "OpsDashboard;AI;Manual;Regression"
+        },
+        {
+          "id": "T54",
+          "title": "Manual \u2014 exploratory ops analyst journey H1\u2192drill\u2192AI",
+          "automated": false,
+          "plan_id": "PMan_UX_Explore",
+          "tags": "OpsDashboard;Manual;Regression"
+        },
+        {
+          "id": "T55",
+          "title": "Regression \u2014 Q2 vs Q1 delta copy on H1 KPIs",
+          "automated": true,
+          "plan_id": "PReg_Ops_DeltaCopy",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T56",
+          "title": "Regression \u2014 Total Orders breakdown dispatched/in progress/pending",
+          "automated": true,
+          "plan_id": "PReg_Ops_DispatchBreakdown",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T57",
+          "title": "Regression \u2014 metric tonnes language on dispatch chart",
+          "automated": true,
+          "plan_id": "PReg_Ops_MTUnits",
+          "tags": "OpsDashboard;Regression"
+        },
+        {
+          "id": "T58",
+          "title": "AI \u2014 Quality rate? suggested chip clickable",
+          "automated": true,
+          "plan_id": "PAI_Ops_ChipQuality",
+          "tags": "OpsDashboard;AI"
+        },
+        {
+          "id": "T59",
+          "title": "AI \u2014 Hold reasons? suggested chip clickable",
+          "automated": true,
+          "plan_id": "PAI_Ops_ChipHold",
+          "tags": "OpsDashboard;AI"
+        },
+        {
+          "id": "T60",
+          "title": "Manual \u2014 chart tooltip hover accuracy (60)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T61",
+          "title": "Manual \u2014 Safari/Firefox smoke sample (61)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T62",
+          "title": "Manual \u2014 keyboard-only period filter + drill (62)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T63",
+          "title": "Manual \u2014 dark mode / contrast if present (63)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T64",
+          "title": "Manual \u2014 print / export screenshot for exec review (64)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T65",
+          "title": "Manual \u2014 concurrent filter + assistant open (65)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T66",
+          "title": "Manual \u2014 empty custom range edge (66)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T67",
+          "title": "Manual \u2014 future date custom range edge (67)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T68",
+          "title": "Manual \u2014 AI multi-turn follow-up question (68)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T69",
+          "title": "Manual \u2014 AI Speak mic permission denied UX (69)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T70",
+          "title": "Manual \u2014 chart tooltip hover accuracy (70)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T71",
+          "title": "Manual \u2014 Safari/Firefox smoke sample (71)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T72",
+          "title": "Manual \u2014 keyboard-only period filter + drill (72)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T73",
+          "title": "Manual \u2014 dark mode / contrast if present (73)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T74",
+          "title": "Manual \u2014 print / export screenshot for exec review (74)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T75",
+          "title": "Manual \u2014 concurrent filter + assistant open (75)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T76",
+          "title": "Manual \u2014 empty custom range edge (76)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T77",
+          "title": "Manual \u2014 future date custom range edge (77)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        },
+        {
+          "id": "T78",
+          "title": "Manual \u2014 AI multi-turn follow-up question (78)",
+          "automated": false,
+          "tags": "OpsDashboard;Manual"
+        }
+      ],
+      "automated_count": 47,
+      "manual_count": 31,
+      "run_how": "Demo live: FoXYiZ fStart OpsDashboard_smoke.json then OpsDashboard_ai.json. Full: OpsDashboard_regression.json \u00b7 OpsDashboard_performance.json \u00b7 OpsDashboard_security.json. BRAHL Arena project OpsDashboard.",
+      "source": "demo_ops_dashboard",
+      "updated_at": "2026-07-30T19:23:44+00:00"
+    },
+    "ai_usage": {
+      "calls": 3,
+      "total_tokens": 1858,
+      "usd_est": 0.000743,
+      "prompt_tokens": 1783,
+      "completion_tokens": 75,
+      "updated_at": "2026-07-30T21:24:17+00:00"
+    },
+    "evidence_library": [],
+    "latest_run": "20260731_073026_OpsDashboard",
+    "updated_at": "2026-08-01T17:13:33+00:00",
+    "ai_journey_updated_at": "2026-08-01T17:13:33+00:00",
+    "reports": [
+      {
+        "id": "10f42b04",
+        "run_name": "20260730_123130_OpsDashboard",
+        "report_path": "z/20260730_123130_OpsDashboard/brahl_report.md",
+        "submitted_at": "2026-07-30T19:31:50+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "23e5b3b8",
+        "run_name": "20260730_123156_OpsDashboard",
+        "report_path": "z/20260730_123156_OpsDashboard/brahl_report.md",
+        "submitted_at": "2026-07-30T19:42:31+00:00",
+        "source": "automation_ai",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "9c1debb7",
+        "run_name": "20260730_124550_OpsDashboard",
+        "report_path": "z/20260730_124550_OpsDashboard/brahl_report.md",
+        "submitted_at": "2026-07-30T20:05:15+00:00",
+        "source": "automation_ai",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "d49b645c",
+        "run_name": "20260730_130713_OpsDashboard",
+        "report_path": "z/20260730_130713_OpsDashboard/brahl_report.md",
+        "submitted_at": "2026-07-30T20:08:01+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "3ba5ff2e",
+        "run_name": "20260730_131141_OpsDashboard",
+        "report_path": "z/20260730_131141_OpsDashboard/brahl_report.md",
+        "submitted_at": "2026-07-30T20:12:25+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "cadf7326",
+        "run_name": "20260730_203153_OpsDashboard",
+        "report_path": "z/20260730_203153_OpsDashboard/brahl_report.md",
+        "submitted_at": "2026-07-31T03:33:55+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "a1515fc3",
+        "run_name": "20260731_073026_OpsDashboard",
+        "report_path": "z/20260731_073026_OpsDashboard/brahl_report.md",
+        "submitted_at": "2026-07-31T14:32:34+00:00",
+        "source": "automation",
+        "batch_id": null,
+        "batch_dashboard": null,
+        "archived": false
+      },
+      {
+        "id": "6091d2fa",
+        "run_name": "20260731_072728_OpsDashboard",
+        "report_path": "z/20260731_072728_OpsDashboard/brahl_report.md",
+        "submitted_at": "2026-07-31T14:32:35+00:00",
+        "source": "automation",
+        "batch_id": "50a6b2e931",
+        "batch_dashboard": null,
+        "archived": false
+      }
+    ],
+    "thought_captures": [],
+    "current_phase": "Run"
+  },
+  {
+    "id": "laeats_fusion",
+    "name": "LAEats",
+    "app_url": "https://laeats.base44.app/",
+    "suite_name": "LAEats",
+    "suite_config": "y/LAEats/LAEats.json",
+    "purpose": "BRAHL Fusion by Fire menu + Chef AI Concierge on laeats.base44.app",
+    "prompt": "BRAHL Fusion by Fire menu + Chef AI Concierge on laeats.base44.app",
+    "owner_avatar": "client",
+    "status": "open",
+    "ai_enabled": true,
+    "documents": [],
+    "context_items": [
+      {
+        "id": "ctx1",
+        "kind": "url",
+        "label": "App URL",
+        "value": "https://laeats.base44.app/",
+        "added_at": "2026-08-01T20:05:00+00:00"
+      }
+    ],
+    "chat_messages": [
+      {
+        "id": "welcome",
+        "role": "assistant",
+        "text": "LAEats suite ready \u2014 Smoke \u00b7 Regression \u00b7 Performance \u00b7 Security \u00b7 AI (Chef Concierge). Run Smoke for the live walkthrough.",
+        "at": "2026-08-01T20:05:00+00:00"
+      }
+    ],
+    "budget_usd": 0,
+    "runs": [],
+    "thought_captures": [],
+    "current_phase": "Build",
+    "budget_split": {
+      "automation_pct": 50,
+      "human_pct": 50
+    },
+    "hitl_consultants": [],
+    "brahl_chat_messages": [
+      {
+        "id": "brahl-welcome",
+        "role": "assistant",
+        "text": "I'm the BRAHL model for this project. Select a report or ask about the latest BRAHL findings.",
+        "at": "2026-08-01T20:09:13+00:00"
+      }
+    ],
+    "team_messages": [],
+    "team_tasks": [],
+    "atomic77_chat_messages": [
+      {
+        "id": "a77-welcome",
+        "role": "assistant",
+        "text": "I'm **Atomic 77** \u2014 idea to launch inside QA on Air. Ask about scope, BRAHL, launch, costs, or QA Hunter workflows. Toggle **AI on** for full assistant mode.",
+        "at": "2026-08-01T20:09:13+00:00"
+      }
+    ],
+    "atomic77_usage": {
+      "messages": 0,
+      "tokens_est": 0,
+      "user_messages": 0
+    },
+    "cycle_history": [],
+    "hitl_stories": [],
+    "hitl_invites": [],
+    "change_requests": [],
+    "runtime_mode": "local",
+    "app_version": "",
+    "baseline_version": "",
+    "baseline_run": null,
+    "owner_user_id": null,
+    "brahl_plan_draft": null,
+    "ai_usage": {
+      "calls": 0,
+      "total_tokens": 0,
+      "usd_est": 0.0
+    },
+    "evidence_library": []
   }
 ]

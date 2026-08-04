@@ -76,6 +76,14 @@ AI_CONTEXT_DOCS: list[dict[str, Any]] = [
         "in_prompt": False,
     },
     {
+        "id": "test-coverage",
+        "title": "Test coverage",
+        "subtitle": "Journeys · negatives · security/PII · AI scoring → Go/No-Go",
+        "path": "Docs/Test_Coverage.md",
+        "kind": "skill",
+        "in_prompt": False,
+    },
+    {
         "id": "demo-ypads",
         "title": "Demo yPADs",
         "subtitle": "Math · API · UI · BRAHL_Local · AI suites",

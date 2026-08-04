@@ -8,9 +8,11 @@ Created/updated while the app runs. Safe to reset for a clean demo.
 | `projects.seed.json` | Optional | Reset template for projects |
 | `workspace.json` | Runtime | Last Workspace chip bind (app under test) |
 | `schedules.json` | Runtime | Local schedules (often empty `[]`) |
-| `user_ai_docs/` | **No for ship** | Optional user `.md` uploads for the `.md` drawer / AI prompt — created on first upload |
-| `users.db` | Cloud leftover | Auth/wallets — not needed for desktop demos |
-| `invites*.json` / `nalanda*.json` | Cloud leftover | Marketplace / Nalanda — desktop usually ignores |
+| `ai_usage.json` | Runtime | Optional AI token usage (BRAHL helpers only) |
+| `user_ai_docs/` | Optional | User `.md` uploads for the AI context drawer |
+| `users.db` | Optional | Local auth if you use sign-in |
 | `uploads/` | Runtime | Temp uploads |
 
-Suites live under `FoXYiZ/y/` (not here). fStart: `FoXYiZ/f/fStart/`.
+**Removed from this desktop package:** marketplace leftovers (`nalanda*`, `invites*`, Stripe billing).
+
+Suites live under `FoXYiZ/y/` (not here). fStart: `FoXYiZ/f/fStart/`. FoXYiZ.exe runs tests only — AI helpers are BRAHL-side.

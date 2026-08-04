@@ -65,6 +65,13 @@ DEFAULT_PROJECT_TOKEN_SOFT_CAP = int(os.environ.get("QOA_AI_PROJECT_TOKENS", "20
 USD_PER_1K_TOKENS = float(os.environ.get("QOA_AI_USD_PER_1K", "0.0004"))
 
 
+# Desktop BYOK: always take these from f/.env so model switches apply after restart
+# even if the shell already exported an older OPENAI_MODEL.
+_DOTENV_OVERRIDE_KEYS = frozenset(
+    {"OPENAI_API_KEY", "OPENAI_BASE_URL", "OPENAI_MODEL", "OPENAI_TIMEOUT_SEC"}
+)
+
+
 def _load_dotenv() -> None:
     env_path = F_DIR / ".env"
     if not env_path.is_file():
@@ -76,7 +83,9 @@ def _load_dotenv() -> None:
         key, _, val = line.partition("=")
         key = key.strip()
         val = val.strip().strip('"').strip("'")
-        if key and key not in os.environ:
+        if not key:
+            continue
+        if key in _DOTENV_OVERRIDE_KEYS or key not in os.environ:
             os.environ[key] = val
 
 
@@ -93,6 +102,12 @@ def is_byok_mode() -> bool:
     return os.environ.get("QOA_AI_HOSTED", "").strip() not in ("1", "true", "True", "yes")
 
 
+def is_local_openai_compatible() -> bool:
+    """True when OPENAI_BASE_URL points at Ollama / LM Studio / similar local server."""
+    base = (os.environ.get("OPENAI_BASE_URL") or "").lower()
+    return any(t in base for t in ("127.0.0.1", "localhost", "0.0.0.0", ":11434", ":1234"))
+
+
 def _openai_client():
     """OpenAI SDK client — honors OPENAI_BASE_URL for Ollama / LM Studio / etc."""
     from openai import OpenAI
@@ -104,6 +119,9 @@ def _openai_client():
         kwargs["api_key"] = key
     if base:
         kwargs["base_url"] = base
+    # Local models often need 1–3 minutes for structured BRAHL Plan JSON.
+    timeout_sec = float(os.environ.get("OPENAI_TIMEOUT_SEC") or (180 if is_local_openai_compatible() else 60))
+    kwargs["timeout"] = timeout_sec
     return OpenAI(**kwargs)
 
 def _month_key(now: datetime | None = None) -> str:
@@ -159,14 +177,17 @@ def get_usage_snapshot(
     if user_id:
         try:
             import auth as auth_store
-            from pricing import hunter_ai_token_cap
 
             user = auth_store.get_user(user_id)
             if user and user.get("membership_active"):
                 membership_tier = float(user.get("hunter_ai_tier_usd") or 0)
-                tier_cap = hunter_ai_token_cap(membership_tier)
-                if tier_cap:
-                    user_cap = max(user_cap, int(tier_cap))
+                # Marketplace pricing removed — desktop BYOK uses env defaults + simple tier bumps
+                if membership_tier >= 50:
+                    user_cap = max(user_cap, 5_000_000)
+                elif membership_tier >= 20:
+                    user_cap = max(user_cap, 2_000_000)
+                elif membership_tier >= 5:
+                    user_cap = max(user_cap, 500_000)
         except Exception:
             pass
     proj_cap = DEFAULT_PROJECT_TOKEN_SOFT_CAP
@@ -302,6 +323,9 @@ def brahl_doc_context(
 ) -> str:
     """Pack Journey (this project) + Master (everyone) + opted-in My docs within role budget."""
     budget = AI_ROLE_BUDGETS.get(role, AI_ROLE_BUDGETS["default"])[0]
+    # Local models choke on huge master-doc packs — keep Journey + essentials lean.
+    if is_local_openai_compatible():
+        budget = min(budget, 1800 if role in _STRUCTURED_OUTPUT_ROLES else 2400)
     max_chars = min(max_chars, budget)
     pid = (project or {}).get("id") or ""
     cache_key = f"{role}:{max_chars}:{pid}:{bool(project)}"
@@ -398,12 +422,19 @@ def chat_metered(
     _doc_chars, hist_turns, default_max = AI_ROLE_BUDGETS.get(role, AI_ROLE_BUDGETS["default"])
     if max_tokens is None:
         max_tokens = default_max
+    # Local Ollama: shorter completions + less history keep 7B models under ~60s.
+    if is_local_openai_compatible() and role not in _STRUCTURED_OUTPUT_ROLES:
+        max_tokens = min(int(max_tokens), 450)
+        hist_turns = min(int(hist_turns), 3)
     trimmed = _trim_history(history, hist_turns)
     # Cap user blob — oversized paste burns tokens (plans need more room for requirements)
     user_cap = 8000 if role in _STRUCTURED_OUTPUT_ROLES else 3500
+    if is_local_openai_compatible() and role not in _STRUCTURED_OUTPUT_ROLES:
+        user_cap = min(user_cap, 2200)
     user = (user or "")[:user_cap]
     preamble = STRUCTURED_GUARDRAIL if role in _STRUCTURED_OUTPUT_ROLES else GUARDRAIL_PREAMBLE
-    system = f"{preamble}\n\n{system}"[:6000]
+    system_cap = 3500 if is_local_openai_compatible() else 6000
+    system = f"{preamble}\n\n{system}"[:system_cap]
 
     try:
         client = _openai_client()
@@ -412,12 +443,16 @@ def chat_metered(
             messages.append({"role": msg["role"], "content": msg["text"]})
         messages.append({"role": "user", "content": user})
         model = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
-        resp = client.chat.completions.create(
-            model=model,
-            messages=messages,
-            temperature=0.3,
-            max_tokens=max_tokens,
-        )
+        create_kwargs: dict[str, Any] = {
+            "model": model,
+            "messages": messages,
+            "temperature": 0.3,
+            "max_tokens": max_tokens,
+        }
+        # Ollama OpenAI-compat: keep thinking/tool noise off for faster deterministic replies.
+        if is_local_openai_compatible():
+            create_kwargs["extra_body"] = {"options": {"num_predict": max_tokens}}
+        resp = client.chat.completions.create(**create_kwargs)
         content = resp.choices[0].message.content
         reply = content.strip() if content else None
         usage = getattr(resp, "usage", None)

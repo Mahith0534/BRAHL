@@ -117,7 +117,7 @@ When updating [qaonair.com/vision](https://qaonair.com/vision) or other QoA page
 1. Edit **this file first** (`_Docs/Vision.md`)  
 2. Mirror headline, BRAHL five phases, HITL stamp, empowerment pillars, `f(x,y)=z`, closing line  
 3. Keep spellings exact (FoXYiZ · BRAHL · QA on Air)  
-4. Link operators to [BRAHL.md](BRAHL.md) / [FoXYiZ.md](FoXYiZ.md) for how-to — vision stays *why*
+4. Link operators to [BRAHL.md](BRAHL.md) / [FoXYiZ.md](FoXYiZ.md) / [Test_Coverage.md](Test_Coverage.md) for how-to and what to cover — vision stays *why*
 
 ---
 
@@ -125,5 +125,6 @@ When updating [qaonair.com/vision](https://qaonair.com/vision) or other QoA page
 
 - [BRAHL.md](BRAHL.md) — Build → Run → Analyze → Heal → Loop → Verify  
 - [FoXYiZ.md](FoXYiZ.md) — engine package, yPAD, optional local AI  
+- [Test_Coverage.md](Test_Coverage.md) — what to cover · AI scoring · Go/No-Go  
 - [DEMO_YPADS.md](DEMO_YPADS.md) — ready-to-run suites  
 - Live vision: [qaonair.com/vision](https://qaonair.com/vision)

@@ -1,4 +1,4 @@
-FoXYiZ_User 1.0.1
+﻿FoXYiZ_User 1.0.1
 ====================
 
 END-USER package. Three main folders:
